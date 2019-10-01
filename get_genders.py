@@ -17,7 +17,7 @@ def get_boys_and_girls():
     boys_dictionary = make_dict("boys_names_codrut.txt")
     girls_dictionary = make_dict("girls_names_codrut.txt")
 
-    fin = open('nice_data.txt','r')
+    fin = open('mate_info.txt','r')
     results_data = fin.read()
     results_data = results_data.split('\n')
 

@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import pylab 
 
 
 def read_data( input ):
@@ -11,7 +12,7 @@ def read_data( input ):
 
     data[:,1] = data[:,1]*100/all_students
 
-    plt.plot(data[:,0],data[:,1])
+    pylab.plot(data[:,0],data[:,1], label = input)
 
     pass
 
@@ -19,4 +20,5 @@ def read_data( input ):
 
 read_data('final_grades_boys.txt')
 read_data('final_grades_girls.txt')
-plt.show()
+pylab.legend(loc='upper left')
+pylab.show()
