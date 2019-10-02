@@ -4,7 +4,7 @@ import re
 import urllib.request
 import os
 
-output_file = r"D:\Work\bac_stats\stats_bac\all_data\raw_data.txt"
+output_file = r"D:\Work\bac_stats\stats_bac\data\raw_data.txt"
 
 def get_data_website(page_url):
     # driver = webdriver.Chrome(executable_path=r'C:\Users\Codru\node_modules\chromedriver\lib\chromedriver\chromedriver.exe') 

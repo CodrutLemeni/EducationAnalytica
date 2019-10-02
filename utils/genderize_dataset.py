@@ -1,7 +1,7 @@
 import operator
 
-input_file = r'D:\Work\bac_stats\stats_bac\all_data\parsed_data.txt'
-output_file = r'D:\Work\bac_stats\stats_bac\all_data\gender_results.txt'
+input_file = r'D:\Work\bac_stats\stats_bac\data\parsed_data.txt'
+output_file = r'D:\Work\bac_stats\stats_bac\data\gender_results.txt'
 
 
 def make_dict( input_file ):
@@ -17,8 +17,8 @@ def make_dict( input_file ):
 
 def get_boys_and_girls():
 
-    boys_dictionary = make_dict(r"D:\Work\bac_stats\stats_bac\all_data\boys_names_codrut.txt")
-    girls_dictionary = make_dict(r"D:\Work\bac_stats\stats_bac\all_data\girls_names_codrut.txt")
+    boys_dictionary = make_dict(r"D:\Work\bac_stats\stats_bac\data\boys_names_codrut.txt")
+    girls_dictionary = make_dict(r"D:\Work\bac_stats\stats_bac\data\girls_names_codrut.txt")
 
     fin = open(input_file,'r')
     results_data = fin.read()
@@ -64,22 +64,20 @@ def get_boys_and_girls():
                     dict_unlabeled_names [ first_name ] += 1
                 else:
                     dict_unlabeled_names [ first_name ] = 1
-        if is_boy == is_girl and is_boy == 1:
+      
+        grade = name.split(' ')[-1]
+     
+
+        if is_boy == is_girl and (is_boy == 1 or is_boy == 0):
             # print( all_names )  
-            pass
-        elif is_boy == is_girl and is_boy == 0:
-            # print( all_names )  
-            pass
-                
+            out.write('? '+ grade+'\n')                
         else:
-            grade = name.split(' ')[-1]
-            grade = float(grade)
 
             if is_boy == 1:
-                out.write('M '+ str(grade)+'\n')
+                out.write('M '+ grade+'\n')
             else:
-                out.write('F '+ str(grade)+'\n')
-
+                out.write('F '+ grade+'\n')
+                
 
             no_boys += is_boy
             no_girls += is_girl

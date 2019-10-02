@@ -50,62 +50,60 @@ def get_specializations_for_graduates(url):
             specialization_list.append("INVATATOR - EDUCATOARE")
         else:
             specialization_list.append("ALTA SPECIALIZARE")
-    
     return specialization_list
 
-'''
-#function for the students that failled the examn
-def get_specializations_for_failing(url):
-    #list initialization
-    specialization_list = []
 
-    #open and read the url
-    opener = urllib.request.FancyURLopener({})
-    f = opener.open(url)
-    content = f.read()
-    html = content.decode("utf-8")
+# #function for the students that failled the examn
+# def get_specializations_for_failing(url):
+#     #list initialization
+#     specialization_list = []
 
-    #split the text for each student
-    splitted_text = re.split("RESPINS", html)
+#     #open and read the url
+#     opener = urllib.request.FancyURLopener({})
+#     f = opener.open(url)
+#     content = f.read()
+#     html = content.decode("utf-8")
 
-    #search the specialization for each student
-    for i in range(1,11):
-        mate_info = re.search("MATEMATICA-.*INFORMATICA", splitted_text[i])
+#     #split the text for each student
+#     splitted_text = re.split("RESPINS", html)
 
-        tehnician = re.search("TEHNICIAN.*", splitted_text[i])
+#     #search the specialization for each student
+#     for i in range(1,11):
+#         mate_info = re.search("MATEMATICA-.*INFORMATICA", splitted_text[i])
 
-        st_sociale = re.search("STIINTE.*SOCIALE", splitted_text[i])
-        st_ale_naturii = re.search("STIINTE ALE NATURII", splitted_text[i])
+#         tehnician = re.search("TEHNICIAN.*", splitted_text[i])
 
-        filologie = re.search("FILOLOGIE", splitted_text[i])
+#         st_sociale = re.search("STIINTE.*SOCIALE", splitted_text[i])
+#         st_ale_naturii = re.search("STIINTE ALE NATURII", splitted_text[i])
 
-        muzica = re.search("MUZICA", splitted_text[i])
+#         filologie = re.search("FILOLOGIE", splitted_text[i])
 
-        sportiv = re.search("LICEU CU.*PROGRAM.*SPORTIV", splitted_text[i])
+#         muzica = re.search("MUZICA", splitted_text[i])
 
-        pedagogie = re.search("INVATATOR -.*EDUCATOARE", splitted_text[i])
+#         sportiv = re.search("LICEU CU.*PROGRAM.*SPORTIV", splitted_text[i])
 
-        if (mate_info):
-            specialization_list.append("MATEMATICA INFORMATICA")
-        elif (tehnician):
-            specialization_list.append("TEHNICIAN")
-        elif (st_sociale):
-            specialization_list.append("STIINTE SOCIALE")
-        elif (st_ale_naturii):
-            specialization_list.append("STIINTE ALE NATURII")
-        elif (filologie):
-            specialization_list.append("FILOLOGIE")
-        elif (muzica):
-            specialization_list.append("MUZICA")
-        elif (sportiv):
-            specialization_list.append("LICEU CU PROGRAM SPORTIV")
-        elif (pedagogie):
-            specialization_list.append("INVATATOR - EDUCATOARE")
-        else:
-            specialization_list.append("ALTA SPECIALIZARE")
+#         pedagogie = re.search("INVATATOR -.*EDUCATOARE", splitted_text[i])
+
+#         if (mate_info):
+#             specialization_list.append("MATEMATICA INFORMATICA")
+#         elif (tehnician):
+#             specialization_list.append("TEHNICIAN")
+#         elif (st_sociale):
+#             specialization_list.append("STIINTE SOCIALE")
+#         elif (st_ale_naturii):
+#             specialization_list.append("STIINTE ALE NATURII")
+#         elif (filologie):
+#             specialization_list.append("FILOLOGIE")
+#         elif (muzica):
+#             specialization_list.append("MUZICA")
+#         elif (sportiv):
+#             specialization_list.append("LICEU CU PROGRAM SPORTIV")
+#         elif (pedagogie):
+#             specialization_list.append("INVATATOR - EDUCATOARE")
+#         else:
+#             specialization_list.append("ALTA SPECIALIZARE")
     
-    return specialization_list
-'''
+#     return specialization_list
 
 #pages with passing students
 for i in range (1, 8922):
