@@ -108,7 +108,7 @@ def get_specializations_for_failing(url):
 '''
 
 #pages with passing students
-for i in range (1, 9000):
+for i in range (1, 8922):
     opener = urllib.request.FancyURLopener({})
     url = "http://static.bacalaureat.edu.ro/2019/rapoarte/rezultate/dupa_medie/page_{}.html"
     specialization_list = get_specializations_for_graduates(url.format(i))
@@ -118,7 +118,7 @@ for i in range (1, 9000):
     file.close()
 
 #pages with failling students
-# for i in range (9001, 13610):
+# for i in range (8922, 13610):
 #     opener = urllib.request.FancyURLopener({})
 #     url = "http://static.bacalaureat.edu.ro/2019/rapoarte/rezultate/dupa_medie/page_{}.html"
 #     specialization_list = get_specializations_for_failing(url.format(i))
