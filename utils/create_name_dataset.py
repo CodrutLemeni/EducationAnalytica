@@ -1,12 +1,10 @@
 from get_genders import get_boys_and_girls
-import os
-import msvcrt as m
 import sys
 
 unlabelled_names = get_boys_and_girls()
 
-girls_file = open(r'D:\Work\bac_stats\stats_bac\all_data\girls_names_codrut.txt','a')
-boys_file = open(r'D:\Work\bac_stats\stats_bac\all_data\boys_names_codrut.txt','a')
+girls_file = open(r'D:\Work\bac_stats\stats_bac\data\names\girls_names_codrut.txt','a')
+boys_file = open(r'D:\Work\bac_stats\stats_bac\data\names\boys_names_codrut.txt','a')
 
 for name in unlabelled_names:
     print(name)

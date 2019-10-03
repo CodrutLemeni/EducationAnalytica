@@ -1,5 +1,5 @@
-input_file=r"D:\Work\bac_stats\stats_bac\all_data\raw_data.txt"
-output_file = r"D:\Work\bac_stats\stats_bac\all_data\parsed_data.txt"
+input_file=r"D:\Work\bac_stats\stats_bac\data\2018\raw_data.txt"
+output_file = r"D:\Work\bac_stats\stats_bac\data\2018\parsed_data.txt"
 
 fin = open(input_file)
 text = fin.read()

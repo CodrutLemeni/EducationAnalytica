@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import pylab 
 import statistics
 
-input_file = r"D:\Work\bac_stats\stats_bac\data\gender_results.txt"
-input_file = r"D:\Work\bac_stats\stats_bac\data\specializations\mate_info.txt"
+input_file = r"D:\Work\bac_stats\stats_bac\data\2018\gender_results.txt"
+# input_file = r"D:\Work\bac_stats\stats_bac\data\2019\gender_results.txt"
+# input_file = r"D:\Work\bac_stats\stats_bac\data\specializations\mate_info.txt"
 # input_file = r"D:\Work\bac_stats\stats_bac\data\specializations\filologie.txt"
 
 def read_data(input_file):
@@ -34,21 +34,19 @@ def create_histogram_array(grades):
     #     histogram[idx] = int(cr_grade)
     #     if histogram[idx] == 10:
     #         histogram[idx] = 9
-    for [idx,cr_grade] in enumerate(grades):
+    for cr_grade in grades:
         if cr_grade >= 5.00 and cr_grade < 6.00:
-            histogram[0] = histogram[0] + 1 
+            histogram[0] = histogram[0] + 1
         elif cr_grade >= 6.00 and cr_grade < 7.00:
-            histogram[1] = histogram[1] + 1 
+            histogram[1] = histogram[1] + 1
         elif cr_grade >= 7.00 and cr_grade < 8.00:
-            histogram[2] = histogram[2] + 1 
+            histogram[2] = histogram[2] + 1
         elif cr_grade >= 8.00 and cr_grade < 9.00:
-            histogram[3] = histogram[3] + 1 
+            histogram[3] = histogram[3] + 1
         elif cr_grade >= 9.00 and cr_grade <= 10.00:
-            histogram[4] = histogram[4] + 1 
+            histogram[4] = histogram[4] + 1
     
     return histogram
-
-
 
 def make_histogram(boys_grades, girls_grades):
     boys_histogram = create_histogram_array(boys_grades)
@@ -70,7 +68,7 @@ def make_histogram(boys_grades, girls_grades):
         for i in range(val):
             plot_girls.append(idx+5.5)
 
-    plt.hist( [plot_boys,plot_girls], color=['blue', 'orange'] )
+    plt.hist( [plot_boys,plot_girls], color=['blue', 'orange'], rwidth=2 )
     plt.legend(['Baieti', 'Fete'])
     plt.ylabel('Procentaj')
     plt.xlabel('Note')
@@ -90,7 +88,7 @@ print('Boys mean: ', statistics.mean(boys_grades))
 
 # plt.plot(girls_grades , label='f')
 # plt.plot(boys_grades, label ='b')
-    
+
 
 
 # pylab.legend(loc='upper left')

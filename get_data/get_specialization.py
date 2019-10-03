@@ -102,7 +102,7 @@ def get_specializations_for_graduates(url):
 #             specialization_list.append("INVATATOR - EDUCATOARE")
 #         else:
 #             specialization_list.append("ALTA SPECIALIZARE")
-    
+
 #     return specialization_list
 
 #pages with passing students
