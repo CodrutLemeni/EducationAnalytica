@@ -72,6 +72,7 @@ def make_histogram(boys_grades, girls_grades):
     plt.legend(['Baieti', 'Fete'])
     plt.ylabel('Procentaj')
     plt.xlabel('Note')
+    plt.title('Bac_2018')
     plt.xticks(range(5,11))
     plt.yticks(range(0,40,5))
     # plt.hist( [boys_grades,girls_grades], 5)

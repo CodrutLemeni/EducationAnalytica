@@ -2,7 +2,7 @@ import re
 import urllib.request
 import os
 
-output_file = r"D:\Work\bac_stats\stats_bac\data\2018\raw_data.txt"
+output_file = r"D:\Work\bac_stats\stats_bac\data\raw_data.txt"
 
 def get_data_website(page_url):
 
@@ -22,7 +22,6 @@ if __name__ == "__main__":
 
     if os.path.exists( output_file ):
         os.remove( output_file )
-
 
     base_url = "http://static.bacalaureat.edu.ro/2018/rapoarte/rezultate/dupa_medie/page_"
 
