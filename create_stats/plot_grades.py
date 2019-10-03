@@ -81,11 +81,11 @@ def make_histogram(boys_grades, girls_grades):
 
 if __name__ == "__main__":
     boys_grades, girls_grades, unknown_grades = read_data(input_file)     
-    make_histogram( boys_grades, girls_grades)
+    # make_histogram( boys_grades, girls_grades)
 
 
-print('Girls mean: ', statistics.mean(girls_grades))
-print('Boys mean: ', statistics.mean(boys_grades))
+    print('Girls mean: ', statistics.mean(girls_grades))
+    print('Boys mean: ', statistics.mean(boys_grades))
 
 # plt.plot(girls_grades , label='f')
 # plt.plot(boys_grades, label ='b')

@@ -1,7 +1,7 @@
 import operator
 
-input_file = r'D:\Work\bac_stats\stats_bac\data\2018\parsed_data.txt'
-output_file = r'D:\Work\bac_stats\stats_bac\data\2018\gender_results.txt'
+input_file = r'D:\Work\bac_stats\stats_bac\data\2019\parsed_data.txt'
+output_file = r'D:\Work\bac_stats\stats_bac\data\2019\gender_results.txt'
 
 
 def make_dict( input_file ):
