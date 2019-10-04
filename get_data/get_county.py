@@ -4,7 +4,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-output_file = r"/home/cosmi/BAC/BAC_2019_statistics/data/raw_county.txt"
+output_file = r"/home/cosmi/BAC/BAC_2019_statistics/data/2018/raw_county.txt"
 
 def get_data_website(page_url, idx):
 
@@ -13,7 +13,7 @@ def get_data_website(page_url, idx):
     page = requests.get(page_url)
     soup = BeautifulSoup(page.text, 'html.parser')
     f = soup.prettify()
-    txt = '(<a href="......*.lista_unitati.index.html">.*\n)(.*)(\n.*)'
+    txt = '(<a href="......[A-Z]{1,2}.index.html">.*\n)(.*)(\n.*)'
     x = re.findall(txt, f)
     f = open(output_file, "a")
     for s in x:
