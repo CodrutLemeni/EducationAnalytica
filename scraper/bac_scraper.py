@@ -1,5 +1,4 @@
 import requests
-import urllib.request
 import time
 import logging
 import pandas as pd
@@ -40,7 +39,7 @@ pagesNumber = get_pages_number(base_url)
 
 for idx in range(1, pagesNumber + 1):
     url = base_url.format(idx)
-    
+
     logging.info('Making GET request to {}'.format(url))
 
     response = requests.get(url)
@@ -59,10 +58,10 @@ for idx in range(1, pagesNumber + 1):
             if row_class != None and row_class[0] in ['tr1', 'tr2']:
                 records.append(row)
 
-        for record_idx in range(0, len(records), 2):    
+        for record_idx in range(0, len(records), 2):
             # for each student there are 2 rows in the table, this
             # is why we have 2 data objects for each record
-            record_row1 = records[record_idx] 
+            record_row1 = records[record_idx]
             record_row2 = records[record_idx + 1]
 
             data_row1 = record_row1.find_all('td')
@@ -84,7 +83,7 @@ for idx in range(1, pagesNumber + 1):
 
             passed = True if 'REUSIT' in record_row1.find('script').getText() else False
 
-            parsed_records.append([high_school, romanian_grade, county, specialisation, profile_exam_name, 
+            parsed_records.append([high_school, romanian_grade, county, specialisation, profile_exam_name,
                     profile_exam_grade, optional_exam_name, optional_exam_grade, passed])
 
     # checkpoint, save progress every 100 pages
