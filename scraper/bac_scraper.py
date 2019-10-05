@@ -11,7 +11,6 @@ def get_pages_number(base_url):
         Exception - if request fails for any reason (status_code != 200)
 
     """
-
     url = base_url.format(1)
     response = requests.get(url)
 
@@ -92,7 +91,7 @@ for idx in range(1, pagesNumber + 1):
         export_csv(parsed_records)
 
     # sleep so we won't get timed out
-    time.sleep(0.1)
+    # time.sleep(0.1)
 
 # if done, save final(full) version
 export_csv(parsed_records)
