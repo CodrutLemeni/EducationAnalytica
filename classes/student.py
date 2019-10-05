@@ -50,7 +50,7 @@ def filter_by_specialisation(all_students, specialisation):
             selected_students.append(current_student)
     return selected_students
 
-def filter_by_grade(all_students):
+def filter_by_grade(all_students, threshold):
     '''
 
         Input: list of Students
@@ -59,7 +59,7 @@ def filter_by_grade(all_students):
     '''
     selected_students = []
     for current_student in all_students:
-        if current_student.final_grade >= 5.0:
+        if current_student.final_grade >= threshold:
             selected_students.append(current_student)
     return selected_students
 
