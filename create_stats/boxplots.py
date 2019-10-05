@@ -1,29 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+import sys
+sys.path.insert(1, r"C:\Users\Patronu\BAC_2019_statistics\classes")
 import pandas as pd
 import numpy as np
-
-f1 = r"mate_info.txt"
-f2 = r"filologie.txt"
-f3 = r"stiinte_naturii.txt"
-
-def read_data(f1):
-    '''
-        Reads grades from file
-    '''
-    fin = open(f1)
-    inp = fin.read()
-    inp = inp.split('\n')
-
-    grades = []
-    specs = []
-
-    for gr in inp:
-        gr = gr.split(' ')
-        if len( gr ) > 1 : grades.append( float(gr[1]) )
-
-    return grades
+from student import *
 
 def box_for_spec(grades):
     '''
@@ -35,11 +16,25 @@ def box_for_spec(grades):
     ax.boxplot(grades, labels = ["MATE-INFO", "FILO", "STIINTE"])
     ax.set_ylabel("NOTE")
     ax.set_xlabel("SPECIALIZARE")
+    ax.set_title("BOXPLOT")
     plt.show()
 
 
 if __name__ == "__main__":
-    note1 = read_data(f1)
-    note2 = read_data(f2)
-    note3 = read_data(f3)
-    box_for_spec([note1, note2, note3])
+    csv_file = r'C:\Users\Patronu\BAC_2019_statistics\results.csv'
+    all_students = initialiaze_students(csv_file)
+    all_students = filter_by_grade(all_students)
+
+    mate_info_students = filter_by_specialisation(all_students, 'Â MATEMATICA-INFORMATICA' )
+    filo_students = filter_by_specialisation(all_students, 'Â FILOLOGIE' )
+    stiinte_students = filter_by_specialisation(all_students, 'Â STIINTE ALE NATURII' )
+
+    mate, filo, stiinte = [], [], []
+    for x in mate_info_students:
+        mate.append(x.final_grade)
+    for x in filo_students:
+        filo.append(x.final_grade)
+    for x in stiinte_students:
+        stiinte.append(x.final_grade)
+
+    box_for_spec([mate,filo,stiinte])

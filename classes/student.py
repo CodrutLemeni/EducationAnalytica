@@ -11,10 +11,11 @@ class Student:
         self.optional_exam_name  = optional_exam_name
         self.optional_exam_grade = float(optional_exam_grade)
         self.passed              = passed
+        self.final_grade = round ( (self.romanian_grade + self.profile_exam_grade + self.optional_exam_grade) / 3, 2)
     def __str__(self):
-        return str(self.highschool) 
+        return str(self.highschool)
 
-    
+
 def initialiaze_students(csv_file):
     '''
         Input:  a csv file containing students
@@ -34,7 +35,7 @@ def initialiaze_students(csv_file):
                 # print( current_student )
                 students.append(current_student)
                 line_count += 1
-        # print(f'Processed {line_count} lines.') 
+        # print(f'Processed {line_count} lines.')
         return students
 
 def filter_by_specialisation(all_students, specialisation):
@@ -49,10 +50,23 @@ def filter_by_specialisation(all_students, specialisation):
             selected_students.append(current_student)
     return selected_students
 
+def filter_by_grade(all_students):
+    '''
+
+        Input: list of Students
+        Output: list of Students with grades
+                    greather than 5.0
+    '''
+    selected_students = []
+    for current_student in all_students:
+        if current_student.final_grade >= 5.0:
+            selected_students.append(current_student)
+    return selected_students
+
+
 if __name__ == "__main__":
     csv_file = r'D:\Work\bac_stats\stats_bac\results.csv'
     all_students = initialiaze_students(csv_file)
-    
+
     mate_info_students = filter_by_specialisation(all_students, 'Â MATEMATICA-INFORMATICA' )
     pass
-
