@@ -4,6 +4,8 @@ import logging
 import pandas as pd
 from bs4 import BeautifulSoup
 
+digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
 def get_pages_number(base_url):
     """ Returns pages number from first page derived from base URL.
 
@@ -24,11 +26,12 @@ def get_pages_number(base_url):
 
 def export_csv(parsed_records):
     # convert to dataframe and save in .csv
-    df = pd.DataFrame(parsed_records, columns=['high_school', 'romanian_grade', 'county',
-                'specialisation', 'profile_exam_name', 'profile_exam_grade',
-                'optional_exam_name', 'optional_exam_grade', 'passed'])
+    df = pd.DataFrame(parsed_records, columns=['high_school', 'romanian_initial_grade', 'cont_romanian', 'romanian_grade',
+                            'county', 'specialisation',
+                            'profile_exam_name', 'profile_exam_initial_grade', 'cont_profile', 'profile_exam_grade',
+                            'optional_exam_name',  'optional_exam_initial_grade',  'cont_optional', 'optional_exam_grade', 'passed'])
 
-    df.to_csv('results.csv', index=None)
+    df.to_csv('contestatii.csv', index=None)
 
 # initialise logger, url of data, and compute number of pages
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -76,14 +79,27 @@ for idx in range(1, pagesNumber + 1):
             optional_exam_name = data_row1[15].getText()
 
             # get grades and passed/failed status
+            romanian_initial_grade = float(data_row1[8].getText())
             romanian_grade = float(data_row1[10].getText())
+            profile_exam_initial_grade = float(data_row2[4].getText())
             profile_exam_grade = float(data_row2[6].getText())
+            optional_exam_initial_grade = float(data_row2[7].getText())
             optional_exam_grade = float(data_row2[9].getText())
+
+            cont_romanian, cont_profile, cont_optional = False, False, False
+            if data_row1[9].getText()[1] in digits:
+                cont_romanian = True
+            if data_row2[5].getText()[1] in digits:
+                cont_profile = True
+            if data_row2[8].getText()[1] in digits:
+                cont_optional = True
 
             passed = True if 'REUSIT' in record_row1.find('script').getText() else False
 
-            parsed_records.append([high_school, romanian_grade, county, specialisation, profile_exam_name,
-                    profile_exam_grade, optional_exam_name, optional_exam_grade, passed])
+            parsed_records.append([high_school, romanian_initial_grade, cont_romanian, romanian_grade,
+                                    county, specialisation,
+                                    profile_exam_name, profile_exam_initial_grade, cont_profile, profile_exam_grade,
+                                    optional_exam_name,  optional_exam_initial_grade,  cont_optional, optional_exam_grade, passed])
 
     # checkpoint, save progress every 100 pages
     if idx % 100 == 0:
