@@ -1,10 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-sys.path.insert(1, r"C:\Users\Patronu\BAC_2019_statistics\classes")
+
+sys.path.append( r"D:\Work\bac_stats\stats_bac")
+
 import pandas as pd
 import numpy as np
-from student import *
+from classes.student import *
 
 def box_for_spec(grades, labels):
     '''
@@ -16,7 +18,7 @@ def box_for_spec(grades, labels):
     ax.boxplot(grades, labels=labels)
     ax.set_ylabel("NOTE")
     ax.set_xlabel("SPECIALIZARE")
-    ax.set_title("BAC 2018 specialisation comparison")
+    ax.set_title("BAC 2019 specialisation comparison")
     plt.show()
 
 def return_grades_as_array(specs):
@@ -32,7 +34,7 @@ def return_grades_as_array(specs):
 
 
 if __name__ == "__main__":
-    csv_file = r'C:\Users\Patronu\BAC_2019_statistics\results.csv'
+    csv_file = r'D:\Work\bac_stats\stats_bac\results_2019.csv'
     all_students = initialiaze_students(csv_file)
     all_students = filter_by_grade(all_students, 5.0)
 
