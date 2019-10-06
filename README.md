@@ -6,3 +6,9 @@
 
 
 ![alt text](https://github.com/CodrutLemeni/BAC_2019_statistics/blob/master/plots/bac_2019.png)
+
+
+![alt text](https://github.com/CodrutLemeni/BAC_2019_statistics/blob/master/plots/bac_2018_specialisation_comparison.png)
+
+
+![alt text](https://github.com/CodrutLemeni/BAC_2019_statistics/blob/master/plots/bac_2019_specialisation_comparison.png)
