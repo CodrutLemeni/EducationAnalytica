@@ -40,6 +40,6 @@ if __name__ == "__main__":
     filo_students = filter_by_specialisation(all_students, 'Â FILOLOGIE' )
     stiinte_students = filter_by_specialisation(all_students, 'Â STIINTE ALE NATURII' )
 
-    grades = return_grades_as_array([mate_info_students, filo_students, stiinte_students])
+    #grades = return_grades_as_array([mate_info_students, filo_students, stiinte_students])
 
     box_for_spec(grades, ["MATE-INFO", "FILO", "STIINTE"])
