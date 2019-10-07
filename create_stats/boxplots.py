@@ -6,7 +6,7 @@ sys.path.append( r"D:\Work\bac_stats\stats_bac")
 
 import pandas as pd
 import numpy as np
-from classes.student import *
+# from classes.student import *
 
 def box_for_spec(grades, labels):
     '''
@@ -34,13 +34,13 @@ def return_grades_as_array(specs):
 
 
 if __name__ == "__main__":
-    csv_file = r'D:\Work\bac_stats\stats_bac\results_2019.csv'
+    csv_file = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
     all_students = initialiaze_students(csv_file)
     all_students = filter_by_grade(all_students, 5.0)
 
-    mate_info_students = filter_by_specialisation(all_students, 'Â MATEMATICA-INFORMATICA' )
-    filo_students = filter_by_specialisation(all_students, 'Â FILOLOGIE' )
-    stiinte_students = filter_by_specialisation(all_students, 'Â STIINTE ALE NATURII' )
+    mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
+    filo_students = filter_by_specialisation(all_students, 'filologie' )
+    stiinte_students = filter_by_specialisation(all_students, 'stiinte ale naturii' )
 
     grades = return_grades_as_array([mate_info_students, filo_students, stiinte_students])
 
