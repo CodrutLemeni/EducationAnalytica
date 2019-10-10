@@ -1,6 +1,5 @@
 import csv
-from highschool import create_dictionary
-from highschool import Highschool
+from highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
                    subject1, subject1_grade_init, subject1_grade_final, subject2, subject2_grade_init, subject2_grade_final,
@@ -39,13 +38,17 @@ class Student:
             return "damar"
 
 
-def initialiaze_students(csv_file, highschools):
+def initialiaze_students(results_csv_file, schools_csv_file = None):
     '''
         Input:  a csv file containing students
         Output: a list of Students
     '''
+    highschools = {}
 
-    with open(csv_file) as file:
+    if schools_csv_file is not None:
+        highschools = create_dictionary(schools_csv_file)
+        
+    with open(results_csv_file) as file:
         csv_reader = csv.reader(file, delimiter=',')
         line_count = 0
         not_appear = 0
@@ -58,9 +61,6 @@ def initialiaze_students(csv_file, highschools):
                 line_count += 1
             else:
                 if not row[7] in highschools:
-                    # if  not row[7] in unidentified_highschools:
-                    #     not_appear += 1
-                    #     unidentified_highschools.append(row[7])
                     highschool = Highschool( row[7], row[8])
                 else:
                     highschool = highschools[row[7]]
@@ -105,13 +105,6 @@ if __name__ == "__main__":
     results_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/good_bac_2019.csv'
     schools_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/unitati_scolare_2019.csv'
 
-    highschools = create_dictionary(schools_csv_file)
-    all_students = initialiaze_students(results_csv_file, highschools)
-    # count = 0
-    for student in all_students:
-        print(student.highschool)
-        # if (student.highschool.locality == '?'):
-        #     count += 1
-    # print(count)
+    all_students = initialiaze_students(results_csv_file, schools_csv_file)
     mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
     pass
