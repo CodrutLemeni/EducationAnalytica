@@ -6,7 +6,13 @@ class Student:
                     subject3, subject3_grade_init, subject3_grade_final ):
         self.gender               = gender
         self.specialisation       = specialisation.lower()
+<<<<<<< HEAD
         self.medium               = medium
+=======
+        self.medium               = medium.lower()
+        self.highschool_SIIIR     = highschool_SIIIR
+        self.highschool_SIRUES    = highschool_SIRUES
+>>>>>>> Refactored histogram plot
         self.class_name           = class_name
         self.passed               = passed
         self.highschool           = highschool
@@ -74,6 +80,8 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
         # print(' '.join(unidentified_highschools))
         return students
 
+#def filter_by_medium
+
 def filter_by_specialisation(all_students, specialisation):
     '''
         Input:  list of students
@@ -88,10 +96,9 @@ def filter_by_specialisation(all_students, specialisation):
 
 def filter_by_grade(all_students, threshold):
     '''
-
         Input: list of Students
         Output: list of Students with grades
-                    greather than 5.0
+                    greather than threshold
     '''
     selected_students = []
     for current_student in all_students:
@@ -99,6 +106,43 @@ def filter_by_grade(all_students, threshold):
             selected_students.append(current_student)
     return selected_students
 
+def filter_by_gender(all_students, gender):
+    '''
+        Input:  list of students
+                specific gender
+        Output: list of students with given gender
+    '''
+    selected_students = []
+    for current_student in all_students:
+        if current_student.gender >= gender:
+            selected_students.append(current_student)
+    return selected_students    
+
+def filter_by_medium(all_students, medium):
+    '''
+        Input:  list of students
+                specific medium
+        Output: list of students with given medium
+    '''
+    selected_students = []
+    for current_student in all_students:
+        if current_student.medium >= medium:
+            selected_students.append(current_student)
+    return selected_students    
+
+def return_grades_as_array(specs):
+    '''
+        Input:  list of lists of students
+        Output: list of lists of grades 
+    '''
+    grades = [ [] for i in range(len(specs)) ]
+
+    for idx in range(len(specs)):
+        for x in specs[idx]:
+            grades[idx].append(x.final_grade)
+
+    return grades
+    
 
 if __name__ == "__main__":
     
@@ -107,4 +151,3 @@ if __name__ == "__main__":
 
     all_students = initialiaze_students(results_csv_file, schools_csv_file)
     mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
-    pass
