@@ -9,7 +9,7 @@ import numpy as np
 from classes.student import *
 from create_stats.make_histogram import make_histogram
 
-input_csv_file = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
+input_csv_file_2019 = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
 
 def create_histogram_array(grades):
     histogram = [0]*5
@@ -38,23 +38,35 @@ def create_histogram_array(grades):
                 plot_points.append(idx+5.999) 
     return plot_points
 
-
-if __name__ == "__main__":
-    all_students = initialiaze_students(input_csv_file)
-
+def make_gender_histogram(all_students, title):
     all_students = filter_by_grade(all_students, threshold=5.0)
 
     boys_students = filter_by_gender( all_students, 'M')
     girls_students = filter_by_gender( all_students, 'F')
 
-    boys_students = filter_by_medium( all_students, 'urban')
-    girls_students = filter_by_medium( all_students, 'rural')
-
-
-    [boys_grades] = return_grades_as_array([boys_students])
-    [girls_grades] = return_grades_as_array([girls_students])
+    [boys_grades, girls_grades] = return_grades_as_array([boys_students, girls_students])
 
     boys_points = create_histogram_array(boys_grades)
     girls_points = create_histogram_array(girls_grades)
 
-    make_histogram([boys_points, girls_points], colors=['blue', 'orange'])
+    make_histogram([boys_points, girls_points], colors=['blue', 'orange'], title=title)
+
+def make_medium_histogram(all_students, title):
+    all_students = filter_by_grade(all_students, threshold=5.0)
+
+    boys_students = filter_by_medium( all_students, 'urban')
+    girls_students = filter_by_medium( all_students, 'rural')
+
+    [boys_grades, girls_grades] = return_grades_as_array([boys_students, girls_students])
+
+    boys_points = create_histogram_array(boys_grades)
+    girls_points = create_histogram_array(girls_grades)
+
+    make_histogram([boys_points, girls_points], colors=['blue', 'green'], title=title, legend=["urban","rural"])
+
+if __name__ == "__main__":
+    all_students_2019 = initialiaze_students(input_csv_file_2019)
+
+    make_gender_histogram(all_students_2019, "BAC 2019 gender")
+    make_medium_histogram(all_students_2019, "BAC 2019 medium")
+

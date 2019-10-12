@@ -12,3 +12,10 @@
 
 
 ![alt text](https://github.com/CodrutLemeni/BAC_2019_statistics/blob/master/plots/bac_2019_specialisation_comparison.png)
+
+
+# Contributors
+- [Codrut Lemeni](https://github.com/CodrutLemeni)
+- [Mihai Pirvulet](https://github.com/Pirvu2k)
+- [Cosmin Cojocaru](https://github.com/gothera)
+- [Sebastian Samoilescu](https://github.com/samoilescusebastian)

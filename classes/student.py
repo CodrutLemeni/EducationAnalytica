@@ -1,18 +1,12 @@
 import csv
-from highschool import *
+from classes.highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
                    subject1, subject1_grade_init, subject1_grade_final, subject2, subject2_grade_init, subject2_grade_final,
                     subject3, subject3_grade_init, subject3_grade_final ):
         self.gender               = gender
         self.specialisation       = specialisation.lower()
-<<<<<<< HEAD
-        self.medium               = medium
-=======
         self.medium               = medium.lower()
-        self.highschool_SIIIR     = highschool_SIIIR
-        self.highschool_SIRUES    = highschool_SIRUES
->>>>>>> Refactored histogram plot
         self.class_name           = class_name
         self.passed               = passed
         self.highschool           = highschool
@@ -54,7 +48,7 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
     if schools_csv_file is not None:
         highschools = create_dictionary(schools_csv_file)
         
-    with open(results_csv_file) as file:
+    with open(results_csv_file, encoding="utf8" ) as file:
         csv_reader = csv.reader(file, delimiter=',')
         line_count = 0
         not_appear = 0
@@ -114,7 +108,7 @@ def filter_by_gender(all_students, gender):
     '''
     selected_students = []
     for current_student in all_students:
-        if current_student.gender >= gender:
+        if current_student.gender == gender:
             selected_students.append(current_student)
     return selected_students    
 
