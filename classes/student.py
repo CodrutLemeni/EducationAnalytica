@@ -1,4 +1,6 @@
 import csv
+import sys
+sys.path.append(r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
 from classes.highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
@@ -48,7 +50,7 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
     if schools_csv_file is not None:
         highschools = create_dictionary(schools_csv_file)
         
-    with open(results_csv_file, encoding="utf8" ) as file:
+    with open(results_csv_file ) as file:
         csv_reader = csv.reader(file, delimiter=',')
         line_count = 0
         not_appear = 0
@@ -136,12 +138,22 @@ def return_grades_as_array(specs):
             grades[idx].append(x.final_grade)
 
     return grades
-    
+
+def get_gender_distribution(all_students):
+    boys  = 0
+    girls = 0
+    for student in all_students:
+        if student.gender == 'M':
+            boys  = boys + 1
+        else:
+            girls = girls + 1
+    return boys, girls
+
 
 if __name__ == "__main__":
     
-    results_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/good_bac_2019.csv'
-    schools_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/unitati_scolare_2019.csv'
+    results_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/good_bac_2019.csv'
+    schools_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/unitati_scolare_2019.csv'
 
     all_students = initialiaze_students(results_csv_file, schools_csv_file)
     mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
