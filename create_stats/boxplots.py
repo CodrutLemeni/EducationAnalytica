@@ -1,8 +1,8 @@
+import sys
+sys.path.append(r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
 
-sys.path.append( r"D:\Work\bac_stats\stats_bac")
 
 import pandas as pd
 import numpy as np
@@ -22,7 +22,7 @@ def box_for_spec(grades, labels):
     plt.show()
 
 if __name__ == "__main__":
-    csv_file = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
+    csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/good_bac_2019.csv'
     all_students = initialiaze_students(csv_file)
     all_students = filter_by_grade(all_students, 5.0)
 

@@ -1,15 +1,12 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import sys
-
-sys.path.append( r"D:\Work\bac_stats\stats_bac")
-
-import pandas as pd
+sys.path.append( r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 from classes.student import *
 from create_stats.make_histogram import make_histogram
 
-input_csv_file_2019 = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
+input_csv_file_2019 = r'/home/sebastian/Dropbox/Facultate/BacStats/good_bac_2019.csv'
 
 def create_histogram_array(grades):
     histogram = [0]*5
