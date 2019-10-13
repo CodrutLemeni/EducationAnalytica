@@ -122,7 +122,7 @@ def filter_by_medium(all_students, medium):
     '''
     selected_students = []
     for current_student in all_students:
-        if current_student.medium >= medium:
+        if current_student.medium == medium:
             selected_students.append(current_student)
     return selected_students    
 

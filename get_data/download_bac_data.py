@@ -1,15 +1,15 @@
 import re
-import urllib.request
+import requests
+from bs4 import BeautifulSoup
 import os
 
 output_file = r"D:\Work\bac_stats\stats_bac\data\raw_data.txt"
 
 def get_data_website(page_url):
 
-    opener = urllib.request.FancyURLopener({})
-    f = opener.open(page_url)
-    content = f.read()
-    content = content.decode("utf-8")
+    url = base_url.format(1)
+    response = requests.get(url)
+    content = BeautifulSoup(response.text, 'html.parser')
 
     txt = ';LuatDePe_BacalaureatEduRo\["[a-z,A-Z,<,>, ,.,-]*?\"]="[0-9,.]+?";'
     x = re.findall(txt, content)
