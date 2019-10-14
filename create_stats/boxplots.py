@@ -36,8 +36,8 @@ if __name__ == "__main__":
     all_students = initialiaze_students(csv_file, schools_csv_file)
     all_students = filter_by_grade(all_students, 5.0)
 
-    #box_for_spec(all_students)
+    box_for_spec(all_students)
     medium = "urban"
     #medium = "rural"
     students = filter_by_medium( all_students, medium) # second parameter can be "rural" or "urban"
-    box_for_spec(students, medium)
+    #box_for_spec(students, medium)
