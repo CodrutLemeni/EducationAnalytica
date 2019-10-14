@@ -50,7 +50,7 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
     if schools_csv_file is not None:
         highschools = create_dictionary(schools_csv_file)
         
-    with open(results_csv_file ) as file:
+    with open(results_csv_file, encoding="utf8" ) as file:
         csv_reader = csv.reader(file, delimiter=',')
         line_count = 0
         # not_appear = 0

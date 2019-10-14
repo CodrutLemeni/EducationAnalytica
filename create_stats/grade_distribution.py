@@ -14,7 +14,7 @@ def get_unique_values(df, column):
 
     Parameters:
         df - Pandas DataFrame object
-        column - string, the column name 
+        column - string, the column name
 
     Returns:
         list containing the unique values
@@ -99,8 +99,8 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
     logging.info("Started export for grade distribution")
 
     # get all valid exam subjects from dataset via list comprehension
-    exam_subjects = [subject for exam_category in get_all_exam_subjects(df) 
-                    for subject in exam_category] 
+    exam_subjects = [subject for exam_category in get_all_exam_subjects(df)
+                    for subject in exam_category]
 
     data = pd.DataFrame()
 
@@ -121,7 +121,7 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
         category = get_exam_category(df, subject)
         
         # add the grates to the dataframe. An example query looks like:
-        # df[df['Subiect ea'] == 'Limba romana (REAL)']['NOTA_EA'] 
+        # df[df['Subiect ea'] == 'Limba romana (REAL)']['NOTA_EA']
         subject_grades = df[df[category] == subject][grade_label_from_category(category)]
         data = pd.concat([data, subject_grades], ignore_index=True)
 
@@ -135,7 +135,7 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
         plt.figure(figsize =(16,12))
         
         if export =='hist':
-            sns.distplot(data, bins = 100, kde=False, 
+            sns.distplot(data, bins = 100, kde=False,
                          hist_kws = {'edgecolor': 'darkblue', 'linewidth': '1.2'})
         
         plt.xlabel('Grade')

@@ -1,6 +1,7 @@
 import sys
 sys.path.append( r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
 from classes.student import *
+import numpy as np
 from create_stats.make_histogram import make_histogram
 
 input_csv_file_2019 = r'/home/sebastian/Dropbox/Facultate/BacStats/good_bac_2019.csv'
