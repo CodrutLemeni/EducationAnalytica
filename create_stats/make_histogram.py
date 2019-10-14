@@ -1,4 +1,3 @@
-#%%
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
@@ -16,7 +15,3 @@ def make_histogram( grades, colors, x_label='Note', y_label='Procentaj', title='
     # plt.hist( [boys_grades,girls_grades], 5)
 
     plt.show()
-
-
-
-#%%

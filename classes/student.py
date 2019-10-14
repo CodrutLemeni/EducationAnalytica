@@ -53,8 +53,8 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
     with open(results_csv_file ) as file:
         csv_reader = csv.reader(file, delimiter=',')
         line_count = 0
-        not_appear = 0
-        unidentified_highschools = []
+        # not_appear = 0
+        # unidentified_highschools = []
         students = []
         for row in csv_reader:
             # print(line_count)

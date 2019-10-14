@@ -1,7 +1,5 @@
 import sys
 sys.path.append( r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from classes.student import *
 from create_stats.make_histogram import make_histogram
