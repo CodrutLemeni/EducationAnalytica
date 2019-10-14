@@ -3,7 +3,6 @@ import sys
 from collections import Counter
 sys.path.append( r"D:\Work\bac_stats\stats_bac")
 from classes.student import *
-from create_stats.make_histogram import make_histogram
 
 input_csv_file_2019 = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
 
@@ -36,7 +35,7 @@ if __name__ == "__main__":
         grades [idx] = int(temp/25)*25/100
 
     d = Counter(grades)
-    
+
     lists = sorted(d.items()) # sorted by key, return a list of tuples
     x, y = zip(*lists) # unpack a list of pairs into two tuples
     plt.plot(x, y)

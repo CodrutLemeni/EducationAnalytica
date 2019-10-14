@@ -1,6 +1,5 @@
 import sys
 sys.path.append( r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
-import matplotlib.pyplot as plt
 from classes.student import *
 from create_stats.make_histogram import make_histogram
 
@@ -21,16 +20,16 @@ def create_histogram_array(grades):
         elif cr_grade >= 9.00 and cr_grade <= 10.00:
             histogram[4] = histogram[4] + 1
         
-    histogram = np.array(histogram)/len(grades)*100    
-    histogram = histogram.astype(int) 
-    
+    histogram = np.array(histogram)/len(grades)*100
+    histogram = histogram.astype(int)
+
     plot_points=[]
     for (idx, val) in enumerate(histogram):
         for i in range(val):
             if idx == 0:
-                plot_points.append(idx+5)             
+                plot_points.append(idx+5)    
             else:
-                plot_points.append(idx+5.999) 
+                plot_points.append(idx+5.999)
     return plot_points
 
 def make_gender_histogram(all_students, title):
