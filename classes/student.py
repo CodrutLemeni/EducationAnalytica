@@ -1,10 +1,7 @@
 import csv
 import sys
-<<<<<<< HEAD
 sys.path.append(r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
-=======
-sys.path.append(r'../')
->>>>>>> master
+from filters.student_filters import *
 from classes.highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
@@ -66,6 +63,7 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
                 # print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
+                row[7] = remove_left_zeros(row[7])
                 if not row[7] in highschools:
                     highschool = Highschool( row[7], row[8])
                 else:
@@ -79,56 +77,6 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
         # print(f'Processed {line_count} lines.')
         # print(' '.join(unidentified_highschools))
         return students
-
-#def filter_by_medium
-
-def filter_by_specialisation(all_students, specialisation):
-    '''
-        Input:  list of students
-                specific specialisation
-        Output: list of students with given specialisation
-    '''
-    selected_students = []
-    for current_student in all_students:
-        if current_student.specialisation == specialisation:
-            selected_students.append(current_student)
-    return selected_students
-
-def filter_by_grade(all_students, threshold):
-    '''
-        Input: list of Students
-        Output: list of Students with grades
-                    greather than threshold
-    '''
-    selected_students = []
-    for current_student in all_students:
-        if current_student.final_grade >= threshold:
-            selected_students.append(current_student)
-    return selected_students
-
-def filter_by_gender(all_students, gender):
-    '''
-        Input:  list of students
-                specific gender
-        Output: list of students with given gender
-    '''
-    selected_students = []
-    for current_student in all_students:
-        if current_student.gender == gender:
-            selected_students.append(current_student)
-    return selected_students    
-
-def filter_by_medium(all_students, medium):
-    '''
-        Input:  list of students
-                specific medium
-        Output: list of students with given medium
-    '''
-    selected_students = []
-    for current_student in all_students:
-        if current_student.medium == medium:
-            selected_students.append(current_student)
-    return selected_students    
 
 def return_grades_as_array(specs):
     '''
@@ -156,13 +104,10 @@ def get_gender_distribution(all_students):
 
 if __name__ == "__main__":
     
-<<<<<<< HEAD
-    results_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/good_bac_2019.csv'
-    schools_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/unitati_scolare_2019.csv'
-=======
-    results_csv_file = r'../data/2019/good_bac_2019.csv'
-    schools_csv_file = r'../data/2019/unitati_scolare_2019.csv'
->>>>>>> master
+    results_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/good_bac_2019.csv'
+    schools_csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/unitati_scolare_2019.csv'
 
     all_students = initialiaze_students(results_csv_file, schools_csv_file)
-    mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
+    students = filter(all_students,  specialisation='matematica-informatica', region='AG')
+    for student in students:
+        print(student.highschool.name)
