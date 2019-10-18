@@ -1,4 +1,5 @@
 import csv
+from pathlib import Path
 class Highschool:
     def __init__(self, SIIR_code, SIRUES_code, name = '?', locality = '?', region = '?'):
         
@@ -26,5 +27,5 @@ def create_dictionary(csv_file):
     return highschools
 
 if __name__ == "__main__":
-    csv_file = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/unitati_scolare_2019.csv'
+    csv_file = Path("../data/2019/unitati_scolare_2019.csv")
     highschools = create_dictionary(csv_file)

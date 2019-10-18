@@ -1,6 +1,7 @@
 import csv
 import sys
-sys.path.append(r'../')
+from pathlib import Path
+sys.path.append(r"../")
 from classes.highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
@@ -152,8 +153,8 @@ def get_gender_distribution(all_students):
 
 if __name__ == "__main__":
     
-    results_csv_file = r'../data/2019/good_bac_2019.csv'
-    schools_csv_file = r'../data/2019/unitati_scolare_2019.csv'
+    results_csv_file = Path("../data/2019/good_bac_2019.csv'")
+    schools_csv_file = Path("../data/2019/unitati_scolare_2019.csv")
 
     all_students = initialiaze_students(results_csv_file, schools_csv_file)
     mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
