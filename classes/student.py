@@ -153,7 +153,7 @@ def get_gender_distribution(all_students):
 
 if __name__ == "__main__":
     
-    #results_csv_file = Path("../data/2019/good_bac_2019.csv'")
+    results_csv_file = Path("../data/2019/good_bac_2019.csv")
     schools_csv_file = Path("../data/2019/unitati_scolare_2019.csv")
 
     all_students = initialiaze_students(results_csv_file, schools_csv_file)
