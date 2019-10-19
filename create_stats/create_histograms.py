@@ -2,8 +2,6 @@ import sys
 from pathlib import Path
 sys.path.append( r"../" )
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from classes.student import *
 from create_stats.make_histogram import make_histogram
 

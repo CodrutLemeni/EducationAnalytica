@@ -1,12 +1,7 @@
 import csv
 import sys
-<<<<<<< HEAD
-from pathlib import Path
-sys.path.append(r"../")
-=======
 sys.path.append(r'..')
 from filters.student_filters import *
->>>>>>> b7b7320540a355984df922ea3b55443d20970f12
 from classes.highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
@@ -107,10 +102,13 @@ def get_gender_distribution(all_students):
 
 if __name__ == "__main__":
     
-    results_csv_file = Path("../data/2019/good_bac_2019.csv")
-    schools_csv_file = Path("../data/2019/unitati_scolare_2019.csv")
+    results_csv_file = Path(r"../data/2019/good_bac_2019.csv")
+    schools_csv_file = Path(r"../data/2019/unitati_scolare_2019.csv")
 
     all_students = initialiaze_students(results_csv_file, schools_csv_file)
+    for student in all_students:
+        #if student.highschool.region == 'AG':
+        print(student.highschool.region)
     students = filter_all(all_students,  specialisation='matematica-informatica', region='AG')
     for student in students:
         print(student.highschool.name)

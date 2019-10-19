@@ -1,7 +1,7 @@
 import operator
-
-input_file = r'D:\Work\bac_stats\stats_bac\data\2019\parsed_data.txt'
-output_file = r'D:\Work\bac_stats\stats_bac\data\2019\gender_results.txt'
+from pathlib import Path
+input_file = Path(r'../data/2019/parsed_data.txt')
+output_file = Path(r'../data/2019/gender_results.txt')
 
 
 def make_dict( input_file ):
@@ -17,8 +17,8 @@ def make_dict( input_file ):
 
 def get_boys_and_girls():
 
-    boys_dictionary = make_dict(r"D:\Work\bac_stats\stats_bac\data\names\boys_names_codrut.txt")
-    girls_dictionary = make_dict(r"D:\Work\bac_stats\stats_bac\data\names\girls_names_codrut.txt")
+    boys_dictionary = make_dict(Path(r"../data/names/boys_names_codrut.txt"))
+    girls_dictionary = make_dict(Path(r"../data/names/girls_names_codrut.txt"))
 
     fin = open(input_file,'r')
     results_data = fin.read()
