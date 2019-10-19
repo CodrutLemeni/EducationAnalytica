@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import sys
 from pathlib import Path
 
-sys.path.append( r"../" )
+sys.path.append('..' )
 
 import numpy as np
 from classes.student import *
