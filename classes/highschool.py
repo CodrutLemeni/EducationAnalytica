@@ -1,4 +1,5 @@
 import csv
+from pathlib import Path
 class Highschool:
     def __init__(self, SIIR_code, SIRUES_code, name = '?', locality = '?', region = '?'):
         
@@ -33,5 +34,5 @@ def remove_left_zeros(code):
     return code[i:]
     
 if __name__ == "__main__":
-    csv_file = r'../data/2019/unitati_scolare_2019.csv'
+    csv_file = Path(r'../data/2019/unitati_scolare_2019.csv')
     highschools = create_dictionary(csv_file)

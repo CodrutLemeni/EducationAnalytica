@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+from pathlib import Path
 
-sys.path.append( r"../" )
-
+sys.path.append('..' )
 
 import numpy as np
 from classes.student import *
@@ -31,8 +31,8 @@ def box_for_spec(all_students, medium=None):
 
 
 if __name__ == "__main__":
-    csv_file = r'/home/cosmi/Desktop/BAC_stats/BAC_2019_statistics/data/2019/good_bac_2019.csv'
-    schools_csv_file = r'/home/cosmi/Desktop/BAC_stats/BAC_2019_statistics/data/2019/unitati_scolare_2019.csv'
+    csv_file = Path("../data/2019/good_bac_2019.csv")
+    schools_csv_file = Path("../data/2019/unitati_scolare_2019.csv")
     all_students = initialiaze_students(csv_file, schools_csv_file)
     all_students = filter_by_grade(all_students, 5.0)
 

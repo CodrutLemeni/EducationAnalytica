@@ -1,11 +1,12 @@
 import sys
-sys.path.append(r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics')
+sys.path.append(r"../")
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 from create_stats.make_pizzachart import *
 from classes.student import *
 
-input_csv_file_2019 = r'/home/sebastian/Dropbox/Facultate/BacStats/BAC_2019_statistics/data/2019/good_bac_2019.csv'
+input_csv_file_2019 = Path("../data/2019/good_bac_2019.csv")
 
 def make_gender_pizzachart(all_students, specialisation,title):
     all_students = filter_by_specialisation(all_students, specialisation)

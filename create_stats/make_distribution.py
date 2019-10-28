@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import sys
 from collections import Counter
-sys.path.append( r"D:\Work\bac_stats\stats_bac")
+from pathlib import Path
+sys.path.append( r"../")
 from classes.student import *
 
-input_csv_file_2019 = r'D:\Work\bac_stats\Data\good_bac_2019.csv'
+input_csv_file_2019 = Path("../data/2019/unitati_scolare_2019.csv")
 
 
 def add_plot(grades):
