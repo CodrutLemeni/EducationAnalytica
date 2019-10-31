@@ -3,6 +3,8 @@ import sys
 sys.path.append(r'..')
 from filters.student_filters import *
 from classes.highschool import *
+from read_data.read_students import *
+from create_stats.create_linegraphs import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
                    subject1, subject1_grade_init, subject1_grade_final, subject2, subject2_grade_init, subject2_grade_final,
@@ -41,7 +43,7 @@ class Student:
             return "damar"
 
 
-def initialiaze_students(results_csv_file, schools_csv_file = None):
+def initialize_students(results_csv_file, schools_csv_file = None):
     '''
         Input:  a csv file containing students
         Output: a list of Students
@@ -102,13 +104,12 @@ def get_gender_distribution(all_students):
 
 if __name__ == "__main__":
     
-    results_csv_file = Path(r"../data/2019/good_bac_2019.csv")
-    schools_csv_file = Path(r"../data/2019/unitati_scolare_2019.csv")
-
-    all_students = initialiaze_students(results_csv_file, schools_csv_file)
-    for student in all_students:
-        #if student.highschool.region == 'AG':
-        print(student.highschool.region)
-    students = filter_all(all_students,  specialisation='matematica-informatica', region='AG')
-    for student in students:
-        print(student.highschool.name)
+    years = ['2015', '2016', '2017','2019']
+    all_students = read_results(years)
+    make_gender_linegraph(all_students, years)
+    # for student in all_students:
+    #     #if student.highschool.region == 'AG':
+    #     print(student.highschool.region)
+    # students = filter_all(all_students,  specialisation='matematica-informatica', region='AG')
+    # for student in students:
+    #     print(student.highschool.name)
