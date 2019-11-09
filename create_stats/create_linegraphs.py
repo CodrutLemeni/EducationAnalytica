@@ -1,8 +1,8 @@
 import statistics
 import sys
 sys.path.append(r'..')
-from filters.student_filters import *
-from create_stats.make_linegraph import *
+from filters.student_filters import filter_by_gender, filter_by_medium
+from create_stats.make_linegraph import make_linegraph
 
 def make_gender_linegraph(all_students, years):
     boys  = {}
@@ -21,7 +21,7 @@ def make_medium_linegraph(all_students, years):
        urban[year] = filter_by_medium(all_students[year], 'urban')
     medium_means = get_means(urban, rural, years)
     make_linegraph(medium_means, years, title = "BAC STATS: GPA VS MEDIUM", first_category = "Urban", second_category = "Rural")
-  
+
 def get_grades(students):
     grades = []
     for student in students:

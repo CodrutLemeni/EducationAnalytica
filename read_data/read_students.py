@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 sys.path.append(r'..')
-from classes.student import *
+from classes.student import initialize_students
 
 def read_results(years):
     results = {}
