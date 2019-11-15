@@ -1,7 +1,13 @@
 import sys
 from pathlib import Path
 import os
+<<<<<<< HEAD
 sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+=======
+dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
+
+>>>>>>> made create all_plots function
 import numpy as np
 from classes.student import *
 from create_stats.make_histogram import make_histogram
@@ -62,7 +68,7 @@ def make_medium_histogram(all_students, title):
     make_histogram([boys_points, girls_points], colors=['blue', 'green'], title=title, legend=["urban","rural"])
 
 if __name__ == "__main__":
-    all_students_2019 = initialiaze_students(input_csv_file_2019)
+    all_students_2019 = initialize_students(input_csv_file_2019)
 
     make_gender_histogram(all_students_2019, "BAC 2019 gender")
     make_medium_histogram(all_students_2019, "BAC 2019 medium")

@@ -1,9 +1,9 @@
 
-def filter_all(all_students,specialisation = None, threshold = None, gender = None, medium = None,
+def filter_all(all_students,specialisation = None, grade = None, gender = None, medium = None,
            highschool = None, locality = None, region = None, class_name = None):
 
     all_students = filter_by_specialisation(all_students, specialisation)
-    all_students = filter_by_grade(all_students, threshold)
+    all_students = filter_by_grade(all_students, grade)
     all_students = filter_by_gender(all_students, gender)
     all_students = filter_by_medium(all_students, medium)
     all_students = filter_by_highschool(all_students, highschool)
