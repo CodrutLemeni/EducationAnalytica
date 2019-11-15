@@ -1,7 +1,8 @@
-import csv
 import sys
-sys.path.append(r'..')
-from filters.student_filters import *
+import os
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+
+import csv
 from classes.highschool import *
 class Student:
     def __init__(self, gender, specialisation, medium, highschool, class_name, passed,

@@ -1,9 +1,11 @@
-import matplotlib.pyplot as plt
 import sys
+import os
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+
+import matplotlib.pyplot as plt
 from collections import Counter
 from pathlib import Path
-sys.path.append( r"../")
-from classes.student import *
+from classes.student import initialize_students
 
 input_csv_file_2019 = Path("../data/2019/unitati_scolare_2019.csv")
 
