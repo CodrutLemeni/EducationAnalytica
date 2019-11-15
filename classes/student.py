@@ -41,7 +41,7 @@ class Student:
             return "damar"
 
 
-def initialiaze_students(results_csv_file, schools_csv_file = None):
+def initialize_students(results_csv_file, schools_csv_file = None):
     '''
         Input:  a csv file containing students
         Output: a list of Students
@@ -56,9 +56,7 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
         line_count = 0
         students = []
         for row in csv_reader:
-            # print(line_count)
             if line_count == 0:
-                # print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
                 row[7] = remove_left_zeros(row[7])
@@ -72,8 +70,6 @@ def initialiaze_students(results_csv_file, schools_csv_file = None):
                                     row[14], row[40], row[48])
                 students.append(current_student)
                 line_count += 1
-        # print(f'Processed {line_count} lines.')
-        # print(' '.join(unidentified_highschools))
         return students
 
 def return_grades_as_array(specs):
@@ -98,17 +94,3 @@ def get_gender_distribution(all_students):
         else:
             girls = girls + 1
     return boys, girls
-
-
-if __name__ == "__main__":
-    
-    results_csv_file = Path(r"../data/2019/good_bac_2019.csv")
-    schools_csv_file = Path(r"../data/2019/unitati_scolare_2019.csv")
-
-    all_students = initialiaze_students(results_csv_file, schools_csv_file)
-    for student in all_students:
-        #if student.highschool.region == 'AG':
-        print(student.highschool.region)
-    students = filter_all(all_students,  specialisation='matematica-informatica', region='AG')
-    for student in students:
-        print(student.highschool.name)
