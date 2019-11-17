@@ -1,14 +1,14 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import sys
-from pathlib import Path
+import os
 
-sys.path.append('..' )
-
-import numpy as np
-from classes.student import *
+dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+from classes.student import initialize_students, return_grades_as_array
 from classes.highschool import *
 from  create_stats.make_boxplot import *
+from filters.student_filters import *
+
 
 def box_for_spec(all_students, medium=None):
     mate_info_students = filter_by_specialisation(all_students, 'matematica-informatica' )
@@ -31,9 +31,11 @@ def box_for_spec(all_students, medium=None):
 
 
 if __name__ == "__main__":
-    csv_file = Path("../data/2019/good_bac_2019.csv")
-    schools_csv_file = Path("../data/2019/unitati_scolare_2019.csv")
-    all_students = initialiaze_students(csv_file, schools_csv_file)
+    csv_path = os.path.join(dirpath, r"data")
+    csv_path = os.path.join(csv_path, r"good_bac_2019.csv")
+    # all_students = initialiaze_students(csv_file, schools_csv_file)
+    all_students = initialize_students(csv_path)
+    
     all_students = filter_by_grade(all_students, 5.0)
 
     box_for_spec(all_students)

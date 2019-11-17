@@ -1,6 +1,8 @@
-import statistics
 import sys
-sys.path.append(r'..')
+import os
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+
+import statistics
 from filters.student_filters import filter_by_gender, filter_by_medium
 from create_stats.make_linegraph import make_linegraph
 

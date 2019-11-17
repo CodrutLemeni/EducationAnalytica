@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
-sys.path.append( r"../" )
+import os
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
 import numpy as np
 from classes.student import *
 from create_stats.make_histogram import make_histogram
@@ -23,7 +24,7 @@ def create_histogram_array(grades):
             histogram[4] = histogram[4] + 1
         
     histogram = np.array(histogram)/len(grades)*100
-        histogram = histogram.astype(int)
+    histogram = histogram.astype(int)
     
     plot_points=[]
     for (idx, val) in enumerate(histogram):

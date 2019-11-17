@@ -5,7 +5,7 @@ def make_boxplot(grades, labels, medium=None):
     '''
         Plotting boxplots for 3 specialisations
     '''
-    colors = ['cyan', 'lightblue'] * 3;
+    colors = ['cyan', 'lightblue'] * 3
 
     grades = np.array(grades)
     fig = plt.figure()
