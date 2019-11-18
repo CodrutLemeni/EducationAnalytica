@@ -42,7 +42,7 @@ class Student:
             return "damar"
 
 
-def initialize_students(results_csv_file, schools_csv_file = None):
+def initialize_students(results_csv_file):
     '''
         Input:  a csv file containing students
         Output: a list of Students

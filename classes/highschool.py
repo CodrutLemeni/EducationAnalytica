@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-class Highschool:
+class School:
     def __init__(self, SIIR_code, SIRUES_code, name = '?', locality = '?', region = '?'):
         
         self.SIIR_code       = SIIR_code
@@ -8,30 +8,39 @@ class Highschool:
         self.name            = name.lower()
         self.locality        = locality.lower()
         self.region          = region
+        self.schools_csv = Path(r'../data/2019/unitati_scolare_2019.csv')
+        self.schools = create_dictionary(schools_csv)
 
     def __str__(self):
         return str(self.SIIR_code + ' ' + self.SIRUES_code + ' ' + self.name + ' ' + self.locality
                      + ' ' + self.region)
+    @staticmethod
+    def is_in_school_list(self, SIIR_code):
+        if not SIIR_code in schools:
+            return False
+        return True
+    @staticmethod
+    def get_school(self, SIIR_code):
+        return schools[SIIR_code]
 
+    def create_dictionary(csv_file):
+        with open(csv_file, encoding='utf8') as file:
+            reader = csv.reader(file)
+            line_index = 0
+            highschools = {}
+            for row in reader:
+                current_highschool = School(row[0], row[1], row[3], row[5], row[16])
+                highschools[row[0]] = current_highschool
+                line_index += 1
+                
+        return highschools
 
-def create_dictionary(csv_file):
-    with open(csv_file, encoding='utf8') as file:
-        reader = csv.reader(file)
-        line_index = 0
-        highschools = {}
-        for row in reader:
-            current_highschool = Highschool(row[0], row[1], row[3], row[5], row[16])
-            highschools[row[0]] = current_highschool
-            line_index += 1
-            
-    return highschools
-
-# remove zero padding from SIIR_code
-def remove_left_zeros(code):
-    i = 0
-    while code[i] == '0':
-	    i += 1
-    return code[i:]
+    # remove zero padding from SIIR_code
+    def remove_left_zeros(code):
+        i = 0
+        while code[i] == '0':
+            i += 1
+        return code[i:]
     
 if __name__ == "__main__":
     csv_file = Path(r'../data/2019/unitati_scolare_2019.csv')

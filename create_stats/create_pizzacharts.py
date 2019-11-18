@@ -8,10 +8,12 @@ from pathlib import Path
 from create_stats.make_pizzachart import *
 from classes.student import *
 
-input_csv_file_2019 = Path("../data/2019/good_bac_2019.csv")
+input_csv_file_2019 = Path("../eval2019.csv")
 
-def make_gender_pizzachart(all_students, specialisation,title):
-    all_students = filter_by_specialisation(all_students, specialisation)
+def make_gender_pizzachart(all_students, title,  specialisation=None):
+    if specialisation != None:
+        all_students = filter_by_specialisation(all_students, specialisation)
+    specialisation = ""
     boys,girls = get_gender_distribution(all_students)
     labels = 'Boys', 'Girls'
     numbers = [boys, girls]
@@ -56,6 +58,6 @@ def load_subjects():
     return subjects
 
 if __name__ == "__main__":
-    all_students = initialiaze_students(input_csv_file_2019)
-    make_gender_pizzachart(all_students, 'filologie', 'BAC 2019 Gender - ')
+    all_students = initialize_students(input_csv_file_2019)
+    make_gender_pizzachart(all_students, 'BAC 2019 Gender - ')
     # make_third_option_pizzachart(all_students, 'matematica-informatica', 'BAC 2019 Third option - ')
