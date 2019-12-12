@@ -3,6 +3,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import logging
+import os
 
 from textwrap import wrap
 from pathlib import Path
@@ -157,8 +158,11 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
     return data
 
 if __name__ == "__main__":
-    csv_path = Path("../data/2019_bac_dataset.csv")
-    export_path = Path("../plots/bac_2019_grade_distribution.png")
+    dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    csv_path = os.path.join(dirpath, os.path.join("data","good_bac_2019.csv"))
+
+    export_path = os.path.join(dirpath, os.path.join("plots","bac_2019_grade_distribution.png"))
     
     df = pd.read_csv(csv_path)
     plot_grade_distribution(df, 'all', 'hist', export_path)

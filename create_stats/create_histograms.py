@@ -1,13 +1,9 @@
 import sys
 from pathlib import Path
 import os
-<<<<<<< HEAD
-sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
-=======
 dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
 
->>>>>>> made create all_plots function
 import numpy as np
 from classes.student import *
 from create_stats.make_histogram import make_histogram

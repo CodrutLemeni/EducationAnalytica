@@ -1,21 +1,7 @@
 import os
 import sys
-
-<<<<<<< HEAD
-dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
-
-from classes.student import initialize_students
-
-
-
-if __name__ == "__main__":
-    csv_path = os.path.join(dirpath, r"data")
-    csv_path = os.path.join(csv_path, r"good_bac_2019.csv")
-
-    all_students = initialize_students(csv_path)
-    print(all_students)
-=======
+import pandas as pd
+import logging
 
 dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
@@ -24,6 +10,7 @@ from classes.student import initialize_students, return_grades_as_array, get_gen
 from filters.student_filters import filter_all
 from create_stats.make_boxplot import make_boxplot
 from create_stats.make_pizzachart import make_pizzachart
+from create_stats.grade_distribution import plot_grade_distribution
 
 export_path = os.path.join(dirpath, r"plots")
 
@@ -50,6 +37,14 @@ def save_boxplots(students, title, medium):
 
     make_boxplot(grades, current_export_path, ["MATE-INFO", "FILO", "STIINTE"], title=title,medium=medium)    
 
+def save_grade_distribution(input_csv, export_path, year):
+    df = pd.read_csv(input_csv)
+    
+    export_path = os.path.join(export_path, "Grade Distribution")
+    if( os.path.exists(export_path) == False):
+        os.mkdir(export_path)            
+    export_path = os.path.join(export_path,f"{year}")
+    plot_grade_distribution(df, 'all', 'hist', export_path)    
 
 def save_circle_plots(students, title, medium):
     current_export_path = os.path.join(export_path,"circle_plots")
@@ -82,8 +77,14 @@ if __name__ == "__main__":
             #     numbers = get_gender_distribution(all_students)
             #     labels = ['Boys', 'Girls']
             #     make_pizzachart(numbers, labels, str(year) + cr_specialisation)
+# -------------------------------------------LINE PLOTS-------------------------------
 
-        except:
+# -------------------------------------------HISTOGRAMS-------------------------------
+
+# -------------------------------------------GRADE DISTRIBUTION-------------------------------
+            save_grade_distribution(csv_path,export_path,year)
+
+        except Exception as e:
+            # logging.log(e)
             print(f"Year {year} went wrong")
 
->>>>>>> made create all_plots function
