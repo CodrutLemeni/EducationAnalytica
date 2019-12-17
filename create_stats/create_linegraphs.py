@@ -122,8 +122,8 @@ def create_medium_linegraph(all_students, years, title, export_path, gender=None
     rural = {}
     urban = {}
     for year in years:
-       urban[year] = filter_all(all_students[year], medium='urban')
-       rural[year]  = filter_all(all_students[year], medium='rural')
+       urban[year] = filter_all(all_students[year], medium='urban', gender=gender)
+       rural[year]  = filter_all(all_students[year], medium='rural', gender=gender)
     medium_means = get_means(rural, urban, years)
     export_path = os.path.join(export_path, title)
     make_linegraph(medium_means, years, title , export_path, first_category = "Rural", second_category = "Urban")
