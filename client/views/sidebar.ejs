@@ -1,0 +1,52 @@
+<div class="sidebar" data-color="azure" data-background-color="white" data-image="/assets/img/sidebar-1.jpg">
+    <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+    <div class="logo">
+      <a href="/" class="simple-text logo-normal">
+        Education Analytica
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item <% if (page_name == 'dashboard') { %> active <% } %>">
+          <a class="nav-link" href="/">
+            <i class="material-icons">dashboard</i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li class="nav-item <% if (page_name == 'contact') { %> active <% } %>">
+          <a class="nav-link" href="/request">
+            <i class="material-icons">email</i>
+            <p>Request</p>
+          </a>
+        </li>
+
+        <li class="nav-item" >
+            <a data-toggle="collapse" href="#collapseExample1" class="nav-link collapsed">
+                <i class="material-icons">archive</i><p>Archive</p>
+            </a>
+            <ul>
+            <div id="collapseExample1">
+              <ul class="nav">
+                <li class="nav-item <% if (page_name == 'archive-2019') { %> active <% } %>">
+                  <a href="/archive/2019" class="nav-link">
+                    <i class="material-icons">folder</i>
+                    <p>2019</p>
+                  </a>
+                </li>
+                <li class="nav-item <% if (page_name == 'archive-2018') { %> active <% } %>">
+                  <a href="/archive/2018" class="nav-link">
+                    <i class="material-icons">folder</i>
+                    <p>2018</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </ul>
+        <!-- your sidebar here -->
+      </li>
+    </div>
+  </div>
