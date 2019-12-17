@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-results_csv_file = Path(r'../data/2019/good_bac_2019.csv')
+results_csv_file = Path(r'/home/sebastian/Dropbox/Facultate/Anul2/Sem1/Extra/EducationAnalytica/data/good_bac_2019.csv')
 def get_third_subjects():
     subjects = set()
     with open(results_csv_file) as file:
