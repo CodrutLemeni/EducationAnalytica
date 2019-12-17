@@ -1,0 +1,9 @@
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, 
+.dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
+    color: whitesmoke !important;
+    background: #00bcd4 !important;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #00bcd4 !important;
+    color: whitesmoke !important;
+}
