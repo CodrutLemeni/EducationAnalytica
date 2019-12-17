@@ -143,7 +143,8 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
         plt.ylabel('Frequency')
 
         plt.xticks(np.arange(11))
-        plt.title("\n".join(wrap("Grades Distribution ({})".format(subjects))))
+        # plt.title("\n".join(wrap("Grades Distribution ({})".format(subjects))))
+        plt.title("Grades Distribution")
 
         if add_vertical_space:
             plt.subplots_adjust(top=0.6)

@@ -86,5 +86,7 @@ if __name__ == "__main__":
 
         except Exception as e:
             # logging.log(e)
+            # logging.log(e)
+            
             print(f"Year {year} went wrong")
 
