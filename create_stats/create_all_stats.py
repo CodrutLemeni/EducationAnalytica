@@ -36,7 +36,7 @@ def save_boxplots(students, title, medium):
                                     filo_boys, filo_girls,
                                     stiinte_boys, stiinte_girls])
 
-    make_boxplot(grades, current_export_path, ["MATE-INFO", "FILO", "STIINTE"], title=title,medium=medium)    
+    make_boxplot(grades, current_export_path, ["MATE-INFO", "FILO", "STIINTE"], title=title,medium=medium)
 
 def save_boxplots_evn(scholars, title, medium):
     current_export_path = os.path.join(export_path,"boxplots")
@@ -56,8 +56,7 @@ def save_boxplots_evn(scholars, title, medium):
     make_boxplot(grades, current_export_path, ["ROMANA", "MATE"], title=title, medium=medium)
 
 def save_grade_distribution(input_csv, export_path, year):
-    df = pd.read_csv(input_csv)
-    
+    df = pd.read_csv(input_csv)  
     export_path = os.path.join(export_path, "Grade Distribution")
     if( os.path.exists(export_path) == False):
         os.mkdir(export_path)            
@@ -112,7 +111,6 @@ if __name__ == "__main__":
             # save_grade_distribution(csv_path,export_path,year)
 
         except Exception as e:
-            # logging.log(e)
             # print(e)
             print(f"Year {year} went wrong")
 

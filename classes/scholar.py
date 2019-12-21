@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
 dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 import csv
@@ -61,7 +61,7 @@ def initialize_scholars(results_csv_file, base_path):
                     continue
                 row[3] = remove_left_zeros(row[3])
                 school = schools.get_school(row[3])
-                current_student = Scholar(row[1], row[2], school, "matematica", "romana", 
+                current_student = Scholar(row[1], row[2], school, "matematica", "romana",
                                     row[7], row[9], row[10], row[14], row[16], row[18],
                                     row[19], row[20])
                 students.append(current_student)
@@ -111,4 +111,4 @@ if __name__ == "__main__":
     base_path = os.path.join(dirpath, r"data")
     csv_file = os.path.join(base_path, 'good_evn_2019.csv')
     all_students = initialize_scholars(csv_file, base_path)
-    students = filter_by_grade(all_students, 6.0)
+    # students = filter_by_grade(all_students, 6.0)

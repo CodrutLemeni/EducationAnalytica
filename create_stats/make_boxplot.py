@@ -1,6 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt 
-import logging
+import matplotlib.pyplot as plt
 
 def make_boxplot(grades, export_path, labels = ['MATE_INFO', 'FILO', 'STIINTE'], title="Insert title", medium=None):
     '''

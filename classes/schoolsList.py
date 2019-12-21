@@ -1,9 +1,8 @@
 import csv
-from pathlib import Path
 import sys
 import os
 
-sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
+sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
 from classes.school import School
 class SchoolList:
     def __init__(self, base_path):
@@ -36,5 +35,4 @@ class SchoolList:
                 current_highschool = School(row[0], row[1], row[3], row[5], row[16])
                 schools[row[0]] = current_highschool
                 line_index += 1
-                
         return schools
