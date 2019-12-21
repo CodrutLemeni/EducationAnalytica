@@ -1,5 +1,3 @@
-import csv
-from pathlib import Path
 class School:
     def __init__(self, SIIR_code, SIRUES_code, name = '?', locality = '?', region = '?'):
         

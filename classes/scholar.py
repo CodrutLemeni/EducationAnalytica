@@ -71,7 +71,7 @@ def initialize_scholars(results_csv_file, base_path):
 def return_grades_as_array(specs):
     '''
         Input:  list of lists of students
-        Output: list of lists of grades 
+        Output: list of lists of grades
     '''
     grades = [ [] for i in range(len(specs)) ]
 
