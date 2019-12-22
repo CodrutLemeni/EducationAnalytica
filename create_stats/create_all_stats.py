@@ -56,7 +56,7 @@ def save_boxplots_evn(scholars, title, medium):
     make_boxplot(grades, current_export_path, ["ROMANA", "MATE"], title=title, medium=medium)
 
 def save_grade_distribution(input_csv, export_path, year):
-    df = pd.read_csv(input_csv)  
+    df = pd.read_csv(input_csv)
     export_path = os.path.join(export_path, "Grade Distribution")
     if( os.path.exists(export_path) == False):
         os.mkdir(export_path)            
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             # save_boxplots(rural_students, str(year), "rural")
             save_boxplots_evn(all_scholars, str(year), "general_8th")
             save_boxplots_evn(urban_scholars, str(year), "urban_8th")
-            save_boxplots_evn(rural_scholars, str(year), "rural_8th")  
+            save_boxplots_evn(rural_scholars, str(year), "rural_8th")
 # -------------------------------------------CIRCLE PLOTS-------------------------------
             # colors = ['blue', 'red']
             # for cr_specialisation in ["matematica-informatica","filologie"]:

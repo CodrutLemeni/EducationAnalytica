@@ -10,13 +10,12 @@ class SchoolList:
         self.schools_list = create_dictionary(self.csv_file)
 
     def is_in_school_list(self, SIIR_code):
-        if not SIIR_code in self.schools_list:
+        if SIIR_code not in self.schools_list:
             return False
         return True
-    
     def get_school(self, SIIR_code):
         '''
-            Input: SIIR_CODE    
+            Input: SIIR_CODE
             Output: School object that has SIIR_CODE
         '''
         return self.schools_list[SIIR_code]
