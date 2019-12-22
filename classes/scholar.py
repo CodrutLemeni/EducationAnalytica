@@ -6,7 +6,7 @@ dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import csv
 from classes.school import remove_left_zeros
 from classes.schoolsList import SchoolList
-from filters.student_filters import *
+from filters.student_filters import filter_by_grade
 class Scholar:
     def __init__(self, gender, medium, school,
                    subject1, subject2, subject1_grade_init, subject2_grade_init, appeal_1,
