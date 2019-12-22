@@ -4,7 +4,7 @@ sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
 dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 import csv
-from classes.school import School, remove_left_zeros
+from classes.school import remove_left_zeros
 from classes.schoolsList import SchoolList
 from filters.student_filters import *
 class Scholar:
@@ -111,4 +111,4 @@ if __name__ == "__main__":
     base_path = os.path.join(dirpath, r"data")
     csv_file = os.path.join(base_path, 'good_evn_2019.csv')
     all_students = initialize_scholars(csv_file, base_path)
-    # students = filter_by_grade(all_students, 6.0)
+    students = filter_by_grade(all_students, 6.0)
