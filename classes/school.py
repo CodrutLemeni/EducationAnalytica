@@ -9,10 +9,10 @@ class School:
     def __str__(self):
         return str(self.SIIR_code + ' ' + self.SIRUES_code + ' ' + self.name + ' ' + self.locality
                      + ' ' + self.region)
-
+                     
 # remove zero padding from SIIR_code
-# def remove_left_zeros(code):
-#     i = 0
-#     while code[i] == '0':
-#         i += 1
-#     return code[i:]
+def remove_left_zeros(code):
+    i = 0
+    while code[i] == '0':
+        i += 1
+    return code[i:]

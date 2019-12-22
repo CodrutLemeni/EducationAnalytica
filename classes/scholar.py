@@ -4,7 +4,7 @@ sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
 dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 import csv
-from classes.school import *
+from classes.school import School, remove_left_zeros
 from classes.schoolsList import SchoolList
 from filters.student_filters import *
 class Scholar:
