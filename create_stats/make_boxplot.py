@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 
 def make_boxplot(grades, export_path, labels = ['MATE_INFO', 'FILO', 'STIINTE'], title="Insert title", medium=None):
     '''
@@ -15,7 +15,13 @@ def make_boxplot(grades, export_path, labels = ['MATE_INFO', 'FILO', 'STIINTE'],
         patch.set_facecolor(color)
 
     ax.set_xticklabels(labels)
-    ax.set_xticks([1.5, 3.5, 5.5])
+    if len(grades) == 6:
+        x_ticks = [1.5, 3.5, 5.5]
+    elif len(grades) == 4:
+        x_ticks = [1.5, 3.5]
+    else:
+        x_ticks = range(len(labels) + 1)[1:]
+    ax.set_xticks(x_ticks)
     ax.set_ylabel("NOTE")
     ax.set_xlabel("SPECIALIZARE")
 

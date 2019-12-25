@@ -131,3 +131,10 @@ def filter_by_class(all_students, class_name = None):
         if current_student.highschool.class_name == class_name:
             selected_students.append(current_student)
     return selected_students
+
+# remove zero padding from SIIR_code
+def remove_left_zeros(code):
+    i = 0
+    while code[i] == '0':
+        i += 1
+    return code[i:]

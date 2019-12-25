@@ -7,6 +7,7 @@ dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
 
 from classes.student import initialize_students, return_grades_as_array, get_gender_distribution
+from classes.scholar import initialize_scholars, return_subject_grades
 from filters.student_filters import filter_all
 from create_stats.make_boxplot import make_boxplot
 from create_stats.make_pizzachart import make_pizzachart
@@ -35,11 +36,27 @@ def save_boxplots(students, title, medium):
                                     filo_boys, filo_girls,
                                     stiinte_boys, stiinte_girls])
 
-    make_boxplot(grades, current_export_path, ["MATE-INFO", "FILO", "STIINTE"], title=title,medium=medium)    
+    make_boxplot(grades, current_export_path, ["MATE-INFO", "FILO", "STIINTE"], title=title,medium=medium)
+
+def save_boxplots_evn(scholars, title, medium):
+    current_export_path = os.path.join(export_path,"boxplots")
+    current_export_path = os.path.join(current_export_path, medium)
+
+    if( os.path.exists(current_export_path) == False):
+        os.mkdir(current_export_path)
+    
+    current_export_path = os.path.join(current_export_path,title)
+
+    boys = filter_all(scholars, gender='M')
+    girls = filter_all(scholars, gender='F')
+
+    grades_1, grades_2 = return_subject_grades(boys)
+    grades_3, grades_4 = return_subject_grades(girls)
+    grades = [grades_1, grades_3, grades_2, grades_4]
+    make_boxplot(grades, current_export_path, ["ROMANA", "MATE"], title=title, medium=medium)
 
 def save_grade_distribution(input_csv, export_path, year):
     df = pd.read_csv(input_csv)
-    
     export_path = os.path.join(export_path, "Grade Distribution")
     if( os.path.exists(export_path) == False):
         os.mkdir(export_path)            
@@ -60,16 +77,25 @@ if __name__ == "__main__":
 
     for year in range(2015,2020):
         try:
-            csv_path = os.path.join(base_path, "good_bac_"+str(year)+".csv" )
-            all_students = initialize_students(csv_path)
-            all_students = filter_all(all_students, grade=5)
-            urban_students = filter_all(all_students, medium="urban")
-            rural_students = filter_all(all_students, medium="rural")
+            # csv_path = os.path.join(base_path, "good_bac_"+str(year)+".csv" )
+            # all_students = initialize_students(csv_path)
+            # all_students = filter_all(all_students, grade=5)
+            # urban_students = filter_all(all_students, medium="urban")
+            # rural_students = filter_all(all_students, medium="rural")
+
+            csv_path_8th_grade = os.path.join( base_path, "good_evn_" + str(year) + ".csv")
+            all_scholars = initialize_scholars(csv_path_8th_grade, base_path)
+            all_scholars = filter_all(all_scholars, grade=5)
+            urban_scholars = filter_all(all_scholars, medium = 'urban')
+            rural_scholars = filter_all(all_scholars, medium = 'rural')
 
 # -------------------------------------------BOXPLOTS----------------------------------            
-            save_boxplots(all_students, str(year), "general")
-            save_boxplots(urban_students, str(year), "urban")
-            save_boxplots(rural_students, str(year), "rural")
+            # save_boxplots(all_students, str(year), "general")
+            # save_boxplots(urban_students, str(year), "urban")
+            # save_boxplots(rural_students, str(year), "rural")
+            save_boxplots_evn(all_scholars, str(year), "general_8th")
+            save_boxplots_evn(urban_scholars, str(year), "urban_8th")
+            save_boxplots_evn(rural_scholars, str(year), "rural_8th")
 # -------------------------------------------CIRCLE PLOTS-------------------------------
             # colors = ['blue', 'red']
             # for cr_specialisation in ["matematica-informatica","filologie"]:
@@ -82,9 +108,9 @@ if __name__ == "__main__":
 # -------------------------------------------HISTOGRAMS-------------------------------
 
 # -------------------------------------------GRADE DISTRIBUTION-------------------------------
-            save_grade_distribution(csv_path,export_path,year)
+            # save_grade_distribution(csv_path,export_path,year)
 
         except Exception as e:
-            # logging.log(e)
+            print(e)
             print(f"Year {year} went wrong")
 
