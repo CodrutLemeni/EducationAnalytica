@@ -111,6 +111,6 @@ if __name__ == "__main__":
             # save_grade_distribution(csv_path,export_path,year)
 
         except Exception as e:
-            # print(e)
+            print(e)
             print(f"Year {year} went wrong")
 

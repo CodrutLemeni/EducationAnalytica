@@ -8,7 +8,7 @@ class School:
 
     def __str__(self):
         return str(self.SIIR_code + ' ' + self.SIRUES_code + ' ' + self.name + ' ' + self.locality
-                     + ' ' + self.region)          
+                     + ' ' + self.region)
 # remove zero padding from SIIR_code
 def remove_left_zeros(code):
     i = 0

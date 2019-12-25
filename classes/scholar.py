@@ -31,12 +31,10 @@ class Scholar:
         else:
             self.appeal_1 = 0
 
-        if self.appeal_1 == "DA":
-            self.appeal_1 = 1
+        if self.appeal_2 == "DA":
+            self.appeal_2 = 1
         else:
-            self.appeal_1 = 0
-
-
+            self.appeal_2 = 0
 
     def __str__(self):
         return "damar"
@@ -75,7 +73,7 @@ def return_grades_as_array(specs):
     '''
     grades = [ [] for i in range(len(specs)) ]
 
-    for idx in range(len(specs)):
+    for idx, _ in enumerate(specs):
         for x in specs[idx]:
             grades[idx].append(x.final_grade)
 
