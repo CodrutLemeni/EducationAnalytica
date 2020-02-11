@@ -1,5 +1,6 @@
 import sys
 import os
+import logging
 sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) ) 
 
 import csv
@@ -49,6 +50,8 @@ def initialize_students(results_csv_file, schools_csv_file = None):
     '''
     highschools = {}
 
+    logging.info("Started reading from {}".format(results_csv_file))
+
     if schools_csv_file is not None:
         highschools = create_dictionary(schools_csv_file)
         
@@ -71,6 +74,9 @@ def initialize_students(results_csv_file, schools_csv_file = None):
                                     row[14], row[40], row[48])
                 students.append(current_student)
                 line_count += 1
+
+        logging.info("Finished reading from {}".format(results_csv_file))
+
         return students
 
 def return_grades_as_array(specs):

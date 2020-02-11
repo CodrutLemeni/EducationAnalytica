@@ -24,4 +24,4 @@ def make_boxplot(grades, export_path, labels = ['MATE_INFO', 'FILO', 'STIINTE'],
 
     ax.legend([ box['boxes'][0], box['boxes'][1] ], ['Baieti', 'Fete'], loc='upper right')
     plt.savefig(export_path)
-    # plt.show()
+    plt.close()
