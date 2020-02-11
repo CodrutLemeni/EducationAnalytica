@@ -66,27 +66,35 @@ if __name__ == "__main__":
             urban_students = filter_all(all_students, medium="urban")
             rural_students = filter_all(all_students, medium="rural")
 
-# -------------------------------------------BOXPLOTS----------------------------------            
+# -------------------------------------------BOXPLOTS----------------------------------       
+
+            logging.info("Started Boxplots from {}".format(year))     
             save_boxplots(all_students, str(year), "general")
             save_boxplots(urban_students, str(year), "urban")
             save_boxplots(rural_students, str(year), "rural")
+            logging.info("Finished Boxplots from {}".format(year))     
+
 # -------------------------------------------CIRCLE PLOTS-------------------------------
-            # colors = ['blue', 'red']
-            # for cr_specialisation in ["matematica-informatica","filologie"]:
-            #     cr_students = filter_all(all_students, specialisation=cr_specialisation)
-            #     numbers = get_gender_distribution(all_students)
-            #     labels = ['Boys', 'Girls']
-            #     make_pizzachart(numbers, labels, str(year) + cr_specialisation)
+            logging.info("Started Circle Plots from {}".format(year))     
+            colors = ['blue', 'red']
+            for cr_specialisation in ["matematica-informatica","filologie"]:
+                cr_students = filter_all(all_students, specialisation=cr_specialisation)
+                numbers = get_gender_distribution(all_students)
+                labels = ['Boys', 'Girls']
+                make_pizzachart(numbers, labels, str(year) + cr_specialisation, os.path.join(export_path,"Circle Plots"))
+            logging.info("Finished Circle Plots from {}".format(year))     
+
 # -------------------------------------------LINE PLOTS-------------------------------
 
 # -------------------------------------------HISTOGRAMS-------------------------------
 
 # -------------------------------------------GRADE DISTRIBUTION-------------------------------
+            logging.info("Started Grade Distribution from {}".format(year))     
             save_grade_distribution(csv_path,export_path,year)
+            logging.info("Finished Grade Distribution from {}".format(year))     
+
 
         except Exception as e:
-            # logging.log(e)
-            # logging.log(e)
-            
+            logging.error("Exception occurred", exc_info=True)
             print(f"Year {year} went wrong")
 

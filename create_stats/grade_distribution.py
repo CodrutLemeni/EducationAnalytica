@@ -116,7 +116,7 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
         if not subject in exam_subjects:
             raise AssertionError("Subject {} invalid. MUST be one of the following {}".format(subject, exam_subjects))
         
-        logging.info("Extracting grades for {}...".format(subject))
+        # logging.info("Extracting grades for {}...".format(subject))
 
         # get category for this subject. e.g 'Subiect ea'
         category = get_exam_category(df, subject)
@@ -126,7 +126,7 @@ def plot_grade_distribution(df, subjects, export = None, export_path=""):
         subject_grades = df[df[category] == subject][grade_label_from_category(category)]
         data = pd.concat([data, subject_grades], ignore_index=True)
 
-        logging.info("Successfully extracted {} grades for {}!".format(len(subject_grades), subject))
+        # logging.info("Successfully extracted {} grades for {}!".format(len(subject_grades), subject))
     
     # filter based on grade
     data = data.where(data > 1)
