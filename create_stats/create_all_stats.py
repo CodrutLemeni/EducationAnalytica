@@ -11,6 +11,7 @@ from filters.student_filters import filter_all
 from create_stats.make_boxplot import make_boxplot
 from create_stats.make_pizzachart import make_pizzachart
 from create_stats.grade_distribution import plot_grade_distribution
+from create_stats.create_linegraphs import *
 
 export_path = os.path.join(dirpath, r"plots")
 
@@ -54,14 +55,25 @@ def save_circle_plots(students, title, medium):
         os.mkdir(current_export_path)
     current_export_path = os.path.join(current_export_path,title)
 
+def save_linegraphs(students, years, export_path):
+    current_export_path = os.path.join(export_path,"Line Graphs")
+    current_export_path = os.path.join(current_export_path)
+
+    if( os.path.exists(current_export_path) == False):
+        os.mkdir(current_export_path)
+    current_export_path = os.path.join(current_export_path)
+    create_all_linegraphs(students, years, current_export_path)
 
 if __name__ == "__main__":
     base_path = os.path.join(dirpath, r"data")
-
+    students_years = {} # dict containing list of results for each year
+    years = [] # available keys for the previous dict
     for year in range(2015,2020):
         try:
             csv_path = os.path.join(base_path, "good_bac_"+str(year)+".csv" )
             all_students = initialize_students(csv_path)
+            years.append(str(year)) # results for this year are stored in the dictionary
+            students_years[str(year)] = all_students 
             all_students = filter_all(all_students, grade=5)
             urban_students = filter_all(all_students, medium="urban")
             rural_students = filter_all(all_students, medium="rural")
@@ -89,4 +101,6 @@ if __name__ == "__main__":
             # logging.log(e)
             
             print(f"Year {year} went wrong")
+    
+    save_linegraphs(students_years, years, export_path)
 
