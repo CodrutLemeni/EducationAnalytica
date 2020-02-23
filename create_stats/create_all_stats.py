@@ -12,6 +12,7 @@ from create_stats.make_boxplot import make_boxplot
 from create_stats.make_pizzachart import make_pizzachart
 from create_stats.grade_distribution import plot_grade_distribution
 from create_stats.create_linegraphs import *
+from create_stats.make_barchart import make_barchart_percentage
 
 export_path = os.path.join(dirpath, r"plots")
 
@@ -64,6 +65,45 @@ def save_linegraphs(students, years, export_path):
     current_export_path = os.path.join(current_export_path)
     create_all_linegraphs(students, years, current_export_path)
 
+def save_horizontal_bar_chart(all_students, title, year):
+    current_export_path = os.path.join(export_path, "Horizontal Bar Charts")
+    if( os.path.exists(current_export_path) == False):
+        os.mkdir(current_export_path)
+
+    current_export_path_1 = os.path.join(current_export_path, "Fete-Baieti")
+    if( os.path.exists(current_export_path_1) == False):
+        os.mkdir(current_export_path_1)
+
+    current_export_path_1 = os.path.join(current_export_path_1, title)
+
+    all_students = filter_all(all_students, grade=5)
+    all_boys = filter_all(all_students, gender="M")
+    all_girls = filter_all(all_students, gender="F")
+
+    students_list = [all_boys, all_girls]
+    name_list = ["Baieti", "Fete"]
+    colors = ['#BEEBE9', '#F4DADA']
+
+    make_barchart_percentage(all_categories = students_list, categories_names = name_list, title = ("Procentaj promovabilitate Fete - Baieti " + str(year)), current_export_path = current_export_path_1, colors = colors)
+
+
+    current_export_path_2 = os.path.join(current_export_path, "Fete-Baieti mate-info si filo")
+    if( os.path.exists(current_export_path_2) == False):
+        os.mkdir(current_export_path_2)
+
+    current_export_path2 = os.path.join(current_export_path_2, title)
+
+    boys_filo = filter_all(all_students, gender="M", specialisation="filologie")
+    girls_filo = filter_all(all_students, gender="F", specialisation="filologie")
+    boys_mate_info = filter_all(all_students, gender="M", specialisation="matematica-informatica")
+    girls_mate_info = filter_all(all_students, gender="F", specialisation="matematica-informatica")
+    colors = ['#BEEBE9', '#F4DADA', '#BEEBE9', '#F4DADA']
+
+    students_list = [boys_filo, girls_filo, boys_mate_info, girls_mate_info]
+    name_list = ["Baieti \nfilologie",  "Fete  \nfilologie", "Baieti   \nmate-info", "Fete    \nmate-info"]
+    make_barchart_percentage(all_categories = students_list, categories_names = name_list, title = ("Procentaj promovabilitate Fete - Baieti mate-info si filologie " + str(year)), current_export_path = current_export_path2, colors = colors)
+
+
 if __name__ == "__main__":
     base_path = os.path.join(dirpath, r"data")
     students_years = {} # dict containing list of results for each year
@@ -95,6 +135,11 @@ if __name__ == "__main__":
                 labels = ['Boys', 'Girls']
                 make_pizzachart(numbers, labels, str(year) + cr_specialisation, os.path.join(export_path,"Circle Plots"))
             logging.info("Finished Circle Plots from {}".format(year))     
+
+#--------------------------------------------BAR CHARTS-------------------------------
+            logging.info("Started Bar Charts from {}".format(year))
+            save_horizontal_bar_chart(all_students = all_students, title=str(year), year = year)
+            logging.info("Finished Bar Charts from {}".format(year))
 
 # -------------------------------------------LINE PLOTS-------------------------------
 
