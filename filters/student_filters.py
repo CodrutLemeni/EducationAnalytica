@@ -1,6 +1,6 @@
 
 def filter_all(all_students,specialisation = None, grade = None, gender = None, medium = None,
-           highschool = None, locality = None, region = None, class_name = None):
+           highschool = None, locality = None, region = None, class_name = None, passed = None):
 
     all_students = filter_by_specialisation(all_students, specialisation)
     all_students = filter_by_grade(all_students, grade)
@@ -10,6 +10,7 @@ def filter_all(all_students,specialisation = None, grade = None, gender = None, 
     all_students = filter_by_locality(all_students, locality)
     all_students = filter_by_region(all_students, region)
     all_students = filter_by_class(all_students, class_name)
+    all_students = filter_by_passing(all_students, passed)
     return all_students
 
 def filter_by_specialisation(all_students, specialisation = None):
@@ -129,5 +130,15 @@ def filter_by_class(all_students, class_name = None):
     selected_students = []
     for current_student in all_students:
         if current_student.highschool.class_name == class_name:
+            selected_students.append(current_student)
+    return selected_students
+
+def filter_by_passing(all_students, passed = None):
+    if passed == None:
+        return all_students
+
+    selected_students = []
+    for current_student in all_students:
+        if current_student.passed == passed:
             selected_students.append(current_student)
     return selected_students
