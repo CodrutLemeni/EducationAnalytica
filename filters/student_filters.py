@@ -1,6 +1,7 @@
 
 def filter_all(all_students,specialisation = None, grade = None, gender = None, medium = None,
-           highschool = None, locality = None, region = None, class_name = None, passed = None):
+           highschool = None, locality = None, region = None, class_name = None, passed = None,
+           specialisation_list = None, subject3 = None):
 
     all_students = filter_by_specialisation(all_students, specialisation)
     all_students = filter_by_grade(all_students, grade)
@@ -11,6 +12,8 @@ def filter_all(all_students,specialisation = None, grade = None, gender = None, 
     all_students = filter_by_region(all_students, region)
     all_students = filter_by_class(all_students, class_name)
     all_students = filter_by_passing(all_students, passed)
+    all_students = filter_by_specialisation_except(all_students, specialisation_list)
+    all_students = filter_by_subject3(all_students, subject3)
     return all_students
 
 def filter_by_specialisation(all_students, specialisation = None):
@@ -140,5 +143,32 @@ def filter_by_passing(all_students, passed = None):
     selected_students = []
     for current_student in all_students:
         if current_student.passed == passed:
+            selected_students.append(current_student)
+    return selected_students
+
+def filter_by_specialisation_except(all_students, specialisations = None):
+    '''
+        Input:  list of students
+                specific specialisations
+        Output: list of students that are not in any of given specialisations
+    '''
+    if specialisations == None:
+        return all_students
+
+    selected_students = []
+    for current_student in all_students:
+        if current_student.specialisation in specialisations:
+            continue
+        else:
+            selected_students.append(current_student)
+    return selected_students
+
+def filter_by_subject3(all_students, subject3 = None):
+    if subject3 == None:
+        return all_students
+
+    selected_students = []
+    for current_student in all_students:
+        if current_student.subject3 == subject3:
             selected_students.append(current_student)
     return selected_students
