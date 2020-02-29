@@ -124,7 +124,7 @@ def make_barchart_values(all_categories, categories_names, title, current_export
 
         # Center the text vertically in the bar
         yloc = rect.get_y() + rect.get_height() / 2
-        label = ax.annotate(str(round(value, 2)), xy=(width, yloc), xytext=(xloc, 0),
+        ax.annotate(str(round(value, 2)), xy=(width, yloc), xytext=(xloc, 0),
                             textcoords="offset points",
                             ha=align, va='center',
                             color=clr, weight='bold', clip_on=True)
@@ -133,7 +133,7 @@ def make_barchart_values(all_categories, categories_names, title, current_export
     ax.set_yticks(y_pos)
     ax.set_yticklabels(categories_names)
     ax.set_xlabel('Nota')
-    
+
 
     ax.set_title(title)
     #ax.annotate

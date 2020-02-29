@@ -159,7 +159,7 @@ def create_barchart_percentage(all_students, current_export_path, year):
 
     
     name_list = ["Filosofie", "Logica", "Sociologie",  "Geografie", "Psihologie", "Economie"]
-    
+
     make_barchart_percentage_subject3(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III filologie " + str(year)), current_export_path = current_export_path_5, colors = colors)
 
 
