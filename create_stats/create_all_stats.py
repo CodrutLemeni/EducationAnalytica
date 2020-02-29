@@ -12,7 +12,6 @@ from create_stats.make_boxplot import make_boxplot
 from create_stats.make_pizzachart import make_pizzachart
 from create_stats.grade_distribution import plot_grade_distribution
 from create_stats.create_linegraphs import *
-from create_stats.make_barchart import make_barchart_percentage
 from create_stats.create_barchart import create_barchart_percentage
 
 export_path = os.path.join(dirpath, r"plots")
