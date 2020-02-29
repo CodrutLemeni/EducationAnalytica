@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 
 def make_barchart_percentage(all_categories, all_categories_good, categories_names, title, current_export_path, colors):
 
@@ -29,7 +29,7 @@ def make_barchart_percentage(all_categories, all_categories_good, categories_nam
 
         # Center the text vertically in the bar
         yloc = rect.get_y() + rect.get_height() / 2
-        label = ax.annotate(str(len(all_categories_good[i])) + " - " + value, xy=(width, yloc), xytext=(xloc, 0),
+        ax.annotate(str(len(all_categories_good[i])) + " - " + value, xy=(width, yloc), xytext=(xloc, 0),
                             textcoords="offset points",
                             ha=align, va='center',
                             color=clr, weight='bold', clip_on=True)
@@ -84,7 +84,7 @@ def make_barchart_percentage_subject3(all_students, all_grades, categories_names
             align = 'right'
 
         yloc = rect.get_y() + rect.get_height() / 2
-        label = ax.annotate(str(len(all_students[i])) + " - " + value + " - Media:" + str(round(all_grades[i], 2)), xy=(width, yloc), xytext=(xloc, 0),
+        ax.annotate(str(len(all_students[i])) + " - " + value + " - Media:" + str(round(all_grades[i], 2)), xy=(width, yloc), xytext=(xloc, 0),
                             textcoords="offset points",
                             ha=align, va='center',
                             color=clr, weight='bold', clip_on=True)
@@ -139,6 +139,3 @@ def make_barchart_values(all_categories, categories_names, title, current_export
     #ax.annotate
 
     plt.savefig(current_export_path)
-    
-
-     
