@@ -72,11 +72,12 @@ def create_barchart_percentage(all_students, current_export_path, year):
     all_students_informatica = filter_all(all_students_mate_info, subject3 = "informatica mi c/c++")
     all_students_biologie = filter_all(all_students_mate_info, subject3 = "biologie vegetala si animala")
     all_students_anatomie = filter_all(all_students_mate_info, subject3 = "anatomie si fiziologie umana, genetica si ecologie umana")
-    all_students_chimie = filter_all(all_students_mate_info, subject3 = "chimie organica teo nivel i/ii")
+    all_students_chimie_organica = filter_all(all_students_mate_info, subject3 = "chimie organica teo nivel i/ii")
+    all_students_chimie_anorganica = filter_all(all_students_mate_info, subject3 = "chimie anorganica teo nivel i/ii")
     all_students_fizica = filter_all(all_students_mate_info, subject3 = "fizica teo")
     
 
-    students_list = [all_students_informatica, all_students_biologie, all_students_anatomie, all_students_chimie, all_students_fizica]
+    students_list = [all_students_informatica, all_students_biologie, all_students_anatomie, all_students_chimie_organica, all_students_chimie_anorganica, all_students_fizica]
 
     all_grades = []
 
@@ -87,10 +88,10 @@ def create_barchart_percentage(all_students, current_export_path, year):
         suma = float(suma) / float(len(student_type))
         all_grades.append(suma)
 
-    colors = ['#BEEBE9', '#F4DADA', '#ffb6b9', '#f6eec7', '#B3C7BA']
+    colors = ['#BEEBE9', '#F4DADA', '#ffb6b9', '#f6eec7', '#B3C7BA', '#B28B90']
 
 
-    name_list = ["Informatica", "Biologie", "Anatomie",  "Chimie", "Fizica"]
+    name_list = ["Informatica", "Biologie", "Anatomie",  "Chimie  \nOrganica", "Chimie    \nAnorganica", "Fizica"]
     make_barchart_percentage_subject3(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III matematica-informatica " + str(year)), current_export_path = current_export_path_4, colors = colors)
 
     #------Stiinte ale naturii alegere sub 3------
@@ -101,14 +102,15 @@ def create_barchart_percentage(all_students, current_export_path, year):
     current_export_path_6 = os.path.join(current_export_path_6, str(year))
 
     all_students_mate_info = filter_all(all_students, specialisation = "stiinte ale naturii")
-    #all_students_informatica = filter_all(all_students_mate_info, subject3 = "informatica mi c/c++")
+    all_students_informatica = filter_all(all_students_mate_info, subject3 = "informatica sn c/c++")
     all_students_biologie = filter_all(all_students_mate_info, subject3 = "biologie vegetala si animala")
     all_students_anatomie = filter_all(all_students_mate_info, subject3 = "anatomie si fiziologie umana, genetica si ecologie umana")
-    all_students_chimie = filter_all(all_students_mate_info, subject3 = "chimie organica teo nivel i/ii")
+    all_students_chimie_organica = filter_all(all_students_mate_info, subject3 = "chimie organica teo nivel i/ii")
+    all_students_chimie_anorganica = filter_all(all_students_mate_info, subject3 = "chimie anorganica teo nivel i/ii")
     all_students_fizica = filter_all(all_students_mate_info, subject3 = "fizica teo")
     
 
-    students_list = [all_students_biologie, all_students_anatomie, all_students_chimie, all_students_fizica]
+    students_list = [all_students_biologie, all_students_anatomie, all_students_informatica, all_students_chimie_organica, all_students_chimie_anorganica, all_students_fizica]
 
     all_grades = []
 
@@ -119,10 +121,10 @@ def create_barchart_percentage(all_students, current_export_path, year):
         suma = float(suma) / float(len(student_type))
         all_grades.append(suma)
 
-    colors = ['#BEEBE9', '#F4DADA', '#ffb6b9', '#f6eec7']
+    colors = ['#BEEBE9', '#F4DADA', '#ffb6b9', '#f6eec7', '#658763', '#B28B90']
 
     
-    name_list = ["Biologie", "Anatomie",  "Chimie", "Fizica"]
+    name_list = ["Biologie", "Anatomie",  "Informatica", "Chimie \nOrganica", "Chimie \nAnorganica", "Fizica"]
     
     make_barchart_percentage_subject3(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III stiinte ale naturii " + str(year)), current_export_path = current_export_path_6, colors = colors)
 
@@ -161,6 +163,86 @@ def create_barchart_percentage(all_students, current_export_path, year):
     name_list = ["Filosofie", "Logica", "Sociologie",  "Geografie", "Psihologie", "Economie"]
 
     make_barchart_percentage_subject3(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III filologie " + str(year)), current_export_path = current_export_path_5, colors = colors)
+
+    #------Profil tehnic alegere sub 3-------------------------
+
+    current_export_path_7 = os.path.join(current_export_path, "Alegere subiect profil Tehnic")
+    if( os.path.exists(current_export_path_7) == False):
+        os.mkdir(current_export_path_7)
+
+    current_export_path_7 = os.path.join(current_export_path_7, str(year))
+    
+    all_students_tehnic = filter_all(all_students, profile = "tehnic")
+
+    
+    
+    #all_students_informatica = filter_all(all_students_mate_info, subject3 = "informatica mi c/c++")
+    all_students_biologie = filter_all(all_students_tehnic, subject3 = "biologie vegetala si animala")
+    all_students_anatomie = filter_all(all_students_tehnic, subject3 = "anatomie si fiziologie umana, genetica si ecologie umana")
+    all_students_chimie_organica = filter_all(all_students_tehnic, subject3 = "chimie organica teh nivel i/ii")
+    all_students_chimie_anorganica = filter_all(all_students_tehnic, subject3="chimie anorganica teh nivel i/ii")
+    all_students_fizica = filter_all(all_students_tehnic, subject3 = "fizica teh")
+    
+
+    students_list = [all_students_biologie, all_students_anatomie, all_students_chimie_organica, all_students_chimie_anorganica, all_students_fizica]
+
+    all_grades = []
+
+    for student_type in students_list:
+        suma = 0
+        for student in student_type:
+            suma += student.subject3_grade_final
+        suma = float(suma) / float(len(student_type))
+        all_grades.append(suma)
+
+    colors = ['#BEEBE9', '#F4DADA', '#ffb6b9', '#f6eec7', '#B28B90']
+
+    
+    name_list = ["Biologie", "Anatomie",  "Chimie \nOrganica", "Chimie \nAnorganica", "Fizica"]
+    
+    make_barchart_percentage_subject3(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III Profil Tehnic " + str(year)), current_export_path = current_export_path_7, colors = colors)
+
+
+    #------profil Resurse Naturale alegere sub3----------------
+
+    current_export_path_8 = os.path.join(current_export_path, "Alegere subiect profil Resurse Naturale")
+    if( os.path.exists(current_export_path_8) == False):
+        os.mkdir(current_export_path_8)
+
+    current_export_path_8 = os.path.join(current_export_path_8, str(year))
+    
+    all_students_resurse = filter_all(all_students, profile = "resurse naturale si protectia mediului")
+
+    all_categories = {}
+    for i in all_students_resurse:
+        all_categories[i.subject3] = "found"
+    
+    #all_students_informatica = filter_all(all_students_mate_info, subject3 = "informatica mi c/c++")
+    all_students_biologie = filter_all(all_students_resurse, subject3 = "biologie vegetala si animala")
+    all_students_anatomie = filter_all(all_students_resurse, subject3 = "anatomie si fiziologie umana, genetica si ecologie umana")
+    all_students_chimie_organica = filter_all(all_students_resurse, subject3 = "chimie organica teh nivel i/ii")
+    all_students_chimie_anorganica = filter_all(all_students_resurse, subject3="chimie anorganica teh nivel i/ii")
+    all_students_fizica = filter_all(all_students_resurse, subject3 = "fizica teh")
+    
+
+    students_list = [all_students_biologie, all_students_anatomie, all_students_chimie_organica, all_students_chimie_anorganica, all_students_fizica]
+
+    all_grades = []
+
+    for student_type in students_list:
+        suma = 0
+        for student in student_type:
+            suma += student.subject3_grade_final
+        suma = float(suma) / float(len(student_type))
+        all_grades.append(suma)
+
+    colors = ['#BEEBE9', '#F4DADA', '#ffb6b9', '#f6eec7', '#B28B90']
+
+    
+    name_list = ["Biologie", "Anatomie",  "Chimie \nOrganica", "Chimie \nAnorganica", "Fizica"]
+    
+    make_barchart_percentage_subject3(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III Profil Resurse Naturale" + str(year)), current_export_path = current_export_path_8, colors = colors)
+
 
 
     #------nota romana mate-info - stiinte ale naturii---------

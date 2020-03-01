@@ -6,7 +6,7 @@ sys.path.append( os.path.dirname(os.path.dirname(os.path.abspath(__file__))) )
 import csv
 from classes.highschool import *
 class Student:
-    def __init__(self, gender, specialisation, medium, highschool, class_name, passed,
+    def __init__(self, gender, specialisation, profile, medium, highschool, class_name, passed,
                    subject1, subject1_grade_init, subject1_grade_final, subject2, subject2_grade_init, subject2_grade_final,
                     subject3, subject3_grade_init, subject3_grade_final ):
         self.gender               = gender
@@ -15,6 +15,7 @@ class Student:
         self.class_name           = class_name
         self.passed               = passed
         self.highschool           = highschool
+        self.profile              = profile.lower()
 
         if subject1_grade_final == '':
             subject1_grade_final = subject1_grade_init
@@ -33,6 +34,11 @@ class Student:
         self.subject2_grade_init  = float(subject2_grade_init)
         self.subject2_grade_final = float(subject2_grade_final)
         self.subject3             = subject3.lower()
+        if self.subject3 == "chimie anorganica teo nivel i/ii     ":
+            self.subject3 = "chimie anorganica teo nivel i/ii"
+        if self.subject3 == "chimie anorganica teh nivel i/ii     ":
+            self.subject3 = "chimie anorganica teh nivel i/ii"
+        self.subject3.strip()
         self.subject3_grade_init  = float(subject3_grade_init)
         self.subject3_grade_final = float(subject3_grade_final)
         
@@ -68,7 +74,7 @@ def initialize_students(results_csv_file, schools_csv_file = None):
                     highschool = Highschool( row[7], row[8])
                 else:
                     highschool = highschools[row[7]]
-                current_student = Student( row[1], row[2], row[6], highschool, row[9], row[50], 
+                current_student = Student( row[1], row[2], row[3], row[6], highschool, row[9], row[50], 
                                     row[10], row[37], row[42],
                                     row[13], row[39], row[46],
                                     row[14], row[40], row[48])
