@@ -107,3 +107,10 @@ def get_gender_distribution(all_students):
         else:
             girls = girls + 1
     return boys, girls
+
+#return grades as an array
+def returngrades(all_students):
+    grades = []
+    for idx in all_students:
+        grades.append(idx.final_grade)
+    return grades
