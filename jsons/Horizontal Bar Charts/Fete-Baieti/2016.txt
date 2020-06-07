@@ -1,0 +1,1 @@
+{"series": [{"extra": [{"label": "Nr. elevi promovati", "value": 37512}], "key": "Baieti", "value": 57.80681748135363}, {"extra": [{"label": "Nr. elevi promovati", "value": 50655}], "key": "Fete", "value": 69.92104464014577}], "meta": {"type": "HORIZONTAL_BAR_CHART", "title": "Procentaj promovabilitate Fete - Baieti 2016", "xAxisName": "Procentaj"}}
