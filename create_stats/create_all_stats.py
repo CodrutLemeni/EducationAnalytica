@@ -15,7 +15,6 @@ from create_stats.create_linegraphs import *
 from create_stats.create_barchart import create_barchart_percentage
 
 export_path = os.path.join(dirpath, r"plots")
-json_export_path = os.path.join(dirpath, r"jsons")
 
 def save_boxplots(students, title, medium):
     current_export_path = os.path.join(export_path,"boxplots")
@@ -68,18 +67,13 @@ def save_linegraphs(students, years, export_path):
 
 def save_horizontal_bar_chart(all_students, year):
     current_export_path = os.path.join(export_path, "Horizontal Bar Charts")
-    current_export_path_js = os.path.join(json_export_path, "Horizontal Bar Charts")
     if( os.path.exists(current_export_path) == False):
         os.mkdir(current_export_path)
-    if( os.path.exists(current_export_path_js) == False):
-        os.mkdir(current_export_path_js)
     
-    create_barchart_percentage(all_students = all_students, current_export_path = current_export_path, current_export_path_js = current_export_path_js, year = year)
+    create_barchart_percentage(all_students = all_students, current_export_path = current_export_path, year = year)
     
 
 if __name__ == "__main__":
-    if( os.path.exists(json_export_path) == False):
-        os.mkdir(json_export_path)
     base_path = os.path.join(dirpath, r"data")
     students_years = {} # dict containing list of results for each year
     years = [] # available keys for the previous dict
