@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 
-def make_barchart_percentage_js(all_categories, all_categories_good, categories_names, title, current_export_path, colors):
+def make_barchart_percentage_js(all_categories, all_categories_good, categories_names, title, current_export_path):
 
     percentage = []
     for i in range(len(all_categories)):
@@ -33,7 +33,7 @@ def make_barchart_percentage_js(all_categories, all_categories_good, categories_
     jsonDict = json.dumps(dataDict)
     f.write(jsonDict)
 
-def make_barchart_percentage_subject3_js(all_students, all_grades, categories_names, title, current_export_path, colors):
+def make_barchart_percentage_subject3_js(all_students, all_grades, categories_names, title, current_export_path):
 
     total_students = 0
     for students in all_students:
@@ -73,7 +73,7 @@ def make_barchart_percentage_subject3_js(all_students, all_grades, categories_na
     jsonDict = json.dumps(dataDict)
     f.write(jsonDict)
 
-def make_barchart_values_js(all_categories, categories_names, title, current_export_path, colors):
+def make_barchart_values_js(all_categories, categories_names, title, current_export_path):
     meta = {}
     dataDict = {}
     dataDict["series"] = []
