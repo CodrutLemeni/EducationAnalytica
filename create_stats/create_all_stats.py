@@ -13,13 +13,16 @@ from create_stats.make_pizzachart import make_pizzachart
 from create_stats.grade_distribution import plot_grade_distribution
 from create_stats.create_linegraphs import *
 from create_stats.create_barchart import create_barchart_percentage
+from classes.voter import get_attendance_counties
+from create_scatter_plot import create_scatter_plot
 
 export_path = os.path.join(dirpath, r"plots")
+json_export_path = os.path.join(dirpath, r"jsons")
 
 def save_boxplots(students, title, medium):
     current_export_path = os.path.join(export_path,"boxplots")
     current_export_path = os.path.join(current_export_path, medium)
-
+    
     if( os.path.exists(current_export_path) == False):
         os.mkdir(current_export_path)
     
@@ -67,17 +70,33 @@ def save_linegraphs(students, years, export_path):
 
 def save_horizontal_bar_chart(all_students, year):
     current_export_path = os.path.join(export_path, "Horizontal Bar Charts")
+    current_export_path_js = os.path.join(json_export_path, "Horizontal Bar Charts")
     if( os.path.exists(current_export_path) == False):
         os.mkdir(current_export_path)
+    if( os.path.exists(current_export_path_js) == False):
+        os.mkdir(current_export_path_js)
     
-    create_barchart_percentage(all_students = all_students, current_export_path = current_export_path, year = year)
+    create_barchart_percentage(all_students = all_students, current_export_path = current_export_path, current_export_path_js = current_export_path_js, year = year)
+
+def save_scatter(all_students, year, percentage):
+    current_export_path = os.path.join(export_path, "Scatter Plot")
+    current_export_path_js = os.path.join(json_export_path, "Scatter Plot")
+    if( os.path.exists(current_export_path) == False):
+        os.mkdir(current_export_path)
+    if( os.path.exists(current_export_path_js) == False):
+        os.mkdir(current_export_path_js)
     
+    create_scatter_plot(all_students = all_students, current_export_path = current_export_path, current_export_path_js = current_export_path_js, year = year, percentage = percentage)
+
 
 if __name__ == "__main__":
+    if( os.path.exists(json_export_path) == False):
+        os.mkdir(json_export_path)
     base_path = os.path.join(dirpath, r"data")
     students_years = {} # dict containing list of results for each year
     years = [] # available keys for the previous dict
-    for year in range(2015,2020):
+    schools_csv_path = os.path.join(base_path, "unitati_scolare_2019.csv")
+    for year in range(2018,2020):
         try:
             csv_path = os.path.join(base_path, "good_bac_"+str(year)+".csv" )
             all_students = initialize_students(csv_path)
@@ -120,6 +139,13 @@ if __name__ == "__main__":
             save_grade_distribution(csv_path,export_path,year)
             logging.info("Finished Grade Distribution from {}".format(year))     
 
+#--------------------------------------------VOTER TURNOUT VS GRADE AVERAGE-------------------
+            if year == 2019:
+                logging.info("Started Scatter Plot from {}".format(year))
+                all_students = initialize_students(csv_path, schools_csv_file = schools_csv_path)
+                all_counties_percentage = get_attendance_counties()
+                save_scatter(all_students = all_students, year = year, percentage = all_counties_percentage)
+                logging.info("Finished Scatter Plot from {}".format(year))
 
         except Exception as e:
             logging.error("Exception occurred", exc_info=True)
