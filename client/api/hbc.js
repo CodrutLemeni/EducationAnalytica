@@ -5,11 +5,6 @@ const Validator = require("validatorjs");
 exports.getRouter = ({ config, db }) => {
   const hbc = express.Router();
 
-  /** Filtering all requests that are not looking for a horizontal bar chart */
-  hbc.all("*", (req, res, next) => {
-    if (req.query.type !== undefined || req.query.type !== "hbc") next();
-  });
-
   hbc.get("/:subfolder/:year", (req, res) => {
     /**
      * Validating correct URL parameters
@@ -56,10 +51,10 @@ exports.getRouter = ({ config, db }) => {
       });
     }
 
-    const { data, err } = db.getHBC(params);
+    const { data, error } = db.getHBC(params);
 
-    if (err) {
-      // TODO: Add some error logging.
+    if (error) {
+      console.error(`ERROR: ${error}`);
       return res.status(500).json({
         error: {
           code: 500,

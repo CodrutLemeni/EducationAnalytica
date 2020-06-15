@@ -7,7 +7,10 @@ const package = require("../package.json");
 exports.getRouter = ({ config, db }) => {
   const api = express.Router();
 
-  api.use("/grade-distributions", distribuitons.getRouter({ config, db }));
+  api.use(
+    `/${config.grade_distrib_root}`,
+    distribuitons.getRouter({ config, db })
+  );
   api.use(`/${config.hbc_root}`, hbc.getRouter({ config, db }));
 
   api.get("/", (req, res) => {

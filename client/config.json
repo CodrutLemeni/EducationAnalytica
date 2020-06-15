@@ -11,5 +11,6 @@
     "fete-baieti-mate-info-filo-si-stiinte",
     "fete-baieti",
     "romana-mate-info-si-stiinte"
-  ]
+  ],
+  "grade_distrib_root": "grade-distributions"
 }
