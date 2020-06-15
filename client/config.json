@@ -1,0 +1,15 @@
+{
+  "port": 8000,
+  "contactEmail": "contact@eduanalytica.ro",
+  "hbc_root": "horizontal-bar-charts",
+  "hbc_subfolders": [
+    "alegere-subiect-filologie",
+    "alegere-subiect-mate-info",
+    "alegere-subiect-stiinte-ale-naturii",
+    "alegere-subiect-profil-resurse-naturale",
+    "alegere-subiect-profil-tehnic",
+    "fete-baieti-mate-info-filo-si-stiinte",
+    "fete-baieti",
+    "romana-mate-info-si-stiinte"
+  ]
+}
