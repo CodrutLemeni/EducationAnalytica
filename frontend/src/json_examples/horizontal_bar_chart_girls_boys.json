@@ -1,0 +1,29 @@
+{
+  "series": [
+    {
+      "extra": [
+        {
+          "label": "Nr. elevi promovati",
+          "value": 44953
+        }
+      ],
+      "key": "Baieti",
+      "value": 57.17901752779262
+    },
+    {
+      "extra": [
+        {
+          "label": "Nr. elevi promovati",
+          "value": 63367
+        }
+      ],
+      "key": "Fete",
+      "value": 70.15754918568217
+    }
+  ],
+  "meta": {
+    "type": "HORIZONTAL_BAR_CHART",
+    "title": "Procentaj promovabilitate Fete - Baieti 2015",
+    "xAxisName": "Procentaj"
+  }
+}
