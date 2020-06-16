@@ -6,7 +6,7 @@ import Chart from '../../components/charts/Chart/Chart';
 import { withLayout } from '../../components/Layout';
 import { globalStatistics } from '../../lib/redux/actions/';
 
-const Dashboard = ({ loadCharts, gradeDistExample, averageGradeDistExample }) => {
+const Dashboard = ({ loadCharts, gradeDistExample, averageGradeDistExample, countyGradeDistExample}) => {
   useEffect(() => loadCharts(), [ loadCharts ]);
 
   return <Box>
@@ -20,6 +20,7 @@ const Dashboard = ({ loadCharts, gradeDistExample, averageGradeDistExample }) =>
 
     <Chart height={ 500 } chartData={ gradeDistExample }/>
     <Chart height={ 500 } chartData={ averageGradeDistExample }/>
+    <Chart height={ 500 } chartData={ countyGradeDistExample }/>
   </Box>;
 };
 
@@ -34,6 +35,11 @@ const mapStateToProps = state => {
       data: state.globalStatistics.averageGradePerProfileDistribution,
       loading: state.globalStatistics.averageGradePerProfileDistributionLoading,
       errors: state.globalStatistics.averageGradePerProfileDistributionErrors,
+    },
+    countyGradeDistExample: {
+      data: state.globalStatistics.averageGradePerCountyDistribution,
+      loading: state.globalStatistics.averageGradePerCountyDistributionLoading,
+      errors: state.globalStatistics.averageGradePerCountyDistributionErrors,
     },
   };
 };

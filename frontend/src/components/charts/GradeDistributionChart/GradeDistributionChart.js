@@ -2,6 +2,7 @@ import ReactEcharts from 'echarts-for-react';
 import React, { useMemo } from 'react';
 import { deepGet } from '../../../lib/utils';
 import ChartWrapper from '../ChartWrapper/ChartWrapper';
+import { barChartTooltipFormatter, formatValue } from '../utils';
 
 
 const GradeDistributionChart = ({ chartData, height }) => {
@@ -31,13 +32,7 @@ const GradeDistributionChart = ({ chartData, height }) => {
         type: 'line',
       },
     } ],
-    formatter: (params) => {
-      const value = deepGet(params, '0.data.value');
-      const key = deepGet(params, '0.data.key');
-      return (
-        `<span style="color: white">Nota ${ key }:<br/>${value} elevi</span>`
-      );
-    },
+    formatter: barChartTooltipFormatter,
     series: [ {
       data: dataList,
       type: 'bar',

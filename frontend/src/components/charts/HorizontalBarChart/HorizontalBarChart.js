@@ -2,6 +2,7 @@ import ReactEcharts from 'echarts-for-react';
 import React, { useMemo } from 'react';
 import { deepGet } from '../../../lib/utils';
 import ChartWrapper from '../ChartWrapper/ChartWrapper';
+import { barChartTooltipFormatter } from '../utils';
 
 
 const HorizontalBarChart = ({ chartData, height }) => {
@@ -31,17 +32,7 @@ const HorizontalBarChart = ({ chartData, height }) => {
         type: 'line',
       },
     } ],
-    formatter: (params) => {
-      const value = deepGet(params, '0.data.value');
-      const key = deepGet(params, '0.data.key');
-      const extraData = deepGet(params, '0.data.extra');
-
-      const extraDataString = extraData.map(({ label, value }) => `<span style="color: white">${ label }: ${ value }</span>`).join('<br/>');
-
-      return (
-        `<span style="color: white">${ key }: ${ value }%</span> <br/> ${ extraDataString }`
-      );
-    },
+    formatter: barChartTooltipFormatter,
     series: [ {
       data: dataList,
       type: 'bar',
