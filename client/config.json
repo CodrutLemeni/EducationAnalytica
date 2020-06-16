@@ -12,5 +12,6 @@
     "fete-baieti",
     "romana-mate-info-si-stiinte"
   ],
-  "grade_distrib_root": "grade-distributions"
+  "grade_distrib_root": "grade-distributions",
+  "map_chart_root": "map-charts"
 }

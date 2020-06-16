@@ -26,8 +26,18 @@ createDb = (config) => {
     }
   };
 
+  const getMapChart = ({ year }) => {
+    try {
+      const data = require(`../data/${config.map_chart_root}/${year}.json`);
+      return { data, error: null };
+    } catch (err) {
+      return { data: null, error };
+    }
+  };
+
   return {
     getHBC,
     getGradeDistrib,
+    getMapChart,
   };
 };
