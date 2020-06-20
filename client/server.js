@@ -26,7 +26,11 @@ app.use((req, res, next) => {
 app.use(morgan("common"));
 
 db.initDb({ config }, ({ config, db }) => {
+  /** Api endpoint */
   app.use("/api", api.getRouter({ config, db }));
+
+  /** React build static files */
+  app.use("/", express.static("frontend/build"));
 
   /** 404 Route, allways keep last */
   app.use("*", (req, res, next) => {
