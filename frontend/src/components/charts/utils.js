@@ -6,8 +6,6 @@ const formatValue = extraValue => {
       return extraValue;
     return extraValue.toFixed(2);
   }
-
-
   return extraValue;
 };
 
@@ -18,7 +16,7 @@ export const barChartTooltipFormatter = (params) => {
   const extraDataString = extraData.map(({ label, value }) => `<span style="color: white;">${ label }: ${ formatValue(value) }</span>`).join('<br/>');
 
   return (
-    `<span style="color: white; font-weight: bold;">${ key }: ${ formatValue(value) }%</span> <br/> ${ extraDataString }`
+    `<span style="color: white; font-weight: bold;">${ key }: ${ formatValue(value) }</span> <br/> ${ extraDataString }`
   );
 };
 export const mapChartTooltipFormatter = (params) => {

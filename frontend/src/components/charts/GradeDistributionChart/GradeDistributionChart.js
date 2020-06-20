@@ -2,7 +2,7 @@ import ReactEcharts from 'echarts-for-react';
 import React, { useMemo } from 'react';
 import { deepGet } from '../../../lib/utils';
 import ChartWrapper from '../ChartWrapper/ChartWrapper';
-import { barChartTooltipFormatter, formatValue } from '../utils';
+import { barChartTooltipFormatter } from '../utils';
 
 
 const GradeDistributionChart = ({ chartData, height }) => {
