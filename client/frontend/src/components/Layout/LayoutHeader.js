@@ -8,6 +8,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useLayoutHeaderStyle } from './styles';
 
 const links = [
+  { label: 'Alte', to: 'altele' },
 ];
 
 const CustomNavLink = ({ label, to, exact }) => {

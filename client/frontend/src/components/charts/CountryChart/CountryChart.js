@@ -7,10 +7,11 @@ import { mapChartTooltipFormatter } from '../utils';
 
 
 const CountryChart = ({ chartData, height }) => {
-  const { dataList, title, loading } = useMemo(() => ({
+  const { dataList, title, loading, descriptionText } = useMemo(() => ({
     dataList: deepGet(chartData, 'data.series', []),
     title: deepGet(chartData, 'data.meta.title', []),
     loading: deepGet(chartData, 'loading', true),
+    descriptionText: deepGet(chartData, 'data.meta.descriptionText'),
   }), [ chartData ]);
 
   const formattedList = useMemo(() => dataList.map(({ key, value, ...other }) => ({
@@ -24,7 +25,7 @@ const CountryChart = ({ chartData, height }) => {
       return { minValue: 0, maxValue: 0 };
 
     const grades = dataList.map(({ value }) => value);
-    console.log(grades);
+
     const minValue = Math.min(...grades) || 0;
     const maxValue = Math.max(...grades) || 10;
 
@@ -59,12 +60,12 @@ const CountryChart = ({ chartData, height }) => {
       calculable: true,
       realtime: false,
       inRange: {
-        color: [ '#ff3333', '#fff900', '#00ea08' ],
+        color: [ '#fbfd8a', '#87dfd6', '#01a9b4', '#086972'],
       },
     },
   }), [ formattedList, maxValue, minValue ]);
 
-  return <ChartWrapper title={ title } loading={ loading }>
+  return <ChartWrapper title={ title } loading={ loading } descriptionText={ descriptionText }>
     <ReactEcharts
       option={ option }
       style={ { height, width: '100%' } }

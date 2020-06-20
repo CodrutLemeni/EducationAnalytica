@@ -16,6 +16,7 @@ export const useStyles = makeStyles(theme => ({
 export const useLayoutHeaderStyle = makeStyles(theme => ({
   appBar: {
     padding: theme.spacing(1, 1),
+    background: theme.palette.primary.dark,
   },
   inline: {
     display: 'inline',
@@ -33,7 +34,7 @@ export const useLayoutHeaderStyle = makeStyles(theme => ({
   },
   navLinkActive: {
     '&$link': {
-      color: theme.palette.secondary.main,
+      color: theme.palette.secondary.dark,
     },
   },
   flexExpander: {

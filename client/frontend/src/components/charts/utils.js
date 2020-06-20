@@ -9,16 +9,28 @@ const formatValue = extraValue => {
   return extraValue;
 };
 
-export const barChartTooltipFormatter = (params) => {
+export const gradeDistChartTooltipFormatter = (params) => {
   const value = deepGet(params, '0.data.value');
   const key = deepGet(params, '0.data.key');
   const extraData = deepGet(params, '0.data.extra', []);
   const extraDataString = extraData.map(({ label, value }) => `<span style="color: white;">${ label }: ${ formatValue(value) }</span>`).join('<br/>');
 
   return (
-    `<span style="color: white; font-weight: bold;">${ key }: ${ formatValue(value) }</span> <br/> ${ extraDataString }`
+    `<span style="color: white; font-weight: bold;">Nota ${ key }: ${ formatValue(value) } elevi</span> <br/> ${ extraDataString }`
   );
 };
+
+export const horizontalBarChartTooltipFormatter = (params) => {
+  const value = deepGet(params, '0.data.value');
+  const key = deepGet(params, '0.data.key');
+  const extraData = deepGet(params, '0.data.extra', []);
+  const extraDataString = extraData.map(({ label, value }) => `<span style="color: white;">${ label }: ${ formatValue(value) }</span>`).join('<br/>');
+
+  return (
+    `<span style="color: white; font-weight: bold;">${ key }: ${ formatValue(value) }%</span> <br/> ${ extraDataString }`
+  );
+};
+
 export const mapChartTooltipFormatter = (params) => {
   const value = deepGet(params, 'data.value');
   const key = deepGet(params, 'data.name');

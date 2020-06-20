@@ -2,21 +2,25 @@ import ReactEcharts from 'echarts-for-react';
 import React, { useMemo } from 'react';
 import { deepGet } from '../../../lib/utils';
 import ChartWrapper from '../ChartWrapper/ChartWrapper';
-import { barChartTooltipFormatter } from '../utils';
+import { horizontalBarChartTooltipFormatter } from '../utils';
 
 
 const HorizontalBarChart = ({ chartData, height }) => {
-  const { dataList, title, loading, xAxisName, yAxisName } = useMemo(() => ({
+  const { dataList, title, loading, xAxisName, yAxisName, descriptionText } = useMemo(() => ({
     dataList: deepGet(chartData, 'data.series', []),
     title: deepGet(chartData, 'data.meta.title', []),
     loading: deepGet(chartData, 'loading', true),
     xAxisName: deepGet(chartData, 'data.meta.xAxisName', ''),
     yAxisName: deepGet(chartData, 'data.meta.yAxisName', ''),
+    descriptionText: deepGet(chartData, 'data.meta.descriptionText'),
   }), [ chartData ]);
 
   const yAxisData = useMemo(() => dataList.map(({ key }) => key), [ dataList ]);
 
   const option = useMemo(() => ({
+    grid: {
+      left: 130,
+    },
     xAxis: [ {
       type: 'value',
       name: xAxisName,
@@ -32,15 +36,16 @@ const HorizontalBarChart = ({ chartData, height }) => {
         type: 'line',
       },
     } ],
-    formatter: barChartTooltipFormatter,
+    formatter: horizontalBarChartTooltipFormatter,
     series: [ {
       data: dataList,
       type: 'bar',
+      color: '#01a9b4',
     } ],
   }), [ dataList, yAxisData, xAxisName, yAxisName ]);
 
 
-  return <ChartWrapper title={ title } loading={ loading }>
+  return <ChartWrapper title={ title } loading={ loading } descriptionText={ descriptionText }>
     <ReactEcharts
       option={ option }
       style={ { height, width: '100%' } }

@@ -4,7 +4,8 @@
     "title": "Grade Distribution - 2019",
     "year": 2019,
     "xAxisName": "Grades",
-    "yAxisName": "Frequency"
+    "yAxisName": "Frequency",
+    "descriptionText": "Aceasta este o descriere a graficului care este trecuta in JSON in meta.descriptionText si este optionala oricarui grafic! Se poate intinde pe mai multe randuri."
   },
   "series": [
     {

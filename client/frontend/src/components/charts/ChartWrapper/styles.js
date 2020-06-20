@@ -15,3 +15,14 @@ export const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
   },
 }));
+
+export const useDescriptionBoxStyles = makeStyles(theme => ({
+  typography: {
+
+    margin: theme.spacing(2),
+    textIndent: theme.spacing(2),
+    textAlign: 'justify',
+    textJustify: 'inter-word',
+  },
+
+}));
