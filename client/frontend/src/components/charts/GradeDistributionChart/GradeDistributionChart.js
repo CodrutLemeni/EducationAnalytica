@@ -14,8 +14,8 @@ const GradeDistributionChart = ({ chartData, height }) => {
     yAxisName: deepGet(chartData, 'data.meta.yAxisName', ''),
   }), [ chartData ]);
 
-  const xAxisData = useMemo(() => dataList.map(({ key }) => key), [ dataList ]);
-
+  const sortedDataList = useMemo(() => dataList.sort(({ key: key1 }, { key: key2 }) => key1 - key2), [ dataList ]);
+  const xAxisData = useMemo(() => sortedDataList.map(({ key }) => key), [ sortedDataList ]);
   const option = useMemo(() => ({
     xAxis: [ {
       type: 'category',
@@ -34,10 +34,10 @@ const GradeDistributionChart = ({ chartData, height }) => {
     } ],
     formatter: barChartTooltipFormatter,
     series: [ {
-      data: dataList,
+      data: sortedDataList,
       type: 'bar',
     } ],
-  }), [ dataList, xAxisData, xAxisName, yAxisName ]);
+  }), [ sortedDataList, xAxisData, xAxisName, yAxisName ]);
 
 
   return <ChartWrapper title={ title } loading={ loading }>
