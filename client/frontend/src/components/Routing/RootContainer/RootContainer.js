@@ -5,6 +5,7 @@ import {
   Dashboard,
   CountyDetailPage,
   CountyListPage,
+  AboutUs,
 } from "../../../pages";
 import { Layout } from "../../Layout/Layout";
 
@@ -21,6 +22,9 @@ const RootContainer = () => {
           </Route>
           <Route exact path="/judete/:countyCode">
             <CountyDetailPage />
+          </Route>
+          <Route exact path="/aboutus">
+            <AboutUs />
           </Route>
           <Route>
             <NotFound />
