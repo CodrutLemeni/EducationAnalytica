@@ -1,39 +1,39 @@
-import makeStyles from '@material-ui/core/styles/makeStyles';
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
   },
   container: {
-    display: 'flex',
+    display: "flex",
     flexGrow: 1,
-    flexDirection: 'column',
+    flexDirection: "column",
   },
 }));
 
-export const useLayoutHeaderStyle = makeStyles(theme => ({
+export const useLayoutHeaderStyle = makeStyles((theme) => ({
   appBar: {
     padding: theme.spacing(1, 1),
     background: theme.palette.primary.dark,
   },
   inline: {
-    display: 'inline',
+    display: "inline",
   },
   link: {
-    '&$link': {
-      textDecoration: 'none',
-      color: 'inherit',
+    "&$link": {
+      textDecoration: "none",
+      color: "inherit",
     },
   },
   navLink: {
-    '&:hover': {
+    "&:hover": {
       color: theme.palette.secondary.light,
     },
   },
   navLinkActive: {
-    '&$link': {
+    "&$link": {
       color: theme.palette.secondary.dark,
     },
   },
@@ -42,5 +42,8 @@ export const useLayoutHeaderStyle = makeStyles(theme => ({
   },
   navText: {
     padding: theme.spacing(0, 1),
+  },
+  tab: {
+    maxWidth: 100,
   },
 }));

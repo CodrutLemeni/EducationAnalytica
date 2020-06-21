@@ -1,22 +1,19 @@
-import Box from '@material-ui/core/Box';
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withLayout } from '../../components/Layout';
-
+import Box from "@material-ui/core/Box";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { withLayout } from "../../components/Layout";
 
 const CountyPage = ({ loadCharts, countyHistogram }) => {
   useEffect(() => {
     loadCharts();
-  }, [ loadCharts ]);
+  }, [loadCharts]);
   // const history = useHistory();
   // const navigateToCountyDetails = useCallback((countyCode) => history.push(`/judete/${ countyCode }`), [ history ]);
 
-  return <Box>
-    You are seeing county list.
-  </Box>;
+  return <Box>You are seeing county list.</Box>;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     countyHistogram: {
       data: state.globalStatistics.countyHistogram,
@@ -26,13 +23,10 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    loadCharts: () => {
-
-    },
+    loadCharts: () => {},
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withLayout(CountyPage));
-
+export default connect(mapStateToProps, mapDispatchToProps)(CountyPage);

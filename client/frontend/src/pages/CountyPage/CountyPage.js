@@ -1,43 +1,49 @@
-import Box from '@material-ui/core/Box';
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import GradeDistributionChart from '../../components/charts/GradeDistributionChart/GradeDistributionChart';
-import DeathDateChart from '../../components/charts/DeathDateChart/DeathDateChart';
-import { GenderChart } from '../../components/charts/GenderChart';
-import { withLayout } from '../../components/Layout';
-import { countyStatistics } from '../../lib/redux/actions/';
+import Box from "@material-ui/core/Box";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+import GradeDistributionChart from "../../components/charts/GradeDistributionChart/GradeDistributionChart";
+import DeathDateChart from "../../components/charts/DeathDateChart/DeathDateChart";
+import { GenderChart } from "../../components/charts/GenderChart";
+import { withLayout } from "../../components/Layout";
+import { countyStatistics } from "../../lib/redux/actions/";
 
-const CountyPage = ({ loadCharts, ageHistogram, genderHistogram, deathDateHistogram }) => {
+const CountyPage = ({
+  loadCharts,
+  ageHistogram,
+  genderHistogram,
+  deathDateHistogram,
+}) => {
   const { countyCode } = useParams();
   console.log(countyCode);
   useEffect(() => {
-    if (countyCode)
-      loadCharts(countyCode);
-  }, [ loadCharts, countyCode ]);
+    if (countyCode) loadCharts(countyCode);
+  }, [loadCharts, countyCode]);
 
-  return <Box>
-    <GradeDistributionChart
-      { ...ageHistogram }
-      title={ 'Distribuția deceselor pe categorii de vârstă' }
-      height={ 500 }
-    />
+  return (
+    <Box>
+      <GradeDistributionChart
+        {...ageHistogram}
+        title={"Distribuția deceselor pe categorii de vârstă"}
+        height={500}
+      />
 
-    <GenderChart
-      { ...genderHistogram }
-      title={ 'Distribuția deceselor pe gen' }
-      height={ 500 }
-    />
+      <GenderChart
+        {...genderHistogram}
+        title={"Distribuția deceselor pe gen"}
+        height={500}
+      />
 
-    <DeathDateChart
-      { ...deathDateHistogram }
-      title={ 'Distribuția deceselor pe zile' }
-      height={ 500 }
-    />
-  </Box>;
+      <DeathDateChart
+        {...deathDateHistogram}
+        title={"Distribuția deceselor pe zile"}
+        height={500}
+      />
+    </Box>
+  );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     genderHistogram: {
       data: state.countyStatistics.genderHistogram,
@@ -57,7 +63,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     loadCharts: (countyCode) => {
       dispatch(countyStatistics.loadCountyHistograms(countyCode));
@@ -65,6 +71,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(withLayout(CountyPage));
-
+export default connect(mapStateToProps, mapDispatchToProps)(CountyPage);

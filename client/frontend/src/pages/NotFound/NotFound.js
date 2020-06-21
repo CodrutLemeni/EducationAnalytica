@@ -1,12 +1,10 @@
-import Typography from '@material-ui/core/Typography';
-import React from 'react';
-import { withLayout } from '../../components/Layout';
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+import { withLayout } from "../../components/Layout";
+import { connect } from "react-redux";
 
 const NotFound = () => {
-  return <Typography>
-    Not found
-  </Typography>;
+  return <Typography>Not found</Typography>;
 };
 
-export default withLayout(NotFound);
-
+export default connect()(NotFound);
