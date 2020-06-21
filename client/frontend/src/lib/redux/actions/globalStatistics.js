@@ -11,7 +11,6 @@ export const loadGlobalGradeDistribution = () => {
           dispatch({ type: 'GLOBAL_GRADE_DISTRIBUTION_ERROR', data: keysToCamel(data) });
         }
       });
-
   };
 };
 

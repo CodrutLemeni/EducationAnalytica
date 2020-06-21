@@ -24,7 +24,6 @@ const groupGradesByInterval = (sortedGradeList, intervalSize) => {
       result[currentGroupIndex].value += value;
     }
   });
-
   return result;
 };
 

@@ -6,12 +6,17 @@ import { ArticleBox } from '../../components/ArticleBox';
 import Chart from '../../components/charts/Chart/Chart';
 import { withLayout } from '../../components/Layout';
 import { TitleBox } from '../../components/TitleBox';
+import { keysToCamel } from '../../lib/api';
 import { globalStatistics } from '../../lib/redux/actions/';
+import jsonExampleGrouped from '../../json_examples/horizontal_bar_chart_example_grouped';
+import jsonExampleStacked from '../../json_examples/horizontal_bar_chart_example_stacked';
 
 const Dashboard = ({ loadCharts, gradeDistExample, averageGradeDistExample, countyGradeDistExample }) => {
   useEffect(() => loadCharts(), [ loadCharts ]);
 
   return <Box>
+    <Chart height={ 500 } chartData={ keysToCamel({ data: jsonExampleGrouped, loading: false }) }/>
+    <Chart height={ 500 } chartData={ keysToCamel({ data: jsonExampleStacked, loading: false }) }/>
     <Grid container>
       <Grid item xs={ 12 }>
         <TitleBox title={ 'Titlu mare si tare' }>
@@ -29,7 +34,7 @@ const Dashboard = ({ loadCharts, gradeDistExample, averageGradeDistExample, coun
       <Grid item xs={ 12 }>
         <Chart height={ 500 } chartData={ gradeDistExample }/>
       </Grid>
-      <Grid item xs={ 12 } md={ 6 }>
+      <Grid item xs={ 12 } md={ 12 }>
         <Chart height={ 500 } chartData={ averageGradeDistExample }/>
       </Grid>
       <Grid item xs={ 12 } md={ 6 }>
@@ -77,7 +82,6 @@ const Dashboard = ({ loadCharts, gradeDistExample, averageGradeDistExample, coun
         <Chart height={ 500 } chartData={ countyGradeDistExample }/>
       </Grid>
     </Grid>
-
   </Box>;
 };
 
