@@ -1,1 +1,1 @@
-{"series": [{"extra": [], "key": "mate-info", "value": 7.96126194802123}, {"extra": [], "key": "stiinte", "value": 7.471139354968384}], "meta": {"type": "HORIZONTAL_BAR_CHART", "title": "Note romana", "xAxisName": "Nota"}}
+{"series_list": [{"name": "mate-info", "series": [{"extra": [], "key": "Nota romana", "value": 7.96126194802123}]}, {"name": "stiinte", "series": [{"extra": [], "key": "Nota romana", "value": 7.471139354968384}]}], "meta": {"type": "HORIZONTAL_BAR_CHART_GROUPED", "title": "Note romana", "xAxisName": "Nota"}}
