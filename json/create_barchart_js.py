@@ -13,7 +13,10 @@ from filters.student_filters import filter_all
 from make_barchart_js import make_barchart_percentage_js
 from make_barchart_js import make_barchart_values_js
 from make_barchart_js import make_barchart_percentage_subject3_js
+from make_barchart_js import make_stacked_barchart_js
 from classes.student import initialize_students
+
+from create_stats.make_barchart import make_barchart_percentage
 
 def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
@@ -32,12 +35,14 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     all_girls_passed = filter_all(all_students_passed, gender="F")
     
 
-    students_list = [all_boys, all_girls]
-    students_list_passed = [all_boys_passed, all_girls_passed]
-    name_list = ["Baieti", "Fete"]
+    students_list = [[len(all_boys)], [len(all_girls)]]
+    students_list_passed = [[len(all_boys_passed)], [len(all_girls_passed)]]
+    name_list_general = [["Baieti"], ["Fete"]]
+    name_list_particular = ["Total"]
 
 
-    make_barchart_percentage_js(all_categories = students_list, all_categories_good = students_list_passed, categories_names = name_list, title = ("Procentaj promovabilitate Fete - Baieti " + str(year)), current_export_path = current_export_path_1_js)
+
+    make_barchart_percentage_js(all_categories = students_list, all_categories_good = students_list_passed, categories_general_names = name_list_general, categories_particular_names = name_list_particular, title = ("Procentaj promovabilitate Fete - Baieti " + str(year)), current_export_path = current_export_path_1_js)
     
     #------procent promovabilitate toate profilele baieti-fete--------
 
@@ -48,24 +53,38 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     current_export_path2_js = os.path.join(current_export_path_2_js, str(year))
 
     boys_filo = filter_all(all_students, gender="M", specialisation="filologie")
+    boys_filo_passed= filter_all(boys_filo, passed = "Promovat")
     girls_filo = filter_all(all_students, gender="F", specialisation="filologie")
+    girls_filo_passed= filter_all(girls_filo, passed = "Promovat")
+
     boys_mate_info = filter_all(all_students, gender="M", specialisation="matematica-informatica")
+    boys_mate_info_passed= filter_all(boys_mate_info, passed = "Promovat")
     girls_mate_info = filter_all(all_students, gender="F", specialisation="matematica-informatica")
+    girls_mate_info_passed= filter_all(girls_mate_info, passed = "Promovat")
+
     boys_stiinte = filter_all(all_students, gender="M", specialisation="stiinte ale naturii")
+    boys_stiinte_passed= filter_all(boys_stiinte, passed = "Promovat")
     girls_stiinte = filter_all(all_students, gender="F", specialisation="stiinte ale naturii")
+    girls_stiinte_passed = filter_all(girls_stiinte, passed = "Promovat")
+
     boys_other = filter_all(all_students, gender="M", specialisation_list = ["filologie", "matematica-informatica", "stiinte ale naturii"])
+    boys_other_passed= filter_all(boys_other, passed = "Promovat")
     girls_other = filter_all(all_students, gender="F", specialisation_list = ["filologie", "matematica-informatica", "stiinte ale naturii"])
+    girls_other_passed= filter_all(girls_other, passed = "Promovat")
 
-    students_list = [boys_other, girls_other, boys_filo, girls_filo, boys_mate_info, girls_mate_info, boys_stiinte, girls_stiinte]
-    name_list = ["Baitei other", "Fete other", "Baieti filologie",  "Fete filologie", "Baieti mate-info", "Fete mate-info", "Baieti stiinte", "Fete stiinte"]
+    boys_list = [len(boys_filo), len(boys_mate_info), len(boys_stiinte), len(boys_other)]
+    girls_list = [len(girls_filo), len(girls_mate_info), len(girls_stiinte), len(girls_other)]
+    students_list = [boys_list, girls_list]
+
+    boys_list_passed = [len(boys_filo_passed), len(boys_mate_info_passed), len(boys_stiinte_passed), len(boys_other_passed)]
+    girls_list_passed = [len(girls_filo_passed), len(girls_mate_info_passed), len(girls_stiinte_passed), len(girls_other_passed)]
+    students_list_passed = [boys_list_passed, girls_list_passed]
     
-    students_list_passed = []
-
-    for crt_student_list in students_list:
-        students_list_passed.append(filter_all(crt_student_list,passed = "Promovat"))
+    name_list_general = [["Baieti"], ["Fete"]]
+    name_list_particular = ["Filo", "Mate-info", "Stiinte", "Other"]
     
    
-    make_barchart_percentage_js(all_categories = students_list, all_categories_good = students_list_passed,categories_names = name_list, title = ("Procentaj promovabilitate Fete - Baieti \nmate-info, filologie, stiinte ale naturii si restul " + str(year)), current_export_path = current_export_path2_js)
+    make_barchart_percentage_js(all_categories = students_list, all_categories_good = students_list_passed, categories_general_names = name_list_general, categories_particular_names = name_list_particular, title = ("Procentaj promovabilitate Fete - Baieti \nmate-info, filologie, stiinte ale naturii si restul " + str(year)), current_export_path = current_export_path2_js)
 
     #------mate-info alegere sub3-------------
 
@@ -238,9 +257,9 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     name_list = ["Biologie", "Anatomie",  "Chimie Organica", "Chimie Anorganica", "Fizica"]
     
     
-    make_barchart_percentage_subject3_js(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III Profil Resurse Naturale" + str(year)), current_export_path = current_export_path_8_js)
+    make_barchart_percentage_subject3_js(all_students = students_list, all_grades = all_grades, categories_names = name_list, title = ("Procentaj alegere subiectul III Profil Resurse Naturale " + str(year)), current_export_path = current_export_path_8_js)
 
-
+    
     #------nota romana mate-info - stiinte ale naturii---------
     mate_info = filter_all(all_students, specialisation="matematica-informatica")
     stiinte = filter_all(all_students, specialisation="stiinte ale naturii")
@@ -262,10 +281,227 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
     grade_mate_info_romana = float(grade_mate_info_romana) / float(len(mate_info))
     grade_stiinte_romana = float(grade_stiinte_romana) / float(len(stiinte))
-    grades = [grade_mate_info_romana, grade_stiinte_romana]
+    grades = [[grade_mate_info_romana], [grade_stiinte_romana]]
+    name_list = ["Mate-info", "Stiinte"]
 
-    make_barchart_values_js(grades, ["mate-info", "stiinte"], "Note romana", current_export_path_3_js)
+    make_barchart_values_js(grades, ["mate-info", "stiinte"], ["Nota romana"], "Note romana", current_export_path_3_js)
+
+    #-----Medie bacalaureat urban-rural------------------------
+
+    urban_students = filter_all(all_students = all_students, medium = "urban")
+    rural_students = filter_all(all_students = all_students, medium = "rural")
+
+    grade_urban = 0
+    grade_rural = 0
+
+    for elem in urban_students:
+        grade_urban += elem.final_grade
+    for elem in rural_students:
+        grade_rural += elem.final_grade
+
+    grade_urban /= len(urban_students)
+    grade_rural /= len(rural_students)
+
+
+    current_export_path_13_js = os.path.join(current_export_path_js, "Medie Bacalaureat Urban-Rural")
+    if( os.path.exists(current_export_path_13_js) == False):
+        os.mkdir(current_export_path_13_js)
+    current_export_path_13_js = os.path.join(current_export_path_13_js, str(year))
+
+    grades = [[grade_urban], [grade_rural]]
+
+    make_barchart_values_js(grades, ["Urban", "Rural"], ["Medie Bacalaureat"], "Medie Bacalaureat", current_export_path_13_js)
+
+    #----Medie bacalaureat urban-rural fete-baieti---------
+
+    current_export_path_14_js = os.path.join(current_export_path_js, "Medie Bacalaureat Urban-Rural Fete-Baieti")
+    if( os.path.exists(current_export_path_14_js) == False):
+        os.mkdir(current_export_path_14_js)
+    current_export_path_14_js = os.path.join(current_export_path_14_js, str(year))
+
+    urban_students = filter_all(all_students = all_students, medium = "urban")
+    rural_students = filter_all(all_students = all_students, medium = "rural")
+
+    urban_girls = filter_all(all_students = urban_students, gender = "F")
+    urban_boys = filter_all(all_students = urban_students, gender = "M")
+
+    rural_girls = filter_all(all_students = rural_students, gender = "F")
+    rural_boys = filter_all(all_students = rural_students, gender = "M")
+
+    grade_urban_girls = 0
+    grade_rural_girls = 0
+    grade_urban_boys = 0
+    grade_rural_boys = 0
+
+    for elem in urban_girls:
+        grade_urban_girls += elem.final_grade
+    for elem in rural_girls:
+        grade_rural_girls += elem.final_grade
+    for elem in urban_boys:
+        grade_urban_boys += elem.final_grade
+    for elem in rural_boys:
+        grade_rural_boys += elem.final_grade
+
+    grade_urban_girls /= len(urban_girls)
+    grade_rural_girls /= len(rural_girls)
+    grade_urban_boys /= len(urban_boys)
+    grade_rural_boys /= len(rural_boys)
+
+    grades = [[grade_urban_girls, grade_urban_boys], [grade_rural_girls, grade_rural_boys]]
+
+    make_barchart_values_js(grades, ["Urban", "Rural"], ["Medie Bacalaureat Fete", "Medie Bacalaureat Baieti"], "Medie Bacalaureat Urban-Rural Fete-Baieti", current_export_path_14_js)
+
+    #-------Medie bacalaureat pe profile-----------------------
+
+    current_export_path_15_js = os.path.join(current_export_path_js, "Medie Bacalaureat pe Profile")
+    if( os.path.exists(current_export_path_15_js) == False):
+        os.mkdir(current_export_path_15_js)
+    current_export_path_15_js = os.path.join(current_export_path_15_js, str(year))
+
+    mate_info_students = filter_all(all_students = all_students, specialisation="matematica-informatica")
+    stiinte_students = filter_all(all_students = all_students, specialisation="stiinte ale naturii")
+    filo_studentts = filter_all(all_students = all_students, specialisation="filologie")
+
+    grade_mate_info = 0
+    grade_filo = 0
+    grade_stiinte = 0
+
+    for elem in mate_info_students:
+        grade_mate_info += elem.final_grade
+    for elem in filo_studentts:
+        grade_filo += elem.final_grade
+    for elem in stiinte_students:
+        grade_stiinte += elem.final_grade
+
+    grade_filo /= len(filo_studentts)
+    grade_mate_info /= len(mate_info_students)
+    grade_stiinte /= len(stiinte_students)
+
     
+
+    grades = [[grade_filo], [grade_mate_info], [grade_stiinte]]
+
+    make_barchart_values_js(grades, ["Filologie", "Matematica-Informatica", "Stiinte ale Naturii"], ["Medie Bacalaureat"], "Medie Bacalaureat pe Profile", current_export_path_15_js)
+
+    #-----procentaj promovabilitate urban-rural----------------
+
+    current_export_path_9_js = os.path.join(current_export_path_js, "Procentaj Promovabilitate urban-rural")
+    if( os.path.exists(current_export_path_9_js) == False):
+        os.mkdir(current_export_path_9_js)
+    current_export_path_9_js = os.path.join(current_export_path_9_js, str(year))
+
+    all_students_passed = filter_all(all_students, passed="Promovat")
+
+    all_students_urban = filter_all(all_students = all_students, medium = "urban")
+    all_students_urban_passed = filter_all(all_students = all_students_passed, medium= "urban")
+    all_students_rural = filter_all(all_students = all_students, medium = "rural")
+    all_students_rural_passed = filter_all(all_students = all_students_passed, medium = "rural")
+
+    categories_general_names = [["Urban"], ["Rural"]]
+    categories_particular_names = ["Total"]
+    all_students_list = [[len(all_students_urban)], [len(all_students_rural)]]
+    all_students_passed_list = [[len(all_students_urban_passed)], [len(all_students_rural_passed)]]
+
+    make_barchart_percentage_js(all_categories = all_students_list, all_categories_good = all_students_passed_list, categories_general_names = categories_general_names, categories_particular_names = categories_particular_names, title = ("Procentaj Promovabilitate urban-rural" + str(year)), current_export_path = current_export_path_9_js)
+    #make_barchart_percentage(all_categories = all_students_list, all_categories_good = all_students_passed_list, categories_names = name_list, title = ("Procentaj Promovabilitate urban-rural " + str(year)), current_export_path = current_export_path_9_js, colors = ['#F4DADA', '#BEEBE9'])
+
+
+    #-----procentaj promovabilitate fete-baieti urban-rural------------
+
+
+    current_export_path_10_js = os.path.join(current_export_path_js, "Procentaj Promovabilitate fete-baieti urban-rural")
+    if( os.path.exists(current_export_path_10_js) == False):
+        os.mkdir(current_export_path_10_js)
+    current_export_path_10_js = os.path.join(current_export_path_10_js, str(year))
+
+    all_students_passed = filter_all(all_students, passed="Promovat")
+
+    all_students_urban = filter_all(all_students = all_students, medium = "urban")
+    all_students_urban_boys = filter_all(all_students = all_students_urban, gender="M")
+    all_students_urban_girls = filter_all(all_students = all_students_urban, gender="F")
+    all_students_urban_passed = filter_all(all_students = all_students_passed, medium= "urban")
+    all_students_urban_boys_passed = filter_all(all_students = all_students_urban_passed, gender="M")
+    all_students_urban_girls_passed = filter_all(all_students = all_students_urban_passed, gender="F")
+    all_students_rural = filter_all(all_students = all_students, medium = "rural")
+    all_students_rural_boys = filter_all(all_students = all_students_rural, gender="M")
+    all_students_rural_girls = filter_all(all_students = all_students_rural, gender="F")
+    all_students_rural_passed = filter_all(all_students = all_students_passed, medium = "rural")
+    all_students_rural_boys_passed = filter_all(all_students = all_students_rural_passed, gender="M")
+    all_students_rural_girls_passed = filter_all(all_students = all_students_rural_passed, gender="F")
+
+    name_list = ["Baieti-Urban", "Fete-Urban", "Baieti-Rural", "Fete-Rural"]
+    all_students_list = [[len(all_students_urban_boys), len(all_students_rural_boys)], [len(all_students_urban_girls), len(all_students_rural_girls)]]
+    all_students_passed_list = [[len(all_students_urban_boys_passed), len(all_students_rural_boys_passed)], [len(all_students_urban_girls_passed), len(all_students_rural_girls_passed)]]
+    categories_general_names = [["Baieti"], ["Fete"]]
+    categories_particular_names = ["Urban", "Rural"]
+
+    make_barchart_percentage_js(all_categories = all_students_list, all_categories_good = all_students_passed_list, categories_general_names = categories_general_names, categories_particular_names = categories_particular_names, title = ("Procentaj Promovabilitate urban-rural" + str(year)), current_export_path = current_export_path_10_js)
+    #make_barchart_percentage(all_categories = all_students_list, all_categories_good = all_students_passed_list, categories_names = name_list, title = ("Procentaj Promovabilitate fete-baieti urban-rural " + str(year)), current_export_path = current_export_path_10_js, colors = ['#F4DADA', '#BEEBE9'])
+
+
+
+    #-------procentaj alegere profil in functie de mediu de viata-----------------
+
+
+    current_export_path_11_js = os.path.join(current_export_path_js, "Procentaj alegere profil in functie de mediu de viata")
+    if( os.path.exists(current_export_path_11_js) == False):
+        os.mkdir(current_export_path_11_js)
+    current_export_path_11_js = os.path.join(current_export_path_11_js, str(year))
+
+    urban_filo = filter_all(all_students, medium = "urban", specialisation="filologie")
+    rural_filo = filter_all(all_students, medium = "rural", specialisation="filologie")
+    urban_mate_info = filter_all(all_students, medium = "urban", specialisation="matematica-informatica")
+    rural_mate_info = filter_all(all_students, medium = "rural", specialisation="matematica-informatica")
+    urban_stiinte = filter_all(all_students, medium = "urban", specialisation="stiinte ale naturii")
+    rural_stiinte = filter_all(all_students, medium = "rural", specialisation="stiinte ale naturii")
+    urban_other = filter_all(all_students, medium = "urban", specialisation_list = ["filologie", "matematica-informatica", "stiinte ale naturii"])
+    rural_other = filter_all(all_students, medium = "rural", specialisation_list = ["filologie", "matematica-informatica", "stiinte ale naturii"])
+
+    
+    urban_stats = [len(urban_filo), len(urban_mate_info), len(urban_stiinte), len(urban_other)]
+    rural_stats = [len(rural_filo), len(rural_mate_info), len(rural_stiinte), len(rural_other)]
+
+    vertical_names = ["Urban", "Rural"]
+    horizontal_names = ["Filo", "Mate_info", "Stiinte", "Other"]
+
+    all_categories = [urban_stats, rural_stats]
+
+    make_stacked_barchart_js(all_categories = all_categories, vertical_names = vertical_names, horizontal_names = horizontal_names, title = ("Procentaj alegere profil in functie de sex" + str(year)), current_export_path = current_export_path_11_js)
+
+    #-----procentaj alegere profil in functie de sex---------------------------
+
+    current_export_path_12_js = os.path.join(current_export_path_js, "Procentaj alegere profil in functie de sex")
+    if( os.path.exists(current_export_path_12_js) == False):
+        os.mkdir(current_export_path_12_js)
+    current_export_path_12_js = os.path.join(current_export_path_12_js, str(year))
+
+    boys_filo = filter_all(all_students, gender="M", specialisation="filologie")
+    girls_filo = filter_all(all_students, gender="F", specialisation="filologie")
+
+    boys_mate_info = filter_all(all_students, gender="M", specialisation="matematica-informatica")
+    girls_mate_info = filter_all(all_students, gender="F", specialisation="matematica-informatica")
+
+    boys_stiinte = filter_all(all_students, gender="M", specialisation="stiinte ale naturii")
+    girls_stiinte = filter_all(all_students, gender="F", specialisation="stiinte ale naturii")
+
+    boys_other = filter_all(all_students, gender="M", specialisation_list = ["filologie", "matematica-informatica", "stiinte ale naturii"])
+    girls_other = filter_all(all_students, gender="F", specialisation_list = ["filologie", "matematica-informatica", "stiinte ale naturii"])
+
+    
+    urban_stats = [len(boys_filo), len(boys_mate_info), len(boys_stiinte), len(boys_other)]
+    rural_stats = [len(girls_filo), len(girls_mate_info), len(girls_stiinte), len(girls_other)]
+
+    vertical_names = ["Baieti", "Fete"]
+    horizontal_names = ["Filo", "Mate_info", "Stiinte", "Other"]
+
+    all_categories = [urban_stats, rural_stats]
+
+    make_stacked_barchart_js(all_categories = all_categories, vertical_names = vertical_names, horizontal_names = horizontal_names, title = ("Procentaj alegere profil in functie de sex" + str(year)), current_export_path = current_export_path_12_js)
+
+
+
+
+
 
 if __name__ == "__main__" :
     base_path = os.path.join(dirpath, r"data")
