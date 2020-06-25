@@ -46,4 +46,7 @@ export const useLayoutHeaderStyle = makeStyles((theme) => ({
   tab: {
     maxWidth: 100,
   },
+  dropDownItemText: {
+    margin: "auto",
+  },
 }));

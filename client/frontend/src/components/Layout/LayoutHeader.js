@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Divider from "@material-ui/core/Divider";
 import { withGetScreen } from "react-getscreen";
 import React, { useCallback } from "react";
 import { useHistory, Link } from "react-router-dom";
@@ -17,6 +18,10 @@ const links = [
   { label: "Home", to: "" },
   { label: "Alte", to: "altele" },
   { label: "Despre noi", to: "aboutus" },
+  { label: "Judete", to: "judete" },
+  { label: "Judete", to: "judete" },
+  { label: "Judete", to: "judete" },
+  { label: "Judete", to: "judete" },
   { label: "Judete", to: "judete" },
 ];
 
@@ -65,22 +70,30 @@ const LayoutHeader = (props) => {
         onClose={() => setAnchorEl(null)}
         PaperProps={{
           style: {
-            maxHeight: 48 * 4.5,
             width: "20ch",
           },
         }}
       >
         {links.map((linkData, index) => (
-          <MenuItem
-            key={index}
-            selected={false}
-            onClick={() => {
-              history.push(linkData.to);
-              setAnchorEl(null);
-            }}
-          >
-            {linkData.label}
-          </MenuItem>
+          <>
+            <MenuItem
+              key={index}
+              selected={index === selected}
+              onClick={() => {
+                history.push(linkData.to);
+                setAnchorEl(null);
+              }}
+            >
+              <Typography
+                align="center"
+                variant="h6"
+                className={classes.dropDownItemText}
+              >
+                {linkData.label}
+              </Typography>
+            </MenuItem>
+            {index !== links.length - 1 ? <Divider /> : null}
+          </>
         ))}
       </Menu>
     </>
@@ -93,6 +106,8 @@ const LayoutHeader = (props) => {
       onChange={(event, newValue) => {
         setSelected(newValue);
       }}
+      variant="scrollable"
+      scrollButtons="auto"
     >
       {links.map((linkData, index) => (
         <Tab
@@ -111,9 +126,11 @@ const LayoutHeader = (props) => {
   return (
     <AppBar position="static" className={classes.appBar}>
       <Toolbar>
-        <Typography className={classes.inline} variant="h5">
-          EducationAnalytica{" "}
-        </Typography>
+        <Link to="/" className={classes.link} onClick={() => setSelected(0)}>
+          <Typography className={classes.inline} variant="h5">
+            EducationAnalytica
+          </Typography>
+        </Link>
 
         <Box className={classes.flexExpander} />
         {renderAllLinks(selected, setSelected, history)}
