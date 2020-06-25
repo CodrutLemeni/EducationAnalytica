@@ -7,21 +7,21 @@
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 15564
+              "value": 7322
             }
           ],
-          "key": "Urban",
-          "value": 16.783307273413488
+          "key": "Baieti",
+          "value": 11.544889785878718
         },
         {
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 5937
+              "value": 14179
             }
           ],
-          "key": "Rural",
-          "value": 13.693606421256574
+          "key": "Fete",
+          "value": 19.511758796735883
         }
       ]
     },
@@ -32,21 +32,21 @@
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 20066
+              "value": 14629
             }
           ],
-          "key": "Urban",
-          "value": 21.638000754839055
+          "key": "Baieti",
+          "value": 23.0661284727697
         },
         {
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 5252
+              "value": 10689
             }
           ],
-          "key": "Rural",
-          "value": 12.11366362210536
+          "key": "Fete",
+          "value": 14.709160715022913
         }
       ]
     },
@@ -57,21 +57,21 @@
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 14180
+              "value": 7212
             }
           ],
-          "key": "Urban",
-          "value": 15.290882622526555
+          "key": "Baieti",
+          "value": 11.371448393302009
         },
         {
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 5726
+              "value": 12694
             }
           ],
-          "key": "Rural",
-          "value": 13.206937909401237
+          "key": "Fete",
+          "value": 17.468246432454006
         }
       ]
     },
@@ -82,28 +82,28 @@
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 42925
+              "value": 34259
             }
           ],
-          "key": "Urban",
-          "value": 46.2878093492209
+          "key": "Baieti",
+          "value": 54.017533348049575
         },
         {
           "extra": [
             {
               "label": "Numar elevi",
-              "value": 26441
+              "value": 35107
             }
           ],
-          "key": "Rural",
-          "value": 60.98579204723683
+          "key": "Fete",
+          "value": 48.3108340557872
         }
       ]
     }
   ],
   "meta": {
     "type": "HORIZONTAL_BAR_CHART_STACKED",
-    "title": "Procentaj alegere profil in functie de mediu de viata2019",
+    "title": "Procentaj alegere profil in functie de sex2019",
     "xAxisName": "Procentaj"
   }
 }
