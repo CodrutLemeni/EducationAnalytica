@@ -19,7 +19,7 @@ export_path = os.path.join(dirpath, r"plots")
 def save_boxplots(students, title, medium):
     current_export_path = os.path.join(export_path,"boxplots")
     current_export_path = os.path.join(current_export_path, medium)
-
+    
     if( os.path.exists(current_export_path) == False):
         os.mkdir(current_export_path)
     

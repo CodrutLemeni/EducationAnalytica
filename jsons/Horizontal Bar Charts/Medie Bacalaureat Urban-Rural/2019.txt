@@ -1,0 +1,1 @@
+{"series_list": [{"name": "Urban", "series": [{"extra": [], "key": "Medie Bacalaureat", "value": 6.965990510594673}]}, {"name": "Rural", "series": [{"extra": [], "key": "Medie Bacalaureat", "value": 5.978721514899847}]}], "meta": {"type": "HORIZONTAL_BAR_CHART_GROUPED", "title": "Medie Bacalaureat", "xAxisName": "Nota"}}
