@@ -37,27 +37,33 @@ def create_map_json(filename_students, current_export_path):
         if current_student.highschool.region not in temp_dict:
             county = current_student.highschool.region
             student_countyx = filter_all(all_students, region=county)
+
+            # calculate passing rate ofr this county(region)
+            passed_students = filter_all(student_countyx, passed="Promovat")
+            pass_rate = len(passed_students) / len(student_countyx)
+
+            # calculate mean for this county
             grades = returngrades(student_countyx)
             mean = sum(grades) / len(grades)
             number = len(grades)
-            temp_dict[str(county)] = (mean, number)
+            temp_dict[str(county)] = (mean, number, pass_rate)
         if (current_student.highschool.name=="?"):
             count_noregion=count_noregion+1
     #the code of the institution cannot be found
     print(count_noregion)
-    # temp_dict = OrderedDict(sorted(temp_dict.items()))
+    temp_dict = OrderedDict(sorted(temp_dict.items()))
 
     for (k,v) in temp_dict.items():
         new_dict = {}
         new_dict["key"] = k
-        new_dict["value"] = v[0]
+        new_dict["value"] = v[2] # pass_rate for county k
         extra_1 = {
             "label": "Nr. elevi",
             "value": v[1]
         }
         extra_2 = {
             "label": "Media",
-            "value": v[0]
+            "value": v[0] # mean
         }
         extra = [extra_1, extra_2]
         new_dict["extra"] = extra
