@@ -16,6 +16,7 @@ const HorizontalBarChart = ({ chartData, height }) => {
   }), [ chartData ]);
 
   const yAxisData = useMemo(() => dataList.map(({ key }) => key), [ dataList ]);
+  const unit = useMemo(() => xAxisName.toLowerCase() === 'procentaj' ? '%' : '', [ xAxisName ]);
 
   const option = useMemo(() => ({
     grid: {
@@ -36,13 +37,13 @@ const HorizontalBarChart = ({ chartData, height }) => {
         type: 'line',
       },
     } ],
-    formatter: horizontalBarChartTooltipFormatter,
+    formatter: (params) => horizontalBarChartTooltipFormatter(params, unit),
     series: [ {
       data: dataList,
       type: 'bar',
       color: '#01a9b4',
     } ],
-  }), [ dataList, yAxisData, xAxisName, yAxisName ]);
+  }), [ dataList, yAxisData, xAxisName, yAxisName, unit ]);
 
 
   return <ChartWrapper title={ title } loading={ loading } descriptionText={ descriptionText }>

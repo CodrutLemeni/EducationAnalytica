@@ -1,5 +1,4 @@
 import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useStyles } from './styles';
