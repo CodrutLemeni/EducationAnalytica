@@ -30,11 +30,18 @@ exports.getRouter = ({ config, db }) => {
     /**
      * Validating that we have the requested data
      */
+    dataRulesMap = {
+      filologie: "in:filosofie,geografie,logica,psihologie,sociologie",
+      "mate-info":
+        "in:anatomie,biologie,chimie-anorganica,chimie-organica,fizica,informatica",
+      "stiinte-ale-naturii":
+        "in:anatomie,biologie,chimie-anorganica,chimie-organica,fizica,informatica",
+      tehnic: "in:anatomie,biologie,chimie-organica-chimie-anorganica,fizica",
+    };
+
     const dataRules = {
       section: ["in:filologie,mate-info,stiinte-ale-naturii,tehnic"],
-      area: [
-        "in:anatomie,biologie,chimie-anorganica,chimie-organica,fizica,informatica",
-      ],
+      area: dataRulesMap[params.section],
     };
     const dataValidation = new Validator(params, dataRules);
 
@@ -90,7 +97,7 @@ exports.getRouter = ({ config, db }) => {
     const dataRules = {
       subfolder: ["in:evolutie-medie,evolutie-promovabilitate"],
       area: [
-        "in:filiera-tehnologica-si-tehnica,filologie,mate-info,stiinte-sociale,stiinte-ale-naturii,zona-rurala,zona-urbana",
+        "in:filiera-tehnologica-si-tehnica,filologie,mate-info,stiinte-sociale,stiinte-ale-naturii,zona-rurala,zona-urbana,total",
       ],
     };
     const dataValidation = new Validator(params, dataRules);
