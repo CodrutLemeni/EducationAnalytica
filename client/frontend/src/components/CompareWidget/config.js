@@ -1,53 +1,55 @@
 export const COMPARE_STRUCTURE = [
   {
     name: 'După promovabilitate',
+    url: 'evolutie-promovabilitate',
     charts: [
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii la mate-info',
-        name: 'evo-prom-mate-info',
-        url: 'e',
+
+        url: 'mate-info',
       },
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii la filologie',
-        name: 'evo-prom-filo',
-        url: 'f',
+
+        url: 'filologie',
       },
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii la stiinte ale naturii',
-        name: 'evo-prom-stiinte-nat',
-        url: 'g',
+
+        url: 'stiinte-ale-naturii',
       },
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii la stiinte sociale',
-        name: 'evo-prom-stiinte-soc',
-        url: 'h',
+
+        url: 'stiinte-sociale',
       },
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii la filiera tehnologica si tehnica',
-        name: 'evo-prom-tehnic',
-        url: 'i',
+
+        url: 'filiera-tehnologica-si-tehnica',
       },
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii in zona urbana',
-        name: 'evo-prom-urbana',
-        url: 'j',
+
+        url: 'zona-urbana',
       },
       {
         type: 'chart',
         label: 'Evolutia promovabilitatii in zona rurala',
-        name: 'evo-prom-rural',
-        url: 'k',
+
+        url: 'zona-rurala',
       },
     ],
   },
   {
     name: 'După alegere subiectul 3',
+    url: 'procentaj-alegere-s3',
     charts: [
       {
         type: 'delimiter',
@@ -55,15 +57,15 @@ export const COMPARE_STRUCTURE = [
       },
       {
         type: 'chart',
-        label: 'Procentaj alegere informatica',
-        name: 'evo-mate-info-alegere-info',
-        url: 'a',
+        label: 'Procentaj alegere informatica - Mate info',
+
+        url: 'mate-info/informatica',
       },
       {
         type: 'chart',
-        label: 'Procentaj alegere fizica',
-        name: 'evo-mate-info-alegere-fizica',
-        url: 'b',
+        label: 'Procentaj alegere fizica - Mate info',
+
+        url: 'mate-info/fizica',
       },
       {
         type: 'delimiter',
@@ -71,15 +73,61 @@ export const COMPARE_STRUCTURE = [
       },
       {
         type: 'chart',
-        label: 'Procentaj alegere informatica',
-        name: 'evo-stiinte-nat-alegere-info',
-        url: 'c',
+        label: 'Procentaj alegere informatica - Stiinte ale naturii',
+
+        url: 'stiinte-ale-naturii/informatica',
       },
       {
         type: 'chart',
-        label: 'Procentaj alegere fizica',
-        name: 'evo-stiinte-nat-alegere-fizica',
-        url: 'd',
+        label: 'Procentaj alegere fizica - Stiinte ale naturii',
+
+        url: 'stiinte-ale-naturii/fizica',
+      },
+    ],
+  },
+  {
+    name: 'Dupa medie',
+    url: 'evolutie-medie',
+    charts: [
+      {
+        type: 'chart',
+        label: 'Media filiera tehnologica si tehnica',
+        url: 'filiera-tehnologica-si-tehnica',
+      },
+      {
+        type: 'chart',
+        label: 'Filologie',
+        url: 'filologie',
+      },
+      {
+        type: 'chart',
+        label: 'Mate info',
+        url: 'mate-info',
+      },
+      {
+        type: 'chart',
+        label: 'Stiinte ale naturii',
+        url: 'stiinte-ale-naturii',
+      },
+      {
+        type: 'chart',
+        label: 'Stiinte sociale',
+        url: 'stiinte-sociale',
+      },
+      {
+        type: 'chart',
+        label: 'Total',
+        url: 'total',
+      },
+      {
+        type: 'chart',
+        label: 'Zona rurala',
+        url: 'zona-rurala',
+      },
+      {
+        type: 'chart',
+        label: 'Zona urbana',
+        url: 'zona-urbana',
       },
     ],
   },

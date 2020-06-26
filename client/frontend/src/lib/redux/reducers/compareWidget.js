@@ -1,29 +1,65 @@
-const initialState = {};
+const initialState = {
+  series1: null,
+  series1Loading: false,
+  series1Error: null,
+
+  series2: null,
+  series2Loading: false,
+  series2Error: null,
+};
 
 
 export default function compareWidget(state = initialState, action) {
   switch (action.type) {
-    case 'CHART_LOADING':
+    case 'SERIES_1_LOADING':
       return {
         ...state,
-        [action.data.chartName]: { data: null, loading: true },
+        series1Loading: true,
+        series1Error: null,
       };
 
-    case 'CHART_LOADED':
-      const { chartName, chartData } = action.data;
+    case 'SERIES_1_LOADED':
       return {
         ...state,
-        [chartName]: { data: chartData, loading: false },
+        series1: action.data,
+        series1Loading: false,
+        series1Error: null,
       };
 
-    case 'CHART_ERROR':
+    case 'SERIES_1_ERROR':
       return {
         ...state,
-        [action.data.chartName]: { data: null, loading: false },
+        series1: null,
+        series1Loading: false,
+        series1Error: action.data,
       };
 
-    case 'CHART_RESET':
-      return {};
+
+    case 'SERIES_2_LOADING':
+      return {
+        ...state,
+        series2Loading: true,
+        series2Error: null,
+      };
+
+    case 'SERIES_2_LOADED':
+      return {
+        ...state,
+        series2: action.data,
+        series2Loading: false,
+        series2Error: null,
+      };
+
+    case 'SERIES_2_ERROR':
+      return {
+        ...state,
+        series2: null,
+        series2Loading: false,
+        series2Error: action.data,
+      };
+
+    case 'CLEAR_SERIES':
+      return initialState;
 
     default:
       return state;

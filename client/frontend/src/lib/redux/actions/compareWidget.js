@@ -1,18 +1,31 @@
 import API, { keysToCamel } from '../../api';
 
-export const loadGenericStatistics = (props) => {
+export const loadSeries1 = (url) => {
   return (dispatch, getState) => {
-    Object.entries(props).forEach(([key, value ]) => {
-      dispatch({ type: 'CHART_LOADING', data: { chartName: key } });
-      API.get(value)
-        .then(({ status, data }) => {
-          if (status === 200) {
-            const actionData = { chartName: key, chartData: keysToCamel(data) };
-            dispatch({ type: 'CHART_LOADED', data: actionData });
-          } else if (status >= 400 && status < 500) {
-            dispatch({ type: 'CHART_ERROR', data: { chartName: key } });
-          }
-        });
-    });
+    dispatch({ type: 'SERIES_1_LOADING' });
+    API.get(url)
+      .then(({ status, data }) => {
+        if (status === 200) {
+          dispatch({ type: 'SERIES_1_LOADED', data: keysToCamel(data) });
+        } else if (status >= 400 && status < 500) {
+          dispatch({ type: 'SERIES_1_ERROR', data: keysToCamel(data) });
+        }
+      });
   };
 };
+
+export const loadSeries2 = (url) => {
+  return (dispatch, getState) => {
+    dispatch({ type: 'SERIES_2_LOADING' });
+    API.get(url)
+      .then(({ status, data }) => {
+        if (status === 200) {
+          dispatch({ type: 'SERIES_2_LOADED', data: keysToCamel(data) });
+        } else if (status >= 400 && status < 500) {
+          dispatch({ type: 'SERIES_2_ERROR', data: keysToCamel(data) });
+        }
+      });
+  };
+};
+
+export const clearSeries = () => ({type: 'CLEAR_SERIES'});
