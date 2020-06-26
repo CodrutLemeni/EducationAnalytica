@@ -1,18 +1,18 @@
-import AppBar from "@material-ui/core/AppBar/AppBar";
-import Box from "@material-ui/core/Box";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
-import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Divider from "@material-ui/core/Divider";
-import { withGetScreen } from "react-getscreen";
-import React, { useCallback } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { useLayoutHeaderStyle } from "./styles";
+import AppBar from '@material-ui/core/AppBar/AppBar';
+import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import React from 'react';
+import { withGetScreen } from 'react-getscreen';
+import { Link, useHistory } from 'react-router-dom';
+import { useLayoutHeaderStyle } from './styles';
 
 const links = [
   { label: "Home", to: "" },
@@ -101,7 +101,7 @@ const LayoutHeader = (props) => {
 
   const renderFullMenu = () => (
     <Tabs
-      centered
+
       value={selected}
       onChange={(event, newValue) => {
         setSelected(newValue);

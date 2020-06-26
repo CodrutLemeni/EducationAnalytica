@@ -1,13 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {
-  NotFound,
-  Dashboard,
-  CountyDetailPage,
-  CountyListPage,
-  AboutUs,
-} from "../../../pages";
-import { Layout } from "../../Layout/Layout";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { AboutUs, Dashboard, NotFound } from '../../../pages';
+import { Others } from '../../../pages/Others';
+import { Layout } from '../../Layout/Layout';
 
 const RootContainer = () => {
   return (
@@ -15,19 +10,16 @@ const RootContainer = () => {
       <Layout>
         <Switch>
           <Route exact path="/">
-            <Dashboard />
+            <Dashboard/>
           </Route>
-          <Route exact path="/judete/">
-            <CountyListPage />
-          </Route>
-          <Route exact path="/judete/:countyCode">
-            <CountyDetailPage />
+          <Route exact path="/altele/">
+            <Others/>
           </Route>
           <Route exact path="/aboutus">
-            <AboutUs />
+            <AboutUs/>
           </Route>
           <Route>
-            <NotFound />
+            <NotFound/>
           </Route>
         </Switch>
       </Layout>
