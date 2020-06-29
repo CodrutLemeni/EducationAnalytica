@@ -1,0 +1,1 @@
+{"series_list": [{"name": "Evolutia mediei in zona rurala", "series": [{"key": 2015, "value": 6.211585093065732}, {"key": 2016, "value": 6.181634541643238}, {"key": 2017, "value": 6.438705687093149}, {"key": 2019, "value": 6.332192707075537}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia mediei in zona rurala", "xAxisName": "An", "yAxisName": "Medie"}}
