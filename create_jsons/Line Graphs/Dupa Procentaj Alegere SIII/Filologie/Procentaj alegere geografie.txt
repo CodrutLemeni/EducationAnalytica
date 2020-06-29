@@ -1,0 +1,1 @@
+{"series_list": [{"name": "Procentaj alegere geografie", "series": [{"key": 2015, "value": 66.90928980141366}, {"key": 2016, "value": 62.192332326836855}, {"key": 2017, "value": 57.55824453675275}, {"key": 2019, "value": 52.792893353797496}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere geografie", "xAxisName": "An", "yAxisName": "Procent"}}
