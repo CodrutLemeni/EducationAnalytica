@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "type": "HORIZONTAL_BAR_CHART",
+    "title": "Procentaj alegere subiectul 3 Profil Tehnic 2016",
+    "xAxisName": "Procentaj"
+  },
+  "series": [
+    {
+      "key": "Fizica",
+      "value": 9.4,
+      "extra": [
+        {
+          "label": "Nr. elevi",
+          "value": 1894
+        },
+        {
+          "label": "Media",
+          "value": 3.85
+        }
+      ]
+    },
+    {
+      "key": "Chimie anorganica",
+      "value": 5.46,
+      "extra": [
+        {
+          "label": "Nr. elevi",
+          "value": 1100
+        },
+        {
+          "label": "Media",
+          "value": 4.74
+        }
+      ]
+    },
+    {
+      "key": "Chimie organica",
+      "value": 1.72,
+      "extra": [
+        {
+          "label": "Nr. elevi",
+          "value": 346
+        },
+        {
+          "label": "Media",
+          "value": 4.05
+        }
+      ]
+    },
+    {
+      "key": "Anatomie",
+      "value": 0.44,
+      "extra": [
+        {
+          "label": "Nr. elevi",
+          "value": 89
+        },
+        {
+          "label": "Media",
+          "value": 2.86
+        }
+      ]
+    },
+    {
+      "key": "Biologie",
+      "value": 82.98,
+      "extra": [
+        {
+          "label": "Nr. elevi",
+          "value": 16719
+        },
+        {
+          "label": "Media",
+          "value": 82.98
+        }
+      ]
+    }
+  ]
+}

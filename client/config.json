@@ -1,0 +1,27 @@
+{
+  "port": 8000,
+  "contactEmail": "contact@eduanalytica.ro",
+  "hbc_root": "horizontal-bar-charts",
+  "hbc_subfolders": [
+    "alegere-subiect-filologie",
+    "alegere-subiect-mate-info",
+    "alegere-subiect-profil-resurse-naturale",
+    "alegere-subiect-profil-tehnic",
+    "alegere-subiect-stiinte-ale-naturii",
+    "fete-baieti",
+    "fete-baieti-mate-info-filo-si-stiinte",
+    "procentaj-alegere-profil-in-functie-de-mediu-de-viata",
+    "procentaj-alegere-profil-in-functie-de-sex",
+    "procentaj-promovabilitate-fete-baieti-urban-rural",
+    "procentaj-promovabilitate-urban-rural",
+    "romana-mate-info-si-stiinte"
+  ],
+  "grade_distrib_root": "grade-distributions",
+  "map_chart_root": "map-charts",
+  "lc_root": "line-graphs",
+  "lc_subfolders": [
+    "evolutie-medie",
+    "evolutie-promovabilitate",
+    "procentaj-alegere-s3"
+  ]
+}
