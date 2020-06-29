@@ -1,0 +1,1 @@
+{"series_list": [{"name": "Procentaj alegere chimie organica", "series": [{"key": 2015, "value": 11.405575186493914}, {"key": 2016, "value": 11.072625698324021}, {"key": 2017, "value": 11.786626916524702}, {"key": 2019, "value": 10.976589972872501}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere chimie organica", "xAxisName": "An", "yAxisName": "Procent"}}
