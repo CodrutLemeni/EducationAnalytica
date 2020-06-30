@@ -13,6 +13,8 @@ if (process.env.ENV === "DEVELOPMENT") {
   const dotenv = require("dotenv");
   dotenv.config();
   const morgan = require("morgan");
+  // Loggin of requests
+  app.use(morgan("common"));
 }
 
 const app = express();
@@ -22,9 +24,6 @@ app.use((req, res, next) => {
   req.headers["Content-Type"] = "application/json";
   next();
 });
-
-// Loggin of requests
-app.use(morgan("common"));
 
 db.initDb({ config }, ({ config, db }) => {
   app.use("/api", api.getRouter({ config, db }));

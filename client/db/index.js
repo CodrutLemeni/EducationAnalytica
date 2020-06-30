@@ -30,7 +30,7 @@ createDb = (config) => {
     try {
       const data = require(`../data/${config.map_chart_root}/${year}.json`);
       return { data, error: null };
-    } catch (err) {
+    } catch (error) {
       return { data: null, error };
     }
   };
