@@ -1,1 +1,57 @@
-{"series": [{"extra": [{"label": "Media la acest subiect", "value": 6.39}, {"label": "Media la acest subiect", "value": 6.39}], "key": "Biologie", "value": 18.702421295614162}, {"extra": [{"label": "Media la acest subiect", "value": 7.62}, {"label": "Media la acest subiect", "value": 7.62}], "key": "Anatomie", "value": 62.786700063847555}, {"extra": [{"label": "Media la acest subiect", "value": 8.05}, {"label": "Media la acest subiect", "value": 8.05}], "key": "Informatica", "value": 0.663032267570355}, {"extra": [{"label": "Media la acest subiect", "value": 8.02}, {"label": "Media la acest subiect", "value": 8.02}], "key": "Chimie Organica", "value": 11.41397770247041}, {"extra": [{"label": "Media la acest subiect", "value": 7.32}, {"label": "Media la acest subiect", "value": 7.32}], "key": "Chimie Anorganica", "value": 2.9910122292618238}, {"extra": [{"label": "Media la acest subiect", "value": 8.07}, {"label": "Media la acest subiect", "value": 8.07}], "key": "Fizica", "value": 3.4428564412356955}], "meta": {"type": "HORIZONTAL_BAR_CHART", "title": "Procentaj alegere subiectul III stiinte ale naturii 2015", "xAxisName": "Procentaj"}}
+{
+  "series": [
+    {
+      "extra": [
+        { "label": "Nr. elevi care au ales acest subiect", "value": 3808 },
+        { "label": "Media la acest subiect", "value": 6.39 }
+      ],
+      "key": "Biologie",
+      "value": 18.702421295614162
+    },
+    {
+      "extra": [
+        { "label": "Nr. elevi care au ales acest subiect", "value": 12784 },
+        { "label": "Media la acest subiect", "value": 7.62 }
+      ],
+      "key": "Anatomie",
+      "value": 62.786700063847555
+    },
+    {
+      "extra": [
+        { "label": "Nr. elevi care au ales acest subiect", "value": 135 },
+        { "label": "Media la acest subiect", "value": 8.05 }
+      ],
+      "key": "Informatica",
+      "value": 0.663032267570355
+    },
+    {
+      "extra": [
+        { "label": "Nr. elevi care au ales acest subiect", "value": 2324 },
+        { "label": "Media la acest subiect", "value": 8.02 }
+      ],
+      "key": "Chimie Organica",
+      "value": 11.41397770247041
+    },
+    {
+      "extra": [
+        { "label": "Nr. elevi care au ales acest subiect", "value": 609 },
+        { "label": "Media la acest subiect", "value": 7.32 }
+      ],
+      "key": "Chimie Anorganica",
+      "value": 2.9910122292618238
+    },
+    {
+      "extra": [
+        { "label": "Nr. elevi care au ales acest subiect", "value": 701 },
+        { "label": "Media la acest subiect", "value": 8.07 }
+      ],
+      "key": "Fizica",
+      "value": 3.4428564412356955
+    }
+  ],
+  "meta": {
+    "type": "HORIZONTAL_BAR_CHART",
+    "title": "Procentaj alegere subiectul III stiinte ale naturii 2015",
+    "xAxisName": "Procentaj"
+  }
+}

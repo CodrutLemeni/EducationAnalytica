@@ -1,39 +1,36 @@
 import AppBar from "@material-ui/core/AppBar/AppBar";
 import Box from "@material-ui/core/Box";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
+import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Divider from "@material-ui/core/Divider";
+import React from "react";
 import { withGetScreen } from "react-getscreen";
-import React, { useCallback } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useLayoutHeaderStyle } from "./styles";
 
 const links = [
   { label: "Home", to: "" },
+  { label: "Distributia notelor", to: "grade-distrib" },
+  { label: "Alegera subiectului III", to: "sub-choice" },
   { label: "Alte", to: "altele" },
   { label: "Despre noi", to: "aboutus" },
-  { label: "Judete", to: "judete" },
-  { label: "Judete", to: "judete" },
-  { label: "Judete", to: "judete" },
-  { label: "Judete", to: "judete" },
-  { label: "Judete", to: "judete" },
 ];
 
 const getSelectedFromUlr = (location) => {
   let value = -1;
   links.forEach((linkData, index) => {
-    if ("/" + linkData.to === location) value = index;
+    if (linkData.to === location.split("/")[1]) value = index;
   });
   return value;
 };
 
-const LayoutHeader = (props) => {
+const LayoutHeader = ({ isMobile }) => {
   const [selected, setSelected] = React.useState(
     getSelectedFromUlr(window.location.pathname)
   );
@@ -46,7 +43,7 @@ const LayoutHeader = (props) => {
   const classes = useLayoutHeaderStyle();
 
   const renderAllLinks = () => {
-    if (props.isMobile()) return renderDropdownMenu();
+    if (isMobile()) return renderDropdownMenu();
     return renderFullMenu();
   };
 
@@ -80,7 +77,7 @@ const LayoutHeader = (props) => {
               key={index}
               selected={index === selected}
               onClick={() => {
-                history.push(linkData.to);
+                history.push("/" + linkData.to);
                 setAnchorEl(null);
               }}
             >
@@ -101,7 +98,6 @@ const LayoutHeader = (props) => {
 
   const renderFullMenu = () => (
     <Tabs
-      centered
       value={selected}
       onChange={(event, newValue) => {
         setSelected(newValue);
@@ -115,7 +111,7 @@ const LayoutHeader = (props) => {
           key={index}
           value={index}
           onClick={(event) => {
-            history.push(linkData.to);
+            history.push("/" + linkData.to);
           }}
           className={classes.tab}
         />

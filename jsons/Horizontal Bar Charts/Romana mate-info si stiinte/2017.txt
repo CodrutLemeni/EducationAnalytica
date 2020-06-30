@@ -1,0 +1,1 @@
+{"series_list": [{"name": "mate-info", "series": [{"extra": [], "key": "Nota romana", "value": 7.748557662174873}]}, {"name": "stiinte", "series": [{"extra": [], "key": "Nota romana", "value": 7.401442717206178}]}], "meta": {"type": "HORIZONTAL_BAR_CHART_GROUPED", "title": "Note romana", "xAxisName": "Nota"}}

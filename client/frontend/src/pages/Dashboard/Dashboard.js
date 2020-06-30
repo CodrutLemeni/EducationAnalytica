@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { ArticleBox } from "../../components/ArticleBox";
 import Chart from "../../components/charts/Chart/Chart";
-import { withLayout } from "../../components/Layout";
 import { TitleBox } from "../../components/TitleBox";
 import { globalStatistics } from "../../lib/redux/actions/";
 

@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import json
 
 def make_barchart_percentage(all_categories, all_categories_good, categories_names, title, current_export_path, colors):
 
@@ -44,6 +45,7 @@ def make_barchart_percentage(all_categories, all_categories_good, categories_nam
     #ax.annotate
 
     plt.savefig(current_export_path)
+
 
 def make_barchart_percentage_subject3(all_students, all_grades, categories_names, title, current_export_path, colors):
 

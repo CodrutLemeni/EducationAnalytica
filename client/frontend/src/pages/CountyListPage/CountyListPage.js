@@ -1,7 +1,6 @@
 import Box from "@material-ui/core/Box";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { withLayout } from "../../components/Layout";
 
 const CountyPage = ({ loadCharts, countyHistogram }) => {
   useEffect(() => {

@@ -1,13 +1,12 @@
-import React from "react";
-
-import { useStyles } from "./styles";
+import { Typography } from "@material-ui/core";
 
 import Box from "@material-ui/core/Box";
-import { TitleBox } from "../../components/TitleBox";
-import { Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import React from "react";
 
 import logo from "./logo.png";
+
+import { useStyles } from "./styles";
 
 export default function AboutUs() {
   const styles = useStyles();
@@ -24,7 +23,7 @@ export default function AboutUs() {
 
         <Grid container className={styles.imageGrid}>
           <Grid item xs={6}>
-            <img src={logo} className={styles.logo} />
+            <img src={logo} className={styles.logo} alt={"logo"} />
           </Grid>
           <Grid item xs={6}>
             <Typography variant="h5" className={styles.text}>

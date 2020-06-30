@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { withLayout } from "../../components/Layout";
 import { COUNTIES, isValidCountyCode } from "../../config/countyInfo";
 import { useStyles } from "./styles";
 

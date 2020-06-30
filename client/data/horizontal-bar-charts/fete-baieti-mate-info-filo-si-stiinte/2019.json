@@ -1,90 +1,59 @@
 {
-  "series": [
+  "series_list": [
     {
-      "extra": [
+      "name": ["Baieti"],
+      "series": [
         {
-          "label": "Nr. elevi promovati",
-          "value": 14786
+          "extra": [{ "label": "Nr. elevi promovati", "value": 7322 }],
+          "key": "Filo",
+          "value": 75.4302103250478
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 14629 }],
+          "key": "Mate-info",
+          "value": 83.97703192289289
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 7212 }],
+          "key": "Stiinte",
+          "value": 71.13144758735442
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 34259 }],
+          "key": "Other",
+          "value": 43.15946174727809
         }
-      ],
-      "key": "Baitei other",
-      "value": 43.15946174727809
+      ]
     },
     {
-      "extra": [
+      "name": ["Fete"],
+      "series": [
         {
-          "label": "Nr. elevi promovati",
-          "value": 19821
-        }
-      ],
-      "key": "Fete other",
-      "value": 56.45882587518158
-    },
-    {
-      "extra": [
+          "extra": [{ "label": "Nr. elevi promovati", "value": 14179 }],
+          "key": "Filo",
+          "value": 85.28810212285775
+        },
         {
-          "label": "Nr. elevi promovati",
-          "value": 5523
-        }
-      ],
-      "key": "Baieti filologie",
-      "value": 75.4302103250478
-    },
-    {
-      "extra": [
+          "extra": [{ "label": "Nr. elevi promovati", "value": 10689 }],
+          "key": "Mate-info",
+          "value": 88.8483487697633
+        },
         {
-          "label": "Nr. elevi promovati",
-          "value": 12093
-        }
-      ],
-      "key": "Fete filologie",
-      "value": 85.28810212285775
-    },
-    {
-      "extra": [
+          "extra": [{ "label": "Nr. elevi promovati", "value": 12694 }],
+          "key": "Stiinte",
+          "value": 79.41547187647707
+        },
         {
-          "label": "Nr. elevi promovati",
-          "value": 12285
+          "extra": [{ "label": "Nr. elevi promovati", "value": 35107 }],
+          "key": "Other",
+          "value": 56.45882587518158
         }
-      ],
-      "key": "Baieti mate-info",
-      "value": 83.97703192289289
-    },
-    {
-      "extra": [
-        {
-          "label": "Nr. elevi promovati",
-          "value": 9497
-        }
-      ],
-      "key": "Fete mate-info",
-      "value": 88.8483487697633
-    },
-    {
-      "extra": [
-        {
-          "label": "Nr. elevi promovati",
-          "value": 5130
-        }
-      ],
-      "key": "Baieti stiinte",
-      "value": 71.13144758735442
-    },
-    {
-      "extra": [
-        {
-          "label": "Nr. elevi promovati",
-          "value": 10081
-        }
-      ],
-      "key": "Fete stiinte",
-      "value": 79.41547187647707
+      ]
     }
   ],
   "meta": {
-    "type": "HORIZONTAL_BAR_CHART",
+    "type": "HORIZONTAL_BAR_CHART_GROUPED",
     "title": "Procentaj promovabilitate Fete - Baieti \nmate-info, filologie, stiinte ale naturii si restul 2019",
-    "xAxisName": "Procentaj",
-    "descriptionText": "Aceasta este o descriere a graficului care este trecuta in JSON in meta.descriptionText si este optionala oricarui grafic! Se poate intinde pe mai multe randuri"
+    "xAxisName": "Procentaj"
   }
 }
