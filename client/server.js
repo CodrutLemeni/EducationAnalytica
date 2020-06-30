@@ -2,7 +2,6 @@
  * Production packages
  */
 const express = require("express");
-const mongoose = require("mongoose");
 const config = require("./config.json");
 const api = require("./api");
 const db = require("./db");
@@ -10,9 +9,11 @@ const db = require("./db");
 /**
  * Dev packages
  */
-const dotenv = require("dotenv");
-dotenv.config();
-const morgan = require("morgan");
+if (process.env.ENV === "DEVELOPMENT") {
+  const dotenv = require("dotenv");
+  dotenv.config();
+  const morgan = require("morgan");
+}
 
 const app = express();
 
