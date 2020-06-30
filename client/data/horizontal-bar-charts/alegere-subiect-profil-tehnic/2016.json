@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "series": [
     {
@@ -47,3 +48,6 @@
     "xAxisName": "Procentaj"
   }
 }
+=======
+{"series": [{"extra": [{"label": "Nr. elevi care au ales acest subiect", "value": 16719}, {"label": "Media la acest subiect", "value": 3.63}], "key": "Biologie", "value": 82.98094103633115}, {"extra": [{"label": "Nr. elevi care au ales acest subiect", "value": 89}, {"label": "Media la acest subiect", "value": 2.86}], "key": "Anatomie", "value": 0.44173118919992055}, {"extra": [{"label": "Nr. elevi care au ales acest subiect", "value": 346}, {"label": "Media la acest subiect", "value": 4.05}], "key": "Chimie Organica", "value": 1.7172920389120507}, {"extra": [{"label": "Nr. elevi care au ales acest subiect", "value": 1100}, {"label": "Media la acest subiect", "value": 4.74}], "key": "Chimie Anorganica", "value": 5.459598967639468}, {"extra": [{"label": "Nr. elevi care au ales acest subiect", "value": 1894}, {"label": "Media la acest subiect", "value": 3.85}], "key": "Fizica", "value": 9.40043676791741}], "meta": {"type": "HORIZONTAL_BAR_CHART", "title": "Procentaj alegere subiectul III Profil Tehnic 2016", "xAxisName": "Procentaj"}}
+>>>>>>> 0af2ced015ca7839960334fe5c29fe9f5821678d
