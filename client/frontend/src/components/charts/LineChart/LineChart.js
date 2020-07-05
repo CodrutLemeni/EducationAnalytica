@@ -95,7 +95,7 @@ const LineChart = ({ chartDataList, height, min, max }) => {
       trigger: 'axis',
     } ],
     series,
-  }), [ series, xAxisData, xAxisName, yAxisName, legend ]);
+  }), [ series, xAxisData, xAxisName, yAxisName, legend, min, max]);
 
   return <ChartWrapper title={ title } loading={ loading }>
     <ReactEcharts

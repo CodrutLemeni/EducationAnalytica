@@ -92,14 +92,13 @@ const CompareWidget = ({ series1, series2, loadSeries1, loadSeries2, clearSeries
   useEffect(() => {
     if (!url1 && !url2) {
       clearSeries();
-      console.log('clear');
     }
   }, [ clearSeries, url1, url2 ]);
 
   const chartDataList = useMemo(() => [ series1, series2 ], [ series1, series2 ]);
 
   return <Paper className={ classes.paper }>
-    { (url1 || url2) && <LineChart height={ 500 } chartDataList={ chartDataList } min={min} max={max}/> }
+    { (url1 || url2) && <LineChart height={ 500 } chartDataList={ chartDataList } min={ min } max={ max }/> }
     <Box>
       <Box className={ classes.box }>
         <FormControl className={ classes.formControl } variant={ 'filled' } color={ 'primary' } size={ 'medium' }>
