@@ -68,7 +68,14 @@ const CompareWidget = ({ series1, series2, loadSeries1, loadSeries2, clearSeries
     <MenuItem key={ type } value={ index }>{ type }</MenuItem>
   )), [ compareTypes ]);
 
-  const typeUrl = useMemo(() => COMPARE_STRUCTURE[selectedCompareType].url, [ selectedCompareType ]);
+  const { typeUrl, min, max } = useMemo(() => {
+    const structure = COMPARE_STRUCTURE[selectedCompareType];
+    return {
+      typeUrl: structure.url,
+      min: structure.min,
+      max: structure.max,
+    };
+  }, [ selectedCompareType ]);
   const urlPrefix = 'api/line-graphs';
 
   const url1 = useMemo(() => selectedUrl1 ? `${ urlPrefix }/${ typeUrl }/${ selectedUrl1 }` : undefined, [ typeUrl, selectedUrl1 ]);
@@ -92,7 +99,7 @@ const CompareWidget = ({ series1, series2, loadSeries1, loadSeries2, clearSeries
   const chartDataList = useMemo(() => [ series1, series2 ], [ series1, series2 ]);
 
   return <Paper className={ classes.paper }>
-    { (url1 || url2) && <LineChart height={ 500 } chartDataList={ chartDataList }/> }
+    { (url1 || url2) && <LineChart height={ 500 } chartDataList={ chartDataList } min={min} max={max}/> }
     <Box>
       <Box className={ classes.box }>
         <FormControl className={ classes.formControl } variant={ 'filled' } color={ 'primary' } size={ 'medium' }>

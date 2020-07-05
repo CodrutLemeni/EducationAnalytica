@@ -17,7 +17,6 @@ const createSeriesConfig = (name, data, colorIndex, unit = '') => {
     data,
     name,
     type: 'line',
-
     color: background,
     symbolSize: 15,
     lineStyle: {
@@ -67,7 +66,7 @@ const chartDataExtractor = (chartDataList) => {
   };
 };
 
-const LineChart = ({ chartDataList, height }) => {
+const LineChart = ({ chartDataList, height, min, max }) => {
   const { seriesList, title, loading, xAxisName, yAxisName, legend } = useMemo(() => chartDataExtractor(chartDataList), [ chartDataList ]);
   const xAxisData = useMemo(() => deepGet(seriesList, '0.series', []).map(({ key }) => key), [ seriesList ]);
   const unit = useMemo(() => xAxisName.toLowerCase() === 'procentaj' ? '%' : '', [ xAxisName ]);
@@ -89,10 +88,11 @@ const LineChart = ({ chartDataList, height }) => {
       data: xAxisData,
       type: 'value',
       name: yAxisName,
+      min,
+      max,
     } ],
     tooltip: [ {
       trigger: 'axis',
-
     } ],
     series,
   }), [ series, xAxisData, xAxisName, yAxisName, legend ]);

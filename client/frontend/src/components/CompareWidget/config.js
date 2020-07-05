@@ -1,6 +1,8 @@
 export const COMPARE_STRUCTURE = [
   {
     name: 'După promovabilitate',
+    min: 0,
+    max: 100,
     url: 'evolutie-promovabilitate',
     charts: [
       {
@@ -49,6 +51,8 @@ export const COMPARE_STRUCTURE = [
   },
   {
     name: 'După alegere subiectul 3',
+    min: 0,
+    max: 100,
     url: 'procentaj-alegere-s3',
     charts: [
       {
@@ -87,6 +91,8 @@ export const COMPARE_STRUCTURE = [
   },
   {
     name: 'Dupa medie',
+    min: 0,
+    max: 10,
     url: 'evolutie-medie',
     charts: [
       {
