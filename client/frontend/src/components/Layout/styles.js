@@ -43,10 +43,21 @@ export const useLayoutHeaderStyle = makeStyles((theme) => ({
   navText: {
     padding: theme.spacing(0, 1),
   },
-  tab: {
-    maxWidth: 100,
+  drawer: {
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.secondary.light,
   },
-  dropDownItemText: {
+  logo: {
+    marginTop: "1rem",
+    height: "3rem",
+  },
+  drawerLogo: {
+    maxWidth: "50vw",
     margin: "auto",
+  },
+  [theme.breakpoints.down("xs")]: {
+    logo: {
+      height: "2.5rem",
+    },
   },
 }));

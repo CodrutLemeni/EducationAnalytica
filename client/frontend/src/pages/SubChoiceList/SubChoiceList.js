@@ -58,15 +58,25 @@ const SubChoiceList = ({}) => {
     <Box>
       <TitleBox title={"Alegerea subiectului III"}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit
-          aliquet ultricies. Orci varius natoque penatibus et magnis dis
-          parturient montes, nascetur ridiculus mus. Duis faucibus purus ac
-          justo dictum, quis finibus purus dignissim. Morbi venenatis non elit
-          eget tincidunt. In quis dapibus orci, sit amet pretium turpis.
-          Curabitur malesuada, magna vitae mattis pellentesque, ligula arcu
-          sodales odio, quis consequat elit magna posuere nisl. Nam scelerisque
-          dui a luctus faucibus. Curabitur vestibulum orci vitae imperdiet
-          commodo.
+          Pentru profilul de matematică-informatică, optiunea principală in
+          perioada 2015-2019 a fost Anatomia, procentajul de elevi care aleg
+          această opțiune fiind in jurul valorii de 36%. O creștere în
+          popularitate se poate observa pentru opțiunile de informatică, care a
+          crescut de la 19.2% in 2015 din alegerile elevilor la 26.9% in 2019,
+          respectiv fizică care a ajuns optiunea de bacalaureat pentru 21.5%
+          dintre elevi relativ cu valoarea de 14.3% în 2015. Aceste creșteri au
+          fost, în mare parte, în detrimentul biologiei de clasa a IX-a si a X-a
+          care a scăzut constant în această perioadă, ajungând ca în 2019, nici
+          10% dintre elevi să prefere această alternativă.
+          <br />
+          <br />
+          Pentru profilul tehnic, alegerea biologiei de clasele IX-X pentru
+          proba a III-a este de departe cea mai populară opțiune. Mai mult, față
+          de anul 2015, se observă o ușoara creștere în procentajul de elevi
+          care preferă biologia în 2019. A doua opțiune a elevilor de la
+          profilul tehnic o reprezintă fizică. Procentajul elevilor care au ales
+          această opțiune în perioada 2015-2019 a fost aproximativ 10%, valoarea
+          cunoscând puține variații.
         </p>
       </TitleBox>
       <Grid container spacing={5}>
