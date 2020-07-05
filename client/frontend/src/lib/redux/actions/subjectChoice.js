@@ -30,6 +30,7 @@ export const loadSubjectChoiceForSubjectForYear = (subject, year) => {
 };
 
 export const loadSubjectChoiceForSubject = (subject) => {
+  if (subject === undefined) return;
   return (dispatch, getState) => {
     years.forEach((year) => {
       dispatch(loadSubjectChoiceForSubjectForYear(subject, year));

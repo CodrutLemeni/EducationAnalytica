@@ -47,11 +47,12 @@ const subjects = [
 ];
 
 const SubChoice = ({ match, subjectChoiceYears, loadCharts }) => {
-  const subject = subjects.find((sub) => sub.code === match.params.subject);
-  useEffect(() => loadCharts(subject.code), [loadCharts]);
+  const { label, title, code } = subjects.find(
+    (sub) => sub.code === match.params.subject
+  );
+  useEffect(() => loadCharts(code), [loadCharts]);
 
-  if (subject === undefined) return <NotFound />;
-  const title = subject.label;
+  if (label === undefined) return <NotFound />;
 
   return (
     <Box>

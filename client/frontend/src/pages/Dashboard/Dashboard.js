@@ -40,57 +40,34 @@ const Dashboard = ({
           <Chart height={500} chartData={averageGradeDistExample} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <ArticleBox title={"Titlu articol"}>
+          <ArticleBox title={"Procentajul de promovabilitate"}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              suscipit aliquet ultricies. Orci varius natoque penatibus et
-              magnis dis parturient montes, nascetur ridiculus mus. Duis
-              faucibus purus ac justo dictum, quis finibus purus dignissim.
-              Morbi venenatis non elit eget tincidunt. In quis dapibus orci, sit
-              amet pretium turpis. Curabitur malesuada, magna vitae mattis
-              pellentesque, ligula arcu sodales odio, quis consequat elit magna
-              posuere nisl. Nam scelerisque dui a luctus faucibus. Curabitur
-              vestibulum orci vitae imperdiet commodo.
-            </p>
-            <p>
-              Vestibulum posuere erat quam, eget iaculis libero porta ut.
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Sed quis dui eu velit egestas
-              blandit vel a nunc. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Aliquam pellentesque sodales lorem eget
-              venenatis.
-            </p>
-            <p>
-              Vestibulum posuere erat quam, eget iaculis libero porta ut.
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Sed quis dui eu velit egestas
-              blandit vel a nunc. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Aliquam pellentesque sodales lorem eget
-              venenatis.
+              În 2019, 70.9% dintre fete au promovat examenul de bacalaureat în
+              comparație cu doar 59.5% dintre băieți. Tendința ca un procentaj
+              mai mare al fetelor sa treac bacalaureatul comparat cu cel al
+              baietilor se poate observa inclusiv pentru fiecare profil (vezi
+              graficul de mai jos). Pentru profilul de matematică-informatică,
+              care este și unul dintre profilele cu cea mai mare
+              promovabilitate, diferenta dintre băieți și fete se află în jurul
+              valorii de 5%. Pentru profilul de filologie, diferența crește la
+              10%, iar pentru celelalte profile decât cele menționate,
+              procentajul ajunge la mai mult de 13%.
             </p>
           </ArticleBox>
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <ArticleBox title={"Titlu articol"}>
+          <ArticleBox title={"Procentajul de promovabilitate pe judete"}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              suscipit aliquet ultricies. Orci varius natoque penatibus et
-              magnis dis parturient montes, nascetur ridiculus mus. Duis
-              faucibus purus ac justo dictum, quis finibus purus dignissim.
-              Morbi venenatis non elit eget tincidunt. In quis dapibus orci, sit
-              amet pretium turpis. Curabitur malesuada, magna vitae mattis
-              pellentesque, ligula arcu sodales odio, quis consequat elit magna
-              posuere nisl. Nam scelerisque dui a luctus faucibus. Curabitur
-              vestibulum orci vitae imperdiet commodo.
-            </p>
-            <p>
-              Vestibulum posuere erat quam, eget iaculis libero porta ut.
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Sed quis dui eu velit egestas
-              blandit vel a nunc. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Aliquam pellentesque sodales lorem eget
-              venenatis.
+              În harta de mai jos, sunt reprezentate media tuturor notelor
+              obtinute a studenților care au avut notă de trecere per fiecare
+              judet în anul 2019. Judetele cu un indice mai mare corespund unei
+              culori mai intunecate. Astfel, se poate observa ca județele Brașov
+              și Olt se afla la fruntea clasamentului, iar Mehedinti, Suceava
+              sau Maramureș au o medie per judet mai mica decât toate celelalte
+              județe. Pozitia de județ fruntaș in educatie al judetului Brașov
+              este dat si de numărul ridicat de persoane care au trecut
+              bacaleauratul (72,74%) față de media țării de 69.1%.
             </p>
           </ArticleBox>
         </Grid>
