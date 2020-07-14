@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import {
   AboutUs,
   Dashboard,
@@ -13,7 +13,7 @@ import { Layout } from "../../Layout/Layout";
 
 const RootContainer = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Layout>
         <Switch>
           <Route exact path="/">
@@ -37,7 +37,7 @@ const RootContainer = () => {
           </Route>
         </Switch>
       </Layout>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
