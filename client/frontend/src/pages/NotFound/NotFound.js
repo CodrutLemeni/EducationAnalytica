@@ -3,7 +3,11 @@ import React from "react";
 import { connect } from "react-redux";
 
 const NotFound = () => {
-  return <Typography>Not found</Typography>;
+  return (
+    <Typography variant="h1" align="center">
+      Not found
+    </Typography>
+  );
 };
 
 export default connect()(NotFound);
