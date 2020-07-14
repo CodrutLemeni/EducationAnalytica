@@ -17,9 +17,9 @@ createDb = (config) => {
     }
   };
 
-  const getGradeDistrib = ({ year }) => {
+  const getGradeDistrib = ({ year, subfolder }) => {
     try {
-      const data = require(`../data/${config.grade_distrib_root}/${year}.json`);
+      const data = require(`../data/${config.grade_distrib_root}/${subfolder}/${year}.json`);
       return { data, error: null };
     } catch (error) {
       return { data: null, error };
