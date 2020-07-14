@@ -17,6 +17,12 @@
     "romana-mate-info-si-stiinte"
   ],
   "grade_distrib_root": "grade-distributions",
+  "grade_distrib_subfolders": [
+    "filologie",
+    "general",
+    "mate-info",
+    "stiinte-ale-naturii"
+  ],
   "map_chart_root": "map-charts",
   "lc_root": "line-graphs",
   "lc_subfolders": [
