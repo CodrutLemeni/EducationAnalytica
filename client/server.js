@@ -2,6 +2,7 @@
  * Production packages
  */
 const express = require("express");
+const path = require("path");
 const config = require("./config.json");
 const api = require("./api");
 const db = require("./db");
@@ -26,11 +27,16 @@ app.use((req, res, next) => {
 });
 
 db.initDb({ config }, ({ config, db }) => {
+  /** React build static files */
+  app.use(express.static("frontend/build"));
+
   /** Api endpoint */
   app.use("/api", api.getRouter({ config, db }));
 
-  /** React build static files */
-  app.use(express.static("frontend/build"));
+  /** Send index.html for any request, react-router does the routing */
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
+  });
 
   app.listen(process.env.PORT || config.port, () => {
     console.log(`Server listening on port ${process.env.PORT || config.port}`);
