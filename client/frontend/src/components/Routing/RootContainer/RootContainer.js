@@ -4,6 +4,7 @@ import {
   AboutUs,
   Dashboard,
   NotFound,
+  GradeDistribList,
   GradeDistrib,
   SubChoiceList,
   SubChoice,
@@ -19,16 +20,25 @@ const RootContainer = () => {
           <Route exact path="/">
             <Dashboard />
           </Route>
+
           <Route exact path="/grade-distrib/">
-            <GradeDistrib />
+            <GradeDistribList />
           </Route>
+          <Route
+            exact
+            path="/grade-distrib/:subject"
+            component={GradeDistrib}
+          />
+
           <Route exact path="/sub-choice/">
             <SubChoiceList />
           </Route>
           <Route exact path="/sub-choice/:subject" component={SubChoice} />
+
           <Route exact path="/altele/">
             <Others />
           </Route>
+
           <Route exact path="/aboutus">
             <AboutUs />
           </Route>

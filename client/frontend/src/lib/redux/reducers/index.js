@@ -4,6 +4,7 @@ import countyStatistics from "./countyStatistics";
 import genericStatistics from "./genericStatistics";
 import compareWidget from "./compareWidget";
 import subjectChoice from "./subjectChoice";
+import gradeDistribution from "./gradeDistribution";
 
 export const rootReducer = combineReducers({
   globalStatistics,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
   genericStatistics,
   compareWidget,
   subjectChoice,
+  gradeDistribution,
 });

@@ -47,7 +47,7 @@ const subjects = [
 ];
 
 const SubChoice = ({ match, subjectChoiceYears, loadCharts }) => {
-  const { label, title, code } = subjects.find(
+  const { label, options, code } = subjects.find(
     (sub) => sub.code === match.params.subject
   );
   useEffect(() => loadCharts(code), [loadCharts]);
@@ -56,7 +56,7 @@ const SubChoice = ({ match, subjectChoiceYears, loadCharts }) => {
 
   return (
     <Box>
-      <TitleBox title={title}>
+      <TitleBox title={label}>
         Procentajul de alegere a fiecarei materii pentru subiectul III.
       </TitleBox>
       <Grid container spacing={5}>
