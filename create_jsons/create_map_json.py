@@ -26,7 +26,7 @@ def create_map_json(filename_students, current_export_path):
     final_dict = {
         "meta": {
             "type": "MAP_CHART",
-            "title": "Media pe judete",
+            "title": "Promovabilitatea pe judete",
             },
         "series": []
     }
@@ -56,14 +56,14 @@ def create_map_json(filename_students, current_export_path):
     for (k,v) in temp_dict.items():
         new_dict = {}
         new_dict["key"] = k
-        new_dict["value"] = v[2] # pass_rate for county k
+        new_dict["value"] = v[2] * 100 # pass_rate for county k
         extra_1 = {
             "label": "Nr. elevi",
-            "value": v[1]
+            "value": round(v[1],3)
         }
         extra_2 = {
             "label": "Media",
-            "value": v[0] # mean
+            "value": round(v[0], 3) # mean
         }
         extra = [extra_1, extra_2]
         new_dict["extra"] = extra
