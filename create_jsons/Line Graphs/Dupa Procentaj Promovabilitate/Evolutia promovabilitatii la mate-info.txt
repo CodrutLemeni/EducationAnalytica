@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Evolutia promovabilitatii la mate-info", "series": [{"key": 2015, "value": 82.51035752646924}, {"key": 2016, "value": 81.42784453403264}, {"key": 2017, "value": 85.3337511751802}, {"key": 2019, "value": 86.03365194723122}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia promovabilitatii la mate-info", "xAxisName": "An", "yAxisName": "Medie"}}

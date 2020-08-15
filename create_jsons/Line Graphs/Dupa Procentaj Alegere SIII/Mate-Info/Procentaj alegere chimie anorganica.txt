@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere chimie anorganica", "series": [{"key": 2015, "value": 2.7159736074881082}, {"key": 2016, "value": 2.0392187561156994}, {"key": 2017, "value": 1.8842055781886555}, {"key": 2019, "value": 1.556205071490639}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere chimie anorganica", "xAxisName": "An", "yAxisName": "Procent"}}

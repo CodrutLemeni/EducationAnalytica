@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere sociologie", "series": [{"key": 2015, "value": 9.660047122181084}, {"key": 2016, "value": 9.648641229755697}, {"key": 2017, "value": 9.427487809283006}, {"key": 2019, "value": 9.250732524068649}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere sociologie", "xAxisName": "An", "yAxisName": "Procent"}}

@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere fizica", "series": [{"key": 2015, "value": 3.440321947389085}, {"key": 2016, "value": 4.776536312849162}, {"key": 2017, "value": 5.446124361158432}, {"key": 2019, "value": 6.30965538028735}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere fizica", "xAxisName": "An", "yAxisName": "Procent"}}

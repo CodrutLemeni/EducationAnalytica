@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere filosofie", "series": [{"key": 2015, "value": 1.5777515987882869}, {"key": 2016, "value": 1.2215207246774635}, {"key": 2017, "value": 0.9481668773704173}, {"key": 2019, "value": 1.0836705269522346}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere filosofie", "xAxisName": "An", "yAxisName": "Procent"}}

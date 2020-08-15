@@ -42,7 +42,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
                                 categories_general_names=name_list_general,
                                 categories_particular_names=name_list_particular,
                                 title=("Procentaj promovabilitate Fete - Baieti " + str(year)),
-                                current_export_path=current_export_path_1_js)
+                                current_export_path=current_export_path_1_js,
+                                min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}])
 
     # ------procent promovabilitate toate profilele baieti-fete--------
 
@@ -90,7 +91,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
                                 categories_general_names=name_list_general,
                                 categories_particular_names=name_list_particular, title=(
                     "Procentaj promovabilitate Fete - Baieti \nmate-info, filologie, stiinte ale naturii si restul " + str(
-                year)), current_export_path=current_export_path2_js)
+                year)), current_export_path=current_export_path2_js,
+                min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}])
 
     # ------mate-info alegere sub3-------------
 
@@ -124,7 +126,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
     make_barchart_percentage_subject3_js(all_students=students_list, all_grades=all_grades, categories_names=name_list,
                                          title=("Procentaj alegere subiectul III matematica-informatica " + str(year)),
-                                         current_export_path=current_export_path_4_js)
+                                         current_export_path=current_export_path_4_js,
+                                         min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}, {"suffix":"", "number_precision":2}])
 
     # ------Stiinte ale naturii alegere sub 3------
 
@@ -158,7 +161,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
     make_barchart_percentage_subject3_js(all_students=students_list, all_grades=all_grades, categories_names=name_list,
                                          title=("Procentaj alegere subiectul III stiinte ale naturii " + str(year)),
-                                         current_export_path=current_export_path_6_js)
+                                         current_export_path=current_export_path_6_js,
+                                         min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}, {"suffix":"", "number_precision":2}])
 
     # ---------Filologie alegere sub3-----------
 
@@ -191,7 +195,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
     make_barchart_percentage_subject3_js(all_students=students_list, all_grades=all_grades, categories_names=name_list,
                                          title=("Procentaj alegere subiectul III filologie " + str(year)),
-                                         current_export_path=current_export_path_5_js)
+                                         current_export_path=current_export_path_5_js,
+                                         min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}, {"suffix":"", "number_precision":2}])
     # ------Profil tehnic alegere sub 3-------------------------
 
     current_export_path_7_js = os.path.join(current_export_path_js, "Alegere subiect profil Tehnic")
@@ -225,7 +230,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
     make_barchart_percentage_subject3_js(all_students=students_list, all_grades=all_grades, categories_names=name_list,
                                          title=("Procentaj alegere subiectul III Profil Tehnic " + str(year)),
-                                         current_export_path=current_export_path_7_js)
+                                         current_export_path=current_export_path_7_js,
+                                         min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}, {"suffix":"", "number_precision":2}])
 
     # ------profil Resurse Naturale alegere sub3----------------
 
@@ -264,7 +270,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
 
     make_barchart_percentage_subject3_js(all_students=students_list, all_grades=all_grades, categories_names=name_list,
                                          title=("Procentaj alegere subiectul III Profil Resurse Naturale " + str(year)),
-                                         current_export_path=current_export_path_8_js)
+                                         current_export_path=current_export_path_8_js,
+                                         min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}, {"suffix":"", "number_precision":2}])
 
     # ------nota romana mate-info - stiinte ale naturii---------
     mate_info = filter_all(all_students, specialisation="matematica-informatica")
@@ -289,7 +296,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     grades = [[grade_mate_info_romana], [grade_stiinte_romana]]
     name_list = ["Mate-info", "Stiinte"]
 
-    make_barchart_values_js(grades, ["mate-info", "stiinte"], ["Nota romana"], "Note romana", current_export_path_3_js)
+    make_barchart_values_js(grades, ["mate-info", "stiinte"], ["Nota romana"], "Note romana", current_export_path_3_js,
+                            min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[])
 
     # -----Medie bacalaureat urban-rural------------------------
 
@@ -315,7 +323,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     grades = [[grade_urban], [grade_rural]]
 
     make_barchart_values_js(grades, ["Urban", "Rural"], ["Medie Bacalaureat"], "Medie Bacalaureat",
-                            current_export_path_13_js)
+                            current_export_path_13_js,
+                            min_val=0, max_val=10, suffix="", number_precision=2, extra_formats=[])
 
     # ----Medie bacalaureat urban-rural fete-baieti---------
 
@@ -355,7 +364,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     grades = [[grade_urban_girls, grade_urban_boys], [grade_rural_girls, grade_rural_boys]]
 
     make_barchart_values_js(grades, ["Urban", "Rural"], ["Medie Bacalaureat Fete", "Medie Bacalaureat Baieti"],
-                            "Medie Bacalaureat Urban-Rural Fete-Baieti", current_export_path_14_js)
+                            "Medie Bacalaureat Urban-Rural Fete-Baieti", current_export_path_14_js,
+                            min_val=0, max_val=10, suffix="", number_precision=2, extra_formats=[])
 
     # -------Medie bacalaureat pe profile-----------------------
 
@@ -386,7 +396,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     grades = [[grade_filo], [grade_mate_info], [grade_stiinte]]
 
     make_barchart_values_js(grades, ["Filologie", "Matematica-Informatica", "Stiinte ale Naturii"],
-                            ["Medie Bacalaureat"], "Medie Bacalaureat pe Profile", current_export_path_15_js)
+                            ["Medie Bacalaureat"], "Medie Bacalaureat pe Profile", current_export_path_15_js,
+                             min_val=0, max_val=10, suffix="", number_precision=2, extra_formats=[])
 
     # -----procentaj promovabilitate urban-rural----------------
 
@@ -411,7 +422,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
                                 categories_general_names=categories_general_names,
                                 categories_particular_names=categories_particular_names,
                                 title=("Procentaj Promovabilitate urban-rural" + str(year)),
-                                current_export_path=current_export_path_9_js)
+                                current_export_path=current_export_path_9_js,
+                                min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}])
     # make_barchart_percentage(all_categories = all_students_list, all_categories_good = all_students_passed_list, categories_names = name_list, title = ("Procentaj Promovabilitate urban-rural " + str(year)), current_export_path = current_export_path_9_js, colors = ['#F4DADA', '#BEEBE9'])
 
     # -----procentaj promovabilitate fete-baieti urban-rural------------
@@ -449,7 +461,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
                                 categories_general_names=categories_general_names,
                                 categories_particular_names=categories_particular_names,
                                 title=("Procentaj Promovabilitate urban-rural" + str(year)),
-                                current_export_path=current_export_path_10_js)
+                                current_export_path=current_export_path_10_js,
+                                min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}])
     # make_barchart_percentage(all_categories = all_students_list, all_categories_good = all_students_passed_list, categories_names = name_list, title = ("Procentaj Promovabilitate fete-baieti urban-rural " + str(year)), current_export_path = current_export_path_10_js, colors = ['#F4DADA', '#BEEBE9'])
 
     # -------procentaj alegere profil in functie de mediu de viata-----------------
@@ -482,7 +495,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     make_stacked_barchart_js(all_categories=all_categories, vertical_names=vertical_names,
                              horizontal_names=horizontal_names,
                              title=("Procentaj alegere profil in functie de sex" + str(year)),
-                             current_export_path=current_export_path_11_js)
+                             current_export_path=current_export_path_11_js,
+                             min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}])
 
     # -----procentaj alegere profil in functie de sex---------------------------
 
@@ -516,7 +530,8 @@ def create_barchart_percentage_js(all_students, current_export_path_js, year):
     make_stacked_barchart_js(all_categories=all_categories, vertical_names=vertical_names,
                              horizontal_names=horizontal_names,
                              title=("Procentaj alegere profil in functie de sex" + str(year)),
-                             current_export_path=current_export_path_12_js)
+                             current_export_path=current_export_path_12_js,
+                             min_val=0, max_val=100, suffix="%", number_precision=2, extra_formats=[{"suffix":"", "number_precision":0}])
 
 
 if __name__ == "__main__":

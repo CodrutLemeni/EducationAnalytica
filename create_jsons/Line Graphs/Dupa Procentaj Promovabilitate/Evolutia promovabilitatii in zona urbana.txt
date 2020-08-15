@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Evolutia promovabilitatii in zona urbana", "series": [{"key": 2015, "value": 69.52518181895691}, {"key": 2016, "value": 69.7376779447447}, {"key": 2017, "value": 74.00355928098313}, {"key": 2019, "value": 71.09397746266242}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia promovabilitatii in zona urbana", "xAxisName": "An", "yAxisName": "Medie"}}

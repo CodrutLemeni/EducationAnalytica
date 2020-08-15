@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere biologie", "series": [{"key": 2015, "value": 81.00877804096419}, {"key": 2016, "value": 82.97682267110031}, {"key": 2017, "value": 82.51218509601269}, {"key": 2019, "value": 83.6183562992126}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere biologie", "xAxisName": "An", "yAxisName": "Procent"}}

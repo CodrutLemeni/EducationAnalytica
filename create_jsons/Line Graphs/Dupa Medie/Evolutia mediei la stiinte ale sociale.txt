@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Evolutia mediei la stiinte ale sociale", "series": [{"key": 2015, "value": 7.400479909745765}, {"key": 2016, "value": 7.476251673360118}, {"key": 2017, "value": 7.596680418041807}, {"key": 2019, "value": 7.555371291526022}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia mediei la stiinte ale sociale", "xAxisName": "An", "yAxisName": "Medie"}}

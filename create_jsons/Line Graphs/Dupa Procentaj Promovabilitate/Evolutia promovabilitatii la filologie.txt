@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Evolutia promovabilitatii la filologie", "series": [{"key": 2015, "value": 82.16088858970045}, {"key": 2016, "value": 81.98371305700431}, {"key": 2017, "value": 84.68484739028355}, {"key": 2019, "value": 81.93107297335007}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia promovabilitatii la filologie", "xAxisName": "An", "yAxisName": "Medie"}}

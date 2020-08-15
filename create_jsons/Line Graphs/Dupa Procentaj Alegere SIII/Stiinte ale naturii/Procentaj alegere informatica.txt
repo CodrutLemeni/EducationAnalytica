@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere informatica", "series": [{"key": 2015, "value": 0.6625441696113075}, {"key": 2016, "value": 0.9217877094972068}, {"key": 2017, "value": 1.4107751277683136}, {"key": 2019, "value": 1.7582638400482267}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere informatica", "xAxisName": "An", "yAxisName": "Procent"}}

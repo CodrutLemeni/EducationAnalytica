@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere logica", "series": [{"key": 2015, "value": 16.31605520026927}, {"key": 2016, "value": 22.046847836032573}, {"key": 2017, "value": 27.08145204984649}, {"key": 2019, "value": 30.882284544904888}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere logica", "xAxisName": "An", "yAxisName": "Procent"}}

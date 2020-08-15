@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Evolutia mediei la mate-info", "series": [{"key": 2015, "value": 7.78440160069486}, {"key": 2016, "value": 7.762996438464565}, {"key": 2017, "value": 7.945266867279114}, {"key": 2019, "value": 7.9982226026033665}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia mediei la mate-info", "xAxisName": "An", "yAxisName": "Medie"}}

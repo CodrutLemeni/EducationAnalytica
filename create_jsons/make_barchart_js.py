@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 
-def make_barchart_percentage_js(all_categories, all_categories_good, categories_general_names, categories_particular_names, title, current_export_path):
+def make_barchart_percentage_js(all_categories, all_categories_good, categories_general_names, categories_particular_names, title, current_export_path, min_val, max_val, suffix, number_precision, extra_formats):
 
     meta = {}
     dataDict = {}
@@ -12,6 +12,11 @@ def make_barchart_percentage_js(all_categories, all_categories_good, categories_
     meta["type"] = "HORIZONTAL_BAR_CHART_GROUPED"
     meta["title"] = title
     meta["xAxisName"] = "Procentaj"
+    meta["min_val"] = min_val
+    meta["max_val"] = max_val
+    meta["suffix"] = suffix
+    meta["number_precision"] = number_precision
+    meta["extra_formats"] = extra_formats
     dataDict["meta"] = meta
     
     for i in range(len(categories_general_names)):
@@ -38,7 +43,7 @@ def make_barchart_percentage_js(all_categories, all_categories_good, categories_
     jsonDict = json.dumps(dataDict)
     f.write(jsonDict)
 
-def make_barchart_percentage_subject3_js(all_students, all_grades, categories_names, title, current_export_path):
+def make_barchart_percentage_subject3_js(all_students, all_grades, categories_names, title, current_export_path, min_val, max_val, suffix, number_precision, extra_formats):
 
     total_students = 0
     for students in all_students:
@@ -57,6 +62,11 @@ def make_barchart_percentage_subject3_js(all_students, all_grades, categories_na
     meta["type"] = "HORIZONTAL_BAR_CHART"
     meta["title"] = title
     meta["xAxisName"] = "Procentaj"
+    meta["min_val"] = min_val
+    meta["max_val"] = max_val
+    meta["suffix"] = suffix
+    meta["number_precision"] = number_precision
+    meta["extra_formats"] = extra_formats
     dataDict["meta"] = meta
     for i in range(len(categories_names)):
         label = {}
@@ -78,7 +88,7 @@ def make_barchart_percentage_subject3_js(all_students, all_grades, categories_na
     jsonDict = json.dumps(dataDict)
     f.write(jsonDict)
 
-def make_barchart_values_js(all_categories, categories_general_names, categories_particular_names, title, current_export_path):
+def make_barchart_values_js(all_categories, categories_general_names, categories_particular_names, title, current_export_path, min_val, max_val, suffix, number_precision, extra_formats):
 
     meta = {}
     dataDict = {}
@@ -88,6 +98,11 @@ def make_barchart_values_js(all_categories, categories_general_names, categories
     meta["type"] = "HORIZONTAL_BAR_CHART_GROUPED"
     meta["title"] = title
     meta["xAxisName"] = "Nota"
+    meta["min_val"] = min_val
+    meta["max_val"] = max_val
+    meta["suffix"] = suffix
+    meta["number_precision"] = number_precision
+    meta["extra_formats"] = extra_formats
     dataDict["meta"] = meta
     
     for i in range(len(categories_general_names)):
@@ -112,7 +127,7 @@ def make_barchart_values_js(all_categories, categories_general_names, categories
     f.write(jsonDict)
 
 
-def make_stacked_barchart_js(all_categories, vertical_names, horizontal_names, title, current_export_path):
+def make_stacked_barchart_js(all_categories, vertical_names, horizontal_names, title, current_export_path, min_val, max_val, suffix, number_precision, extra_formats):
     meta = {}
     dataDict = {}
     dataDict["series_list"] = []
@@ -121,6 +136,11 @@ def make_stacked_barchart_js(all_categories, vertical_names, horizontal_names, t
     meta["type"] = "HORIZONTAL_BAR_CHART_STACKED"
     meta["title"] = title
     meta["xAxisName"] = "Procentaj"
+    meta["min_val"] = min_val
+    meta["max_val"] = max_val
+    meta["suffix"] = suffix
+    meta["number_precision"] = number_precision
+    meta["extra_formats"] = extra_formats
     dataDict["meta"] = meta
     
     for i in range(len(horizontal_names)):

@@ -6,7 +6,7 @@ import json
 
 dirpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-json_export_path = os.path.join(dirpath, r"create_jsons")
+json_export_path = os.path.join(dirpath, r"jsons")
 
 from classes.student import initialize_students
 from filters.student_filters import filter_all

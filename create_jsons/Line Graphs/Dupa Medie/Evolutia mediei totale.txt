@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Evolutia mediei totale", "series": [{"key": 2015, "value": 6.787663266372762}, {"key": 2016, "value": 6.813453300482312}, {"key": 2017, "value": 7.031848343041239}, {"key": 2019, "value": 6.9059234447585345}]}], "meta": {"type": "LINE_GRAPH", "title": "Evolutia mediei totale", "xAxisName": "An", "yAxisName": "Medie"}}

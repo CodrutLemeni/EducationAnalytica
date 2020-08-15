@@ -1,1 +1,0 @@
-{"series_list": [{"name": "Procentaj alegere anatomie", "series": [{"key": 2015, "value": 36.034985422740526}, {"key": 2016, "value": 34.54929742847078}, {"key": 2017, "value": 33.19492322156064}, {"key": 2019, "value": 35.84011375306106}]}], "meta": {"type": "LINE_GRAPH", "title": "Procentaj alegere anatomie", "xAxisName": "An", "yAxisName": "Procent"}}
