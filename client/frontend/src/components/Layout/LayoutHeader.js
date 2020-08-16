@@ -22,6 +22,7 @@ const links = [
   { label: "Home", to: "" },
   { label: "Distributia notelor", to: "grade-distrib" },
   { label: "Alegera subiectului III", to: "sub-choice" },
+  { label: "Fete vs Baieti", to: "gender" },
   { label: "Alte", to: "altele" },
   { label: "Despre noi", to: "aboutus" },
 ];

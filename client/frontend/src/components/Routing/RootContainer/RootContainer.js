@@ -8,6 +8,8 @@ import {
   GradeDistrib,
   SubChoiceList,
   SubChoice,
+  GenderList,
+  Gender,
 } from "../../../pages";
 import { Others } from "../../../pages/Others";
 import { Layout } from "../../Layout/Layout";
@@ -34,6 +36,11 @@ const RootContainer = () => {
             <SubChoiceList />
           </Route>
           <Route exact path="/sub-choice/:subject" component={SubChoice} />
+
+          <Route exact path="/gender/">
+            <GenderList />
+          </Route>
+          <Route exact path="/gender/:subject" component={Gender} />
 
           <Route exact path="/altele/">
             <Others />
