@@ -24,6 +24,7 @@ const links = [
   { label: "Distributia notelor", to: "grade-distrib" },
   { label: "Alegera subiectului III", to: "sub-choice" },
   { label: "Fete vs Baieti", to: "gender" },
+  { label: "Harti", to: "maps" },
   { label: "Alte", to: "altele" },
   { label: "Despre noi", to: "aboutus" },
 ];

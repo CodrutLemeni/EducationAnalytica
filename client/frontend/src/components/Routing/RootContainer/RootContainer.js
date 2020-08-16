@@ -10,6 +10,7 @@ import {
   SubChoice,
   GenderList,
   Gender,
+  Maps,
 } from "../../../pages";
 import { Others } from "../../../pages/Others";
 import { Layout } from "../../Layout/Layout";
@@ -41,6 +42,10 @@ const RootContainer = () => {
             <GenderList />
           </Route>
           <Route exact path="/gender/:subject" component={Gender} />
+
+          <Route exact path="/maps/">
+            <Maps />
+          </Route>
 
           <Route exact path="/altele/">
             <Others />

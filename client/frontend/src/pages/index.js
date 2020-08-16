@@ -9,3 +9,4 @@ export * from "./SubChoiceList";
 export * from "./SubChoice";
 export * from "./GenderList";
 export * from "./Gender";
+export * from "./Maps";

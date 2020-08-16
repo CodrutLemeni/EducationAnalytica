@@ -6,6 +6,7 @@ import compareWidget from "./compareWidget";
 import subjectChoice from "./subjectChoice";
 import gradeDistribution from "./gradeDistribution";
 import gender from "./gender";
+import maps from "./maps";
 
 export const rootReducer = combineReducers({
   globalStatistics,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   subjectChoice,
   gradeDistribution,
   gender,
+  maps,
 });
