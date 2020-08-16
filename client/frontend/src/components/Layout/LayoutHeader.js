@@ -12,7 +12,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuOpen from "@material-ui/icons/MenuOpen";
 import React from "react";
-import { withGetScreen } from "react-getscreen";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Link, useHistory } from "react-router-dom";
 import { useLayoutHeaderStyle } from "./styles";
 import logo_text from "../../images/logo_text.png";
@@ -35,7 +36,7 @@ const getSelectedFromUlr = (location) => {
   return value;
 };
 
-const LayoutHeader = ({ isMobile }) => {
+const LayoutHeader = () => {
   const [selected, setSelected] = React.useState(
     getSelectedFromUlr(window.location.pathname)
   );
@@ -45,8 +46,11 @@ const LayoutHeader = ({ isMobile }) => {
 
   const classes = useLayoutHeaderStyle();
 
+  const theme = useTheme();
+  const hasDrawer = useMediaQuery(theme.breakpoints.down("md"));
+
   const renderAllLinks = () => {
-    if (isMobile()) return renderDrawer();
+    if (hasDrawer) return renderDrawer();
     return renderFullMenu();
   };
 
@@ -146,4 +150,4 @@ const LayoutHeader = ({ isMobile }) => {
   );
 };
 
-export default withGetScreen(LayoutHeader);
+export default LayoutHeader;
