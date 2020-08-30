@@ -19,17 +19,16 @@ const Dashboard = ({
     <Box>
       <Grid container>
         <Grid item xs={12}>
-          <TitleBox title={"Titlu mare si tare"}>
+          <TitleBox title={"Cateva lucruri despre Bacalaureat 2019"}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              suscipit aliquet ultricies. Orci varius natoque penatibus et
-              magnis dis parturient montes, nascetur ridiculus mus. Duis
-              faucibus purus ac justo dictum, quis finibus purus dignissim.
-              Morbi venenatis non elit eget tincidunt. In quis dapibus orci, sit
-              amet pretium turpis. Curabitur malesuada, magna vitae mattis
-              pellentesque, ligula arcu sodales odio, quis consequat elit magna
-              posuere nisl. Nam scelerisque dui a luctus faucibus. Curabitur
-              vestibulum orci vitae imperdiet commodo.
+              În acest grafic se poate observa distribuția notelor pentru toate
+              notele din fiecare probă. Important de constatat este multitudinea
+              notelor de 5 obținute față de celelalte note, fiind cea mai
+              populară notă. S-au obținut aproape de 10 ori mai multe note de
+              trecere față de nota 4. O altă importantă caracteristică este
+              numărul mare de note de 10. Aceasta este doua cea mai intâlnită
+              notă, numărul de apariții fiind însă doar putin peste jumătate din
+              numărul de apariții de nota 5.
             </p>
           </TitleBox>
         </Grid>
