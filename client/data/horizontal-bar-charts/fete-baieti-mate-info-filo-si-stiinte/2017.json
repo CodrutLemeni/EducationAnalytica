@@ -1,1 +1,59 @@
-{"series_list": [{"name": ["Baieti"], "series": [{"extra": [{"label": "Nr. elevi promovati", "value": 6975}], "key": "Filo", "value": 78.5089605734767}, {"extra": [{"label": "Nr. elevi promovati", "value": 14804}], "key": "Mate-info", "value": 84.16644150229668}, {"extra": [{"label": "Nr. elevi promovati", "value": 6649}], "key": "Stiinte", "value": 73.78553165889608}, {"extra": [{"label": "Nr. elevi promovati", "value": 34636}], "key": "Other", "value": 48.368749278207645}]}, {"name": ["Fete"], "series": [{"extra": [{"label": "Nr. elevi promovati", "value": 15173}], "key": "Filo", "value": 87.52389112238845}, {"extra": [{"label": "Nr. elevi promovati", "value": 10724}], "key": "Mate-info", "value": 86.94516971279373}, {"extra": [{"label": "Nr. elevi promovati", "value": 12135}], "key": "Stiinte", "value": 82.47218788627936}, {"extra": [{"label": "Nr. elevi promovati", "value": 34417}], "key": "Other", "value": 62.27736293110963}]}], "meta": {"type": "HORIZONTAL_BAR_CHART_GROUPED", "title": "Procentaj promovabilitate Fete - Baieti \nmate-info, filologie, stiinte ale naturii si restul 2017", "xAxisName": "Procentaj"}}
+{
+  "series_list": [
+    {
+      "name": ["Baieti"],
+      "series": [
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 6975 }],
+          "key": "Filo",
+          "value": 78.5089605734767
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 14804 }],
+          "key": "Mate-info",
+          "value": 84.16644150229668
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 6649 }],
+          "key": "Stiinte",
+          "value": 73.78553165889608
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 34636 }],
+          "key": "Other",
+          "value": 48.368749278207645
+        }
+      ]
+    },
+    {
+      "name": ["Fete"],
+      "series": [
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 15173 }],
+          "key": "Filo",
+          "value": 87.52389112238845
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 10724 }],
+          "key": "Mate-info",
+          "value": 86.94516971279373
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 12135 }],
+          "key": "Stiinte",
+          "value": 82.47218788627936
+        },
+        {
+          "extra": [{ "label": "Nr. elevi promovati", "value": 34417 }],
+          "key": "Other",
+          "value": 62.27736293110963
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "type": "HORIZONTAL_BAR_CHART_GROUPED",
+    "title": "Procentaj promovabilitate Fete - Baieti \nmate-info, filologie, stiinte ale naturii si restul 2017",
+    "xAxisName": "Procentaj"
+  }
+}

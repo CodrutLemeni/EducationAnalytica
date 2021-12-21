@@ -2,22 +2,29 @@ import AppBar from "@material-ui/core/AppBar/AppBar";
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItem";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import MenuOpen from "@material-ui/icons/MenuOpen";
 import React from "react";
-import { withGetScreen } from "react-getscreen";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Link, useHistory } from "react-router-dom";
 import { useLayoutHeaderStyle } from "./styles";
+import logo_text from "../../images/logo_text.png";
+import logo_styled from "../../images/logo_styled.png";
 
 const links = [
   { label: "Home", to: "" },
   { label: "Distributia notelor", to: "grade-distrib" },
   { label: "Alegera subiectului III", to: "sub-choice" },
+  { label: "Fete vs Baieti", to: "gender" },
+  { label: "Harti", to: "maps" },
   { label: "Alte", to: "altele" },
   { label: "Despre noi", to: "aboutus" },
 ];
@@ -30,69 +37,80 @@ const getSelectedFromUlr = (location) => {
   return value;
 };
 
-const LayoutHeader = ({ isMobile }) => {
+const LayoutHeader = () => {
   const [selected, setSelected] = React.useState(
     getSelectedFromUlr(window.location.pathname)
   );
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   const history = useHistory();
 
   const classes = useLayoutHeaderStyle();
 
+  const theme = useTheme();
+  const hasDrawer = useMediaQuery(theme.breakpoints.down("md"));
+
   const renderAllLinks = () => {
-    if (isMobile()) return renderDropdownMenu();
+    if (hasDrawer) return renderDrawer();
     return renderFullMenu();
   };
 
-  const renderDropdownMenu = () => (
+  const renderDrawer = () => (
     <>
       <IconButton
         aria-label="more"
         aria-controls="long-menu"
         aria-haspopup="true"
-        onClick={(event) => {
-          setAnchorEl(event.currentTarget);
+        onClick={() => {
+          setDrawerOpen(true);
         }}
       >
-        <MoreVertIcon />
+        <MenuOpen color="secondary" fontSize="large" />
       </IconButton>
-      <Menu
-        id="long-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={open}
-        onClose={() => setAnchorEl(null)}
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
         PaperProps={{
-          style: {
-            width: "20ch",
-          },
+          className: classes.drawer,
         }}
       >
-        {links.map((linkData, index) => (
-          <>
-            <MenuItem
-              key={index}
-              selected={index === selected}
-              onClick={() => {
-                history.push("/" + linkData.to);
-                setAnchorEl(null);
-              }}
-            >
-              <Typography
-                align="center"
-                variant="h6"
-                className={classes.dropDownItemText}
+        <List>
+          {links.map((linkData, index) => (
+            <>
+              <ListItem
+                button
+                key={index}
+                onClick={() => {
+                  history.push("/" + linkData.to);
+                  setDrawerOpen(false);
+                }}
               >
-                {linkData.label}
-              </Typography>
-            </MenuItem>
-            {index !== links.length - 1 ? <Divider /> : null}
-          </>
-        ))}
-      </Menu>
+                <ListItemText>
+                  <Typography
+                    align="center"
+                    variant="h6"
+                    className={classes.dropDownItemText}
+                  >
+                    {linkData.label}
+                  </Typography>
+                </ListItemText>
+              </ListItem>
+
+              {index !== links.length - 1 ? <Divider /> : null}
+            </>
+          ))}
+        </List>
+        <img
+          src={logo_styled}
+          alt="Logo"
+          className={classes.drawerLogo}
+          onClick={() => {
+            history.push("/");
+            setDrawerOpen(false);
+          }}
+        />
+      </Drawer>
     </>
   );
 
@@ -123,9 +141,7 @@ const LayoutHeader = ({ isMobile }) => {
     <AppBar position="static" className={classes.appBar}>
       <Toolbar>
         <Link to="/" className={classes.link} onClick={() => setSelected(0)}>
-          <Typography className={classes.inline} variant="h5">
-            EducationAnalytica
-          </Typography>
+          <img src={logo_text} alt="Logo" className={classes.logo} />
         </Link>
 
         <Box className={classes.flexExpander} />
@@ -135,4 +151,4 @@ const LayoutHeader = ({ isMobile }) => {
   );
 };
 
-export default withGetScreen(LayoutHeader);
+export default LayoutHeader;

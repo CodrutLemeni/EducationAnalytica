@@ -29,5 +29,17 @@ exports.getRouter = ({ config, db }) => {
     });
   });
 
+  /** 404 Route, allways keep last */
+  api.use("*", (req, res, next) => {
+    res.status(404).json({
+      error: {
+        code: 404,
+        msg: "Content not found",
+        description:
+          "We don't know what you are looking for, but make sure the URL is correct",
+      },
+    });
+  });
+
   return api;
 };
